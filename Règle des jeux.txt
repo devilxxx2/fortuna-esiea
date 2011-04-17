@@ -1,0 +1,121 @@
+Règle du jeu
+
+Euromillions
+
+La grille est composé de 50 numéros (de 1 à 50) + 9 étoiles (de 1 à 9).
+Il y a un tirage chaque vendredi soir.
+A chaque tirage, 5 numéros et 2 étoiles sont tirés aléatoirement.
+Pour gagner, il faut au moins trouver 3 bons éléments pour gagner.
+
+Voici la liste de l'ordre des gains, en ordre décroissant:
+1)5 numéros + 2 étoiles (cagnotte)
+1)5 numéros + 1 étoile
+1)5 numéros
+1)4 numéros + 2 étoiles
+1)4 numéros + 1 étoile
+1)4 numéros
+1)3 numéros + 2 étoiles
+1)3 numéros + 1 étoile
+1)2 numéros + 2 étoiles
+1)3 numéros
+1)1 numéros + 2 étoiles
+1)2 numéros + 1 étoiles
+
+Pour jouer, il faut cocher un certain nombre de case, qui peut aller jusqu'à 9 numéros ou 9 étoiles.
+Voici la liste des combinaisons possible de cocher : (nombreNumero-nombreEtoile) + prix
+5-2 : 2€
+5-3 : 6€
+5-4 : 12€
+5-5 : 20€
+5-6 : 30€
+5-7 : 42€
+5-8 : 56€
+5-9 : 72€
+6-2 : 12€
+6-3 : 36€
+6-4 : 72€
+6-5 : 120€
+6-6 : 180€
+6-7 : 252€
+6-8 : 336€
+7-2 : 42€
+7-3 : 126€
+7-4 : 252€
+8-2 : 112€
+8-3 : 336€
+9-2 : 252€
+
+-----------------------------------------------------------------------------------------------------
+Loto Actuel + Super Loto
+
+La grille est composé de 49 numéros (de 1 à 49) + 10 numéros chances (de 1 à 10).
+Pour le Loto, il y a 3 tirages par semaine : Lundi, Mercredi et Samedi.
+Pour le Super Loto, les tirages sont aléatoires (fête, jour particulier, etc...)
+A chaque tirage, 5 numéros et 1 numéro chance sont tirés aléatoirement.
+
+Voici la liste de l'ordre des gains, en ordre décroissant:
+1)5 numéros + numéro chance (cagnotte)
+2)5 numéros
+3)4 numéros
+4)3 numéros
+5)2 numéros
+6)numéro chance (grilles à 2€ remboursées)
+
+Pour jouer, il faut cocher un certain nombre de case, qui peut aller jusqu'à 9 numéros ou 10 numéros chance.
+Voici la liste des combinaisons possible de cocher : (nombreNumero-nombreNuméroChance) + prix
+
+5-1 : 2€
+5-2 : 4€
+5-3 : 6€
+5-4 : 8€
+5-5 : 10€
+5-6 : 12€
+5-7 : 14€
+5-8 : 16€
+5-9 : 18€
+5-10 : 20€
+6-1 : 12€ 
+6-2 : 24€
+6-3 : 36€
+6-4 : 48€
+6-5 : 60€
+6-6 : 72€
+6-7 : 84€
+6-8 : 96€
+6-9 : 108€
+6-10 : 120€
+7-1 : 42€
+7-2 : 84€
+7-3 : 126€
+7-4 : 168€
+7-5 : 210€
+7-6 : 252€
+7-7 : 294€
+7-8 : 336€
+8-1 : 112€
+8-2 : 224€
+8-3 : 336€
+9-1 : 252€
+
+---------------------------------------------------------------------------------------------------
+Ancien Loto + ancien super Loto
+(Le programme ne gèrera pas la simulation d'un tirage de ces jeux,
+car je n'ai pas trouvé les prix pour chaque combinaison, et en plus, c'est chiant.
+Par contre, le programme pourra vérifier si un certain tirage est déjà tombé).
+
+La grille est composé de 49 numéros (de 1 à 49).
+Pour l'ancien Loto, il y a 2 tirages par semaine: Mercredi et Samedi
+Pour l'ancien Super Loto, les tirages sont aléatoires (fête, jour particulier, etc...)
+A chaque tirage, 6 numéros et 1 complémentaire sont tirés aléatoirement.
+Voici la liste de l'ordre des gains, en ordre décroissant:
+1)6 numéros (cagnotte)
+2)5 numéros + complémentaire
+3)5 numéros
+4)4 numéros + complémentaire
+5)4 numéros
+6)3 numéros + complémentaire
+7)3 numéros
+
+Pour jouer, il faut cocher entre 6 et 10 cases.
+Voici la mise pour chaque combinaison :
+6 numéro * 2 = 1.2€
