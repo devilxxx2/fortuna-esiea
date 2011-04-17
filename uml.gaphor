@@ -557,13 +557,13 @@
 </item>
 <item type="CommentItem" id="0792ef74-6902-11e0-9944-1c6f6584514a">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1121.0, 549.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 1055.0, 505.0)</val>
 </matrix>
 <width>
-<val>125.0</val>
+<val>216.0</val>
 </width>
 <height>
-<val>52.0</val>
+<val>64.0</val>
 </height>
 <subject>
 <ref refid="0792dbd8-6902-11e0-9944-1c6f6584514a"/>
@@ -577,7 +577,7 @@
 <val>0</val>
 </show_stereotypes_attrs>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1168.0, 601.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 1136.2159999999999, 569.0)</val>
 </matrix>
 <orthogonal>
 <val>0</val>
@@ -586,7 +586,7 @@
 <val>0</val>
 </horizontal>
 <points>
-<val>[(0.0, 0.0), (0.0, 53.0)]</val>
+<val>[(0.0, 0.0), (31.784000000000106, 85.0)]</val>
 </points>
 <head-connection>
 <ref refid="0792ef74-6902-11e0-9944-1c6f6584514a"/>
@@ -1424,8 +1424,9 @@ dans Loto]]></val>
 </reflist>
 </annotatedElement>
 <body>
-<val><![CDATA[stars peut contenir
-de 2 à 9 éléments]]></val>
+<val><![CDATA[stars peut contenir de 2 à 9 éléments
+nums va de 5 à 9
+voir les règles de fracisco]]></val>
 </body>
 <presentation>
 <reflist>
