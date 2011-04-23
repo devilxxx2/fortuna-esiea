@@ -10,7 +10,7 @@ public class Test1 {
 	{
 		CsvTirageDAO t= new CsvTirageDAO();
 		
-		File csv=new File("D:\\Projet JAVA\\Fortuna-ESIEA\\CSV Files\\euromillions.csv");
+		File csv=new File("CSV Files/euromillions.csv");
 		
 		t.setCsvFile(csv);
 		
