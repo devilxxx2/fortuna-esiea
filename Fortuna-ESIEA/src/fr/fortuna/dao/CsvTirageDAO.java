@@ -39,18 +39,13 @@ public class CsvTirageDAO implements TirageDAO {
 	
 	@Override
 	public List<Tirage> loadTiragesByValue(String title,String value) {
-
-		final List<Tirage> tirages = new ArrayList<Tirage>();
-
-		List<String> lines = readAllLines(csvFile);
-
-		for (String line : lines) {
-			Tirage tirage = lineToTirage(line);
-			if(tirage.matchesWith(title, value))
-				tirages.add(tirage);
-		}
-
-		return tirages;
+		String[] t=new String[1];
+		String[] v=new String[1];
+		
+		t[0]=title;
+		v[0]=value;
+		
+		return loadTiragesByValue(t,v);
 	}
 	
 	@Override
