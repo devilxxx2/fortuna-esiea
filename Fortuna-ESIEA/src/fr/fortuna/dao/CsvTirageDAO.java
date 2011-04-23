@@ -12,7 +12,16 @@ public class CsvTirageDAO implements TirageDAO {
 
 	private File csvFile;
 	private String header;
+	
+	@SuppressWarnings("unused")
+	private CsvTirageDAO() {
+	}
 
+	public CsvTirageDAO(File f)
+	{
+		csvFile=f;
+	}
+	
 	@Override
 	public List<Tirage> loadAllTirages() {
 
@@ -23,6 +32,38 @@ public class CsvTirageDAO implements TirageDAO {
 		for (String line : lines) {
 			Tirage tirage = lineToTirage(line);
 			tirages.add(tirage);
+		}
+
+		return tirages;
+	}
+	
+	@Override
+	public List<Tirage> loadTiragesByValue(String title,String value) {
+
+		final List<Tirage> tirages = new ArrayList<Tirage>();
+
+		List<String> lines = readAllLines(csvFile);
+
+		for (String line : lines) {
+			Tirage tirage = lineToTirage(line);
+			if(tirage.matchesWith(title, value))
+				tirages.add(tirage);
+		}
+
+		return tirages;
+	}
+	
+	@Override
+	public List<Tirage> loadTiragesByValue(String[] titles,String[] values) {
+
+		final List<Tirage> tirages = new ArrayList<Tirage>();
+
+		List<String> lines = readAllLines(csvFile);
+
+		for (String line : lines) {
+			Tirage tirage = lineToTirage(line);
+			if(tirage.matchesWith(titles, values))
+				tirages.add(tirage);
 		}
 
 		return tirages;

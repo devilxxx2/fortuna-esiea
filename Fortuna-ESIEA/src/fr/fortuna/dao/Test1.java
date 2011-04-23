@@ -8,14 +8,15 @@ import fr.fortuna.Tirage.Tirage;
 public class Test1 {
 	public static void main(String[] args)
 	{
-		CsvTirageDAO t= new CsvTirageDAO();
-		
 		File csv=new File("CSV Files/euromillions.csv");
 		
-		t.setCsvFile(csv);
+		CsvTirageDAO t= new CsvTirageDAO(csv);
 		
-		List<Tirage> l = t.loadAllTirages();
+		String h="boule_1";
+		String v="22";
 		
-		System.out.println(l.get(0));
+		List<Tirage> l = t.loadTiragesByValue(h,v);
+		
+		System.out.println(l.size());
 	}
 }
