@@ -17,6 +17,7 @@ public class Test1 {
 		
 		List<Tirage> l = t.loadTiragesByValue(h,v);
 		
+		System.out.println(l.get(0).getType());
 		System.out.println(l.size());
 	}
 }

@@ -39,8 +39,8 @@ public class CsvTirageDAO implements TirageDAO {
 	
 	@Override
 	public List<Tirage> loadTiragesByValue(String title,String value) {
-		String[] t=new String[1];
-		String[] v=new String[1];
+		String[] t = new String[1];
+		String[] v = new String[1];
 		
 		t[0]=title;
 		v[0]=value;
@@ -104,7 +104,9 @@ public class CsvTirageDAO implements TirageDAO {
 			data.put(titles[i], values[i]);
 		}
 		
-		Tirage tirage=new Tirage(data);
+		String type=csvFile.getName().substring(0, csvFile.getName().length()-4);	
+		
+		Tirage tirage=new Tirage(type,data);
 
 		return tirage;
 	}

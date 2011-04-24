@@ -4,20 +4,28 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 public class Tirage {
-	public HashMap<String,String> data;
+	private HashMap<String,String> data;
 	
-	public Tirage() {
+	public String type;
+	
+	private Tirage() {
 		data=new HashMap<String,String>();
 	}
 	
-	public Tirage(HashMap<String,String> m)
+	public Tirage(String t){
+		this();
+		type=t;
+	}
+	
+	public Tirage(String t,HashMap<String,String> m)
 	{
+		this(t);
 		data=m;
 	}
 	
 	public String toString()
 	{
-		String res="";
+		String res=type + "\n";
 		for(Entry<String, String> entry : data.entrySet()) {
 		    String cle = entry.getKey();
 		    String valeur = entry.getValue();
@@ -41,6 +49,11 @@ public class Tirage {
 		}
 		
 	    return "";
+	}
+	
+	public String getType()
+	{
+		return type;
 	}
 	
 	public boolean matchesWith(String titles,String values)
