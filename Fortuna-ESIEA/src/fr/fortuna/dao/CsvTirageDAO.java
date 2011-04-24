@@ -24,17 +24,21 @@ public class CsvTirageDAO implements TirageDAO {
 	
 	@Override
 	public List<Tirage> loadAllTirages() {
-
-		final List<Tirage> tirages = new ArrayList<Tirage>();
-
-		List<String> lines = readAllLines(csvFile);
-
-		for (String line : lines) {
-			Tirage tirage = lineToTirage(line);
-			tirages.add(tirage);
+		if(csvFile.exists()){
+			final List<Tirage> tirages = new ArrayList<Tirage>();
+	
+			List<String> lines = readAllLines();
+	
+			for (String line : lines) {
+				Tirage tirage = lineToTirage(line);
+				tirages.add(tirage);
+			}
+			return tirages;
 		}
-
-		return tirages;
+		else
+		{
+			return null;
+		}
 	}
 	
 	@Override
@@ -51,24 +55,33 @@ public class CsvTirageDAO implements TirageDAO {
 	@Override
 	public List<Tirage> loadTiragesByValue(String[] titles,String[] values) {
 
-		final List<Tirage> tirages = new ArrayList<Tirage>();
-
-		List<String> lines = readAllLines(csvFile);
-
-		for (String line : lines) {
-			Tirage tirage = lineToTirage(line);
-			if(tirage.matchesWith(titles, values))
-				tirages.add(tirage);
+		if(csvFile.exists()){
+		
+			final List<Tirage> tirages = new ArrayList<Tirage>();
+	
+			List<String> lines = readAllLines();
+	
+			for (String line : lines) {
+				Tirage tirage = lineToTirage(line);
+				if(tirage.matchesWith(titles, values))
+					tirages.add(tirage);
+			}
+	
+			return tirages;
 		}
-
-		return tirages;
+		else
+		{
+			return null;
+		}
 	}
 
-	private List<String> readAllLines(File file) {
+	private List<String> readAllLines() {
+		if(csvFile.exists()){
+			
 		List<String> lines = new ArrayList<String>();
 
 		try {
-			FileReader fr = new FileReader(file);
+			FileReader fr = new FileReader(csvFile);
 			BufferedReader br = new BufferedReader(fr);
 
 			boolean first = true;
@@ -90,6 +103,11 @@ public class CsvTirageDAO implements TirageDAO {
 		}
 
 		return lines;
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	private Tirage lineToTirage(String line) {
