@@ -1,6 +1,7 @@
 package fr.fortuna.dao;
 
 import java.io.File;
+import fr.fortuna.Tirage.*;
 import java.util.List;
 
 import fr.fortuna.Tirage.Tirage;
@@ -10,14 +11,11 @@ public class Test1 {
 	{
 		File csv=new File("CSV Files/euromillions.csv");
 		
-		CsvTirageDAO t= new CsvTirageDAO(csv);
+		EuromillionsCsvTirageDAO t= new EuromillionsCsvTirageDAO(csv);
 		
-		String h="boule_1";
-		String v="22";
+		Euromillions eur= new Euromillions(t.loadAllTirages());
 		
-		List<Tirage> l = t.loadTiragesByValue(h,v);
-		
-		System.out.println(l.get(0).getType());
-		System.out.println(l.size());
+		System.out.println(eur.getTirages().get(0).getNumeroDeTirage());
+
 	}
 }
