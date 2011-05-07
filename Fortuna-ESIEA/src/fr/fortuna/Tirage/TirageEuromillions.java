@@ -23,6 +23,10 @@ public class TirageEuromillions implements Tirage {
 	private double[] RapportRang;
 	private String NumeroJokerPlus;
 	private String devise;
+	private int NombreDeGagnantsTotalFrance;
+	private int NombreDeGagnantsTotalEurope;
+	private double GainTotalFrance;
+	private double GainTotalEurope;
 	
 	public int[] getBoulesCroissantes()
 	{
@@ -125,4 +129,52 @@ public class TirageEuromillions implements Tirage {
 	public int[] getEtoiles() {
 		return Etoiles;
 	}
+
+	public double getGainTotalFrance() {
+		return GainTotalFrance;
+	}
+
+	public double getGainTotalEurope() {
+		return GainTotalEurope;
+	}
+	
+	public int getNombreDeGagnantsTotalFrance() {
+		return NombreDeGagnantsTotalFrance;
+	}
+	
+	public int getNombreDeGagnantsTotalEurope() {
+		return NombreDeGagnantsTotalEurope;
+	}
+	/*
+	 *  Calcule le nombre de gagnants total en france
+	 */
+	public void calcNombreDeGagnantsFrance() {
+		for(int NombreDeGagnants : NombreDeGagnantsRgFrance)
+			NombreDeGagnantsTotalFrance+=NombreDeGagnants;
+	}
+	
+	/*
+	 *  Calcule le nombre de gagnants total en Europe
+	 */
+	public void calcNombreDeGagnantsEurope() {
+		for(int NombreDeGagnants : NombreDeGagnantsRgEurope)
+			NombreDeGagnantsTotalEurope+=NombreDeGagnants;
+	}
+	
+	/*
+	 *  Calcule le gain total en france
+	 */
+	public void calcGainFrance() {
+		for(int i=0;i<NombreDeGagnantsRgFrance.length;i++)
+			GainTotalFrance+=RapportRang[i]*NombreDeGagnantsRgFrance[i];
+	}
+	
+	/*
+	 *  Calcule le gain total en Europe
+	 */
+	public void calcGainEurope() {
+		for(int i=0;i<NombreDeGagnantsRgEurope.length;i++)
+			GainTotalEurope+=RapportRang[i]*NombreDeGagnantsRgEurope[i];
+	}
+	
 }

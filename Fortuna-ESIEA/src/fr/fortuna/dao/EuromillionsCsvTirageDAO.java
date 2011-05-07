@@ -12,7 +12,7 @@ public class EuromillionsCsvTirageDAO extends CsvTirageDAO {
 		super(f);
 	}
 
-	@Override
+	//@Override
 	protected TirageEuromillions lineToTirage(String line) {
 		String[] values = line.split(";");
 
@@ -52,6 +52,11 @@ public class EuromillionsCsvTirageDAO extends CsvTirageDAO {
 		t.setNumeroJokerPlus(values[8+i+j]);
 		t.setDevise(values[8+i+j+1]);
 
+		t.calcNombreDeGagnantsEurope();
+		t.calcNombreDeGagnantsFrance();
+		t.calcGainEurope();
+		t.calcGainFrance();
+		
 		return t;
 	}
 

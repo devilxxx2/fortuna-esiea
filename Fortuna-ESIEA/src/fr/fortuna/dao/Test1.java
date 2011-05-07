@@ -15,7 +15,7 @@ public class Test1 {
 		
 		Euromillions eur= new Euromillions(t.loadAllTirages());
 		
-		System.out.println(eur.getTirages().get(0).getNumeroDeTirage());
+		System.out.println(eur.getTirages().get(0).getNombreDeGagnantsTotalFrance());
 
 	}
 }
