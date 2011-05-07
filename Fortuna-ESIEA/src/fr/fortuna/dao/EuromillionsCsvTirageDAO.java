@@ -56,6 +56,8 @@ public class EuromillionsCsvTirageDAO extends CsvTirageDAO {
 		t.calcNombreDeGagnantsFrance();
 		t.calcGainEurope();
 		t.calcGainFrance();
+		t.calcGainParRgEurope();
+		t.calcGainParRgFrance();
 		
 		return t;
 	}

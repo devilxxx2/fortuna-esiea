@@ -10,6 +10,8 @@ public class TirageEuromillions implements Tirage {
 		NombreDeGagnantsRgEurope=new int[12];
 		NombreDeGagnantsRgFrance=new int[12];
 		RapportRang=new double[12];		
+		GainParRgEurope=new double[12];
+		GainParRgFrance=new double[12];
 	}
 	
 	private String NumeroDeTirage;
@@ -27,6 +29,8 @@ public class TirageEuromillions implements Tirage {
 	private int NombreDeGagnantsTotalEurope;
 	private double GainTotalFrance;
 	private double GainTotalEurope;
+	private double[] GainParRgFrance;
+	private double[] GainParRgEurope;
 	
 	public int[] getBoulesCroissantes()
 	{
@@ -175,6 +179,31 @@ public class TirageEuromillions implements Tirage {
 	public void calcGainEurope() {
 		for(int i=0;i<NombreDeGagnantsRgEurope.length;i++)
 			GainTotalEurope+=RapportRang[i]*NombreDeGagnantsRgEurope[i];
+	}
+	
+	/*
+	 *  Calcule le gain par rang en france
+	 */
+	public void calcGainParRgFrance() {
+		for(int i=0;i<NombreDeGagnantsRgFrance.length;i++)
+			GainParRgFrance[i]=RapportRang[i]*NombreDeGagnantsRgFrance[i];
+	}
+	
+	/*
+	 *  Calcule le gain par rang en Europe
+	 */
+	public void calcGainParRgEurope() {
+		for(int i=0;i<NombreDeGagnantsRgEurope.length;i++)
+			GainParRgEurope[i]=RapportRang[i]*NombreDeGagnantsRgEurope[i];
+	}
+
+	public double[] getGainParRgFrance() {
+		return GainParRgFrance;
+	}
+
+
+	public double[] getGainParRgEurope() {
+		return GainParRgEurope;
 	}
 	
 }
