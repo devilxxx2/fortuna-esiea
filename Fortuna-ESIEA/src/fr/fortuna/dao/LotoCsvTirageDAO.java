@@ -30,7 +30,7 @@ public class LotoCsvTirageDAO extends CsvTirageDAO {
 			boules[i]=Integer.valueOf(values[5+i]);
 		
 		t.setBoules(boules);
-		t.setBouleComplémentaire(Integer.valueOf(values[5+i]));
+		t.setBouleComplementaire(Integer.valueOf(values[5+i]));
 		t.setNumeroJoker(values[7+i]);
 		int j=0;
 		int[] nbGag=new int[7];

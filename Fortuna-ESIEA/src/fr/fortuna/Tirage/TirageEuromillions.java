@@ -7,69 +7,69 @@ public class TirageEuromillions implements Tirage {
 	
 	public TirageEuromillions()
 	{
-		Boules=new int[5];
-		Etoiles=new int[2];
-		NombreDeGagnantsRgEurope=new int[12];
-		NombreDeGagnantsRgFrance=new int[12];
-		RapportRang=new double[12];		
-		GainParRgEurope=new double[12];
-		GainParRgFrance=new double[12];
+		boules=new int[5];
+		etoiles=new int[2];
+		nombreDeGagnantsRgEurope=new int[12];
+		nombreDeGagnantsRgFrance=new int[12];
+		rapportRang=new double[12];		
+		gainParRgEurope=new double[12];
+		gainParRgFrance=new double[12];
 	}
 	
-	private String NumeroDeTirage;
-	private String Jour;
-	private String DateTirage;
-	private String DateForclusion;
-	private int[] Boules;
-	private int[] Etoiles;
-	private int[] NombreDeGagnantsRgEurope;
-	private int[] NombreDeGagnantsRgFrance;
-	private double[] RapportRang;
-	private String NumeroJokerPlus;
+	private String numeroDeTirage;
+	private String jour;
+	private String dateTirage;
+	private String dateForclusion;
+	private int[] boules;
+	private int[] etoiles;
+	private int[] nombreDeGagnantsRgEurope;
+	private int[] nombreDeGagnantsRgFrance;
+	private double[] rapportRang;
+	private String numeroJokerPlus;
 	private String devise;
-	private int NombreDeGagnantsTotalFrance;
-	private int NombreDeGagnantsTotalEurope;
-	private double GainTotalFrance;
-	private double GainTotalEurope;
-	private double[] GainParRgFrance;
-	private double[] GainParRgEurope;
+	private int nombreDeGagnantsTotalFrance;
+	private int nombreDeGagnantsTotalEurope;
+	private double gainTotalFrance;
+	private double gainTotalEurope;
+	private double[] gainParRgFrance;
+	private double[] gainParRgEurope;
 	
 	public int[] getBoulesCroissantes()
 	{
-		int[] tmp=Boules;
+		int[] tmp=boules;
 		Arrays.sort(tmp);
 		return tmp;
 	}
 	
 	public int[] getEtoilesCroissantes()
 	{
-		int[] tmp=Etoiles;
+		int[] tmp=etoiles;
 		Arrays.sort(tmp);
 		return tmp;
 	}
 
 	public void setNumeroDeTirage(String numeroDeTirage) {
-		NumeroDeTirage = numeroDeTirage;
+		this.numeroDeTirage = numeroDeTirage;
 	}
 
 	public String getNumeroDeTirage() {
-		return NumeroDeTirage;
+		return numeroDeTirage;
 	}
 
 	public void setJour(String jour) {
-		Jour = jour;
+		this.jour = jour;
 	}
 
 	public String getJour() {
-		return Jour;
+		return jour;
 	}
 
 	public void setRapportRang(double[] rapportRang) {
-		RapportRang = rapportRang;
+		this.rapportRang = rapportRang;
 	}
 
 	public double[] getRapportRang() {
-		return RapportRang;
+		return rapportRang;
 	}
 
 	public void setDevise(String devise) {
@@ -81,136 +81,136 @@ public class TirageEuromillions implements Tirage {
 	}
 
 	public void setNumeroJokerPlus(String numeroJokerPlus) {
-		NumeroJokerPlus = numeroJokerPlus;
+		this.numeroJokerPlus = numeroJokerPlus;
 	}
 
 	public String getNumeroJokerPlus() {
-		return NumeroJokerPlus;
+		return numeroJokerPlus;
 	}
 
 	public void setNombreDeGagnantsRgFrance(int[] nombreDeGagnantsRgFrance) {
-		NombreDeGagnantsRgFrance = nombreDeGagnantsRgFrance;
+		this.nombreDeGagnantsRgFrance = nombreDeGagnantsRgFrance;
 	}
 
 	public int[] getNombreDeGagnantsRgFrance() {
-		return NombreDeGagnantsRgFrance;
+		return nombreDeGagnantsRgFrance;
 	}
 
 	public void setNombreDeGagnantsRgEurope(int[] nombreDeGagnantsRgEurope) {
-		NombreDeGagnantsRgEurope = nombreDeGagnantsRgEurope;
+		this.nombreDeGagnantsRgEurope = nombreDeGagnantsRgEurope;
 	}
 
 	public int[] getNombreDeGagnantsRgEurope() {
-		return NombreDeGagnantsRgEurope;
+		return nombreDeGagnantsRgEurope;
 	}
 
 	public void setDateForclusion(String dateForclusion) {
-		DateForclusion = dateForclusion;
+		this.dateForclusion = dateForclusion;
 	}
 
 	public String getDateForclusion() {
-		return DateForclusion;
+		return dateForclusion;
 	}
 
 	public void setDateTirage(String dateTirage) {
-		DateTirage = dateTirage;
+		this.dateTirage = dateTirage;
 	}
 
 	public String getDateTirage() {
-		return DateTirage;
+		return dateTirage;
 	}
 
 	public void setBoules(int[] boules) {
-		Boules = boules;
+		this.boules = boules;
 	}
 
 	public int[] getBoules() {
-		return Boules;
+		return boules;
 	}
 
 	public void setEtoiles(int[] etoiles) {
-		Etoiles = etoiles;
+		this.etoiles = etoiles;
 	}
 
 	public int[] getEtoiles() {
-		return Etoiles;
+		return etoiles;
 	}
 
 	public double getGainTotalFrance() {
-		return GainTotalFrance;
+		return gainTotalFrance;
 	}
 
 	public double getGainTotalEurope() {
-		return GainTotalEurope;
+		return gainTotalEurope;
 	}
 	
 	public int getNombreDeGagnantsTotalFrance() {
-		return NombreDeGagnantsTotalFrance;
+		return nombreDeGagnantsTotalFrance;
 	}
 	
 	public int getNombreDeGagnantsTotalEurope() {
-		return NombreDeGagnantsTotalEurope;
+		return nombreDeGagnantsTotalEurope;
 	}
 	/*
 	 *  Calcule le nombre de gagnants total en france
 	 */
 	public void calcNombreDeGagnantsFrance() {
-		for(int NombreDeGagnants : NombreDeGagnantsRgFrance)
-			NombreDeGagnantsTotalFrance+=NombreDeGagnants;
+		for(int NombreDeGagnants : nombreDeGagnantsRgFrance)
+			nombreDeGagnantsTotalFrance+=NombreDeGagnants;
 	}
 	
 	/*
 	 *  Calcule le nombre de gagnants total en Europe
 	 */
 	public void calcNombreDeGagnantsEurope() {
-		for(int NombreDeGagnants : NombreDeGagnantsRgEurope)
-			NombreDeGagnantsTotalEurope+=NombreDeGagnants;
+		for(int NombreDeGagnants : nombreDeGagnantsRgEurope)
+			nombreDeGagnantsTotalEurope+=NombreDeGagnants;
 	}
 	
 	/*
 	 *  Calcule le gain total en france
 	 */
 	public void calcGainFrance() {
-		for(int i=0;i<NombreDeGagnantsRgFrance.length;i++)
-			GainTotalFrance+=RapportRang[i]*NombreDeGagnantsRgFrance[i];
+		for(int i=0;i<nombreDeGagnantsRgFrance.length;i++)
+			gainTotalFrance+=rapportRang[i]*nombreDeGagnantsRgFrance[i];
 	}
 	
 	/*
 	 *  Calcule le gain total en Europe
 	 */
 	public void calcGainEurope() {
-		for(int i=0;i<NombreDeGagnantsRgEurope.length;i++)
-			GainTotalEurope+=RapportRang[i]*NombreDeGagnantsRgEurope[i];
+		for(int i=0;i<nombreDeGagnantsRgEurope.length;i++)
+			gainTotalEurope+=rapportRang[i]*nombreDeGagnantsRgEurope[i];
 	}
 	
 	/*
 	 *  Calcule le gain par rang en france
 	 */
 	public void calcGainParRgFrance() {
-		for(int i=0;i<NombreDeGagnantsRgFrance.length;i++)
-			GainParRgFrance[i]=RapportRang[i]*NombreDeGagnantsRgFrance[i];
+		for(int i=0;i<nombreDeGagnantsRgFrance.length;i++)
+			gainParRgFrance[i]=rapportRang[i]*nombreDeGagnantsRgFrance[i];
 	}
 	
 	/*
 	 *  Calcule le gain par rang en Europe
 	 */
 	public void calcGainParRgEurope() {
-		for(int i=0;i<NombreDeGagnantsRgEurope.length;i++)
-			GainParRgEurope[i]=RapportRang[i]*NombreDeGagnantsRgEurope[i];
+		for(int i=0;i<nombreDeGagnantsRgEurope.length;i++)
+			gainParRgEurope[i]=rapportRang[i]*nombreDeGagnantsRgEurope[i];
 	}
 
 	public double[] getGainParRgFrance() {
-		return GainParRgFrance;
+		return gainParRgFrance;
 	}
 
 
 	public double[] getGainParRgEurope() {
-		return GainParRgEurope;
+		return gainParRgEurope;
 	}
 	
 	public boolean equals(TirageEuromillions t)
 	{
-		return ((t.getNumeroDeTirage().compareTo(NumeroDeTirage))==0);
+		return ((t.getNumeroDeTirage().compareTo(numeroDeTirage))==0);
 	}
 	
 }

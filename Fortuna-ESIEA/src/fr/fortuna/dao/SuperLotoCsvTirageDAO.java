@@ -29,7 +29,7 @@ public class SuperLotoCsvTirageDAO extends CsvTirageDAO {
 			boules[i]=Integer.valueOf(values[4+i]);
 		
 		t.setBoules(boules);
-		t.setBouleComplémentaire(Integer.valueOf(values[4+i]));
+		t.setBouleComplementaire(Integer.valueOf(values[4+i]));
 		int j=0;
 		int[] nbGag=new int[7];
 		double[] Rap=new double[7];

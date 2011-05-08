@@ -7,55 +7,55 @@ public class TirageSuperLoto implements Tirage {
 	
 	public TirageSuperLoto()
 	{
-		Boules=new int[6];
-		NombreDeGagnantsRg=new int[7];
-		RapportRang=new double[7];		
-		GainParRg=new double[7];
+		boules=new int[6];
+		nombreDeGagnantsRg=new int[7];
+		rapportRang=new double[7];		
+		gainParRg=new double[7];
 	}
 	
-	private String NumeroDeTirage;
-	private String Jour;
-	private String DateTirage;
-	private String DateForclusion;
-	private int[] Boules;
-	private int BouleComplémentaire;
-	private int[] NombreDeGagnantsRg;
-	private double[] RapportRang;
-	private String NumeroJokerPlus;
+	private String numeroDeTirage;
+	private String jour;
+	private String dateTirage;
+	private String dateForclusion;
+	private int[] boules;
+	private int bouleComplementaire;
+	private int[] nombreDeGagnantsRg;
+	private double[] rapportRang;
+	private String numeroJokerPlus;
 	private String devise;
-	private int NombreDeGagnantsTotal;
-	private double GainTotal;
-	private double[] GainParRg;
+	private int nombreDeGagnantsTotal;
+	private double gainTotal;
+	private double[] gainParRg;
 	
 	public int[] getBoulesCroissantes()
 	{
-		int[] tmp=Boules;
+		int[] tmp=boules;
 		Arrays.sort(tmp);
 		return tmp;
 	}
 
 	public void setNumeroDeTirage(String numeroDeTirage) {
-		NumeroDeTirage = numeroDeTirage;
+		numeroDeTirage = numeroDeTirage;
 	}
 
 	public String getNumeroDeTirage() {
-		return NumeroDeTirage;
+		return numeroDeTirage;
 	}
 
 	public void setJour(String jour) {
-		Jour = jour;
+		this.jour = jour;
 	}
 
 	public String getJour() {
-		return Jour;
+		return this.jour;
 	}
 
 	public void setRapportRang(double[] rapportRang) {
-		RapportRang = rapportRang;
+		this.rapportRang = rapportRang;
 	}
 
 	public double[] getRapportRang() {
-		return RapportRang;
+		return rapportRang;
 	}
 
 	public void setDevise(String devise) {
@@ -67,65 +67,65 @@ public class TirageSuperLoto implements Tirage {
 	}
 
 	public void setNumeroJokerPlus(String numeroJokerPlus) {
-		NumeroJokerPlus = numeroJokerPlus;
+		this.numeroJokerPlus = numeroJokerPlus;
 	}
 
 	public String getNumeroJokerPlus() {
-		return NumeroJokerPlus;
+		return numeroJokerPlus;
 	}
 
 	public int[] getNombreDeGagnantsRg() {
-		return NombreDeGagnantsRg; 
+		return nombreDeGagnantsRg; 
 	}
 
 	public void setDateForclusion(String dateForclusion) {
-		DateForclusion = dateForclusion;
+		this.dateForclusion = dateForclusion;
 	}
 
 	public String getDateForclusion() {
-		return DateForclusion;
+		return dateForclusion;
 	}
 
 	public void setDateTirage(String dateTirage) {
-		DateTirage = dateTirage;
+		this.dateTirage = dateTirage;
 	}
 
 	public String getDateTirage() {
-		return DateTirage;
+		return dateTirage;
 	}
 
 	public void setBoules(int[] boules) {
-		Boules = boules;
+		this.boules = boules;
 	}
 
 	public int[] getBoules() {
-		return Boules;
+		return boules;
 	}
 
 
 	public double getGainTotal() {
-		return GainTotal;
+		return gainTotal;
 	}
 
 	
 	public int getNombreDeGagnantsTotal() {
-		return NombreDeGagnantsTotal;
+		return nombreDeGagnantsTotal;
 	}
 	
 	/*
 	 *  Calcule le nombre de gagnants total
 	 */
 	public void calcNombreDeGagnants() {
-		for(int NombreDeGagnants : NombreDeGagnantsRg)
-			NombreDeGagnantsTotal+=NombreDeGagnants;
+		for(int NombreDeGagnants : nombreDeGagnantsRg)
+			nombreDeGagnantsTotal+=NombreDeGagnants;
 	}
 	
 	/*
 	 *  Calcule le gain total
 	 */
 	public void calcGain() {
-		for(int i=0;i<NombreDeGagnantsRg.length;i++)
-			GainTotal+=RapportRang[i]*NombreDeGagnantsRg[i];
+		for(int i=0;i<nombreDeGagnantsRg.length;i++)
+			gainTotal+=rapportRang[i]*nombreDeGagnantsRg[i];
 	}
 
 	
@@ -133,32 +133,32 @@ public class TirageSuperLoto implements Tirage {
 	 *  Calcule le gain par rang en france
 	 */
 	public void calcGainParRg() {
-		for(int i=0;i<NombreDeGagnantsRg.length;i++)
-			GainParRg[i]=RapportRang[i]*NombreDeGagnantsRg[i];
+		for(int i=0;i<nombreDeGagnantsRg.length;i++)
+			gainParRg[i]=rapportRang[i]*nombreDeGagnantsRg[i];
 	}
 	
 
 	public double[] getGainParRg() {
-		return GainParRg;
+		return gainParRg;
 	}
 
 	
 	public boolean equals(TirageLoto t)
 	{
-		return ((t.getNumeroDeTirage().compareTo(NumeroDeTirage))==0);
+		return ((t.getNumeroDeTirage().compareTo(numeroDeTirage))==0);
 	}
 
-	public void setBouleComplémentaire(int bouleComplémentaire) {
-		BouleComplémentaire = bouleComplémentaire;
+	public void setBouleComplementaire(int bouleComplementaire) {
+		this.bouleComplementaire = bouleComplementaire;
 	}
 
-	public int getBouleComplémentaire() {
-		return BouleComplémentaire;
+	public int getBouleComplementaire() {
+		return bouleComplementaire;
 	}
 
 	public void setNombreDeGagnantsRg(int[] nbGag) {
 		// TODO Auto-generated method stub
-		NombreDeGagnantsRg=nbGag;
+		nombreDeGagnantsRg=nbGag;
 	}
 
 }
