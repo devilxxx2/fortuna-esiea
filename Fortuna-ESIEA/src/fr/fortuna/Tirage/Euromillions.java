@@ -27,20 +27,20 @@ public class Euromillions/* implements Jeu*/ {
 	}*/
 	
 	/*
-	 * Calcule les statistiques sur les boules et étoiles d'euromillions
+	 * Calcule les statistiques sur les boules et Ã©toiles d'euromillions
 	 * 
-	 * @return liste de map avec les statistiques  des boules et des étoiles
+	 * @return liste de map avec les statistiques  des boules et des Ã©toiles
 	 */
 	public ArrayList<HashMap<Integer, Double>> calculStatJeu() {
 		ArrayList<HashMap<Integer, Double>> resultat = new ArrayList<HashMap<Integer, Double>>();	//le retour
-		HashMap<Integer, Double> mapBoule = new HashMap<Integer, Double>(50);	//Map des boules, qui sera rajouté dans l'ArrayList
-		HashMap<Integer, Double> mapEtoile = new HashMap<Integer, Double>(9);	//Pareil pour les étoiles
+		HashMap<Integer, Double> mapBoule = new HashMap<Integer, Double>(50);	//Map des boules, qui sera rajoutÃ© dans l'ArrayList
+		HashMap<Integer, Double> mapEtoile = new HashMap<Integer, Double>(9);	//Pareil pour les Ã©toiles
 		int[] nbBouleTiree = new int[51];
 		int[] nbEtoileTiree = new int[10];
 		int nbTirage = 0;
 		int boule = 0;
 		int etoile = 0;
-		double stat;	//Statistique calculée
+		double stat;	//Statistique calculÃ©e
 		int i, j;	//Parcours de boucle
 		TirageEuromillions tirageEnCours; //Sauvegarde du tirage dans la boucle
 		
@@ -53,7 +53,7 @@ public class Euromillions/* implements Jeu*/ {
 				boule = tirageEnCours.getBoules()[i];
 				nbBouleTiree[boule]++; 
 			}
-			//Cas des étoiles
+			//Cas des Ã©toiles
 			for ( j = 0; j < 2; j++) {
 				etoile = tirageEnCours.getEtoiles()[j];
 				nbEtoileTiree[etoile]++;
@@ -66,7 +66,7 @@ public class Euromillions/* implements Jeu*/ {
 			mapBoule.put(i, stat);
 		}
 		
-		//Calcul les stats pour les étoiles
+		//Calcul les stats pour les Ã©toiles
 		for (j = 1; j < nbEtoileTiree.length; j++) {
 			stat = nbEtoileTiree[j] / nbTirage;
 			mapEtoile.put(j, stat);
@@ -82,11 +82,11 @@ public class Euromillions/* implements Jeu*/ {
 	 * @return une map contenant les tirages, et les statistiques des gagnants pour chaque rang en Europe
 	 */
 	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGagnantEurope() {
-		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournÃ©e
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 		int[] nombreDeGagnantsRgEurope;	//nombre de gagnant en Europe pour un tirage
 		int i;	//variable de boucle 
-		double stat; //statistique calculée
+		double stat; //statistique calculÃ©e
 		TirageEuromillions tirageEnCours;
 		Iterator it = tirages.iterator();
 		
@@ -110,11 +110,11 @@ public class Euromillions/* implements Jeu*/ {
 	 *  @return une map contenant les tirages, et les statistiques des gagnants pour chaque rang en France
 	 */
 	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGagnantFrance() {
-		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournÃ©e
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 		int[] nombreDeGagnantsRgFrance;	//nombre de gagnant en France pour un tirage
 		int i;	//variable de boucle 
-		double stat; //statistique calculée
+		double stat; //statistique calculÃ©e
 		TirageEuromillions tirageEnCours;
 		Iterator it = tirages.iterator();
 		
@@ -138,11 +138,11 @@ public class Euromillions/* implements Jeu*/ {
 	 * @return une map contenant les tirages, et les statistiques des gains pour chaque rang en Europe
 	 */
 	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGainEurope() {
-		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournÃ©e
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 		double[] tableauGain;
 		int i;	//variable de boucle
-		double stat; 	//statistique calculée
+		double stat; 	//statistique calculÃ©e
 		TirageEuromillions tirageEnCours;
 		Iterator it = tirages.iterator();
 		
@@ -165,11 +165,11 @@ public class Euromillions/* implements Jeu*/ {
 	 * @return une map contenant les tirages, et les statistiques des gains pour chaque rang en France
 	 */
 	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGainFrance() {
-		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournÃ©e
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 		double[] tableauGain;
 		int i;	//variable de boucle
-		double stat; 	//statistique calculée
+		double stat; 	//statistique calculÃ©e
 		TirageEuromillions tirageEnCours;
 		Iterator it = tirages.iterator();
 		

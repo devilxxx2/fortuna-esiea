@@ -22,18 +22,18 @@ public class Loto /* implements Jeu*/{
 	/*
 	 * Calcule les statistiques sur les boules du loto
 	 * 
-	 * @return liste de map avec les statistiques des boules et les numéros complémentaires
+	 * @return liste de map avec les statistiques des boules et les numÃ©ros complÃ©mentaires
 	 */
 	public ArrayList<HashMap<Integer, Double>> calculStatJeu() {
 		ArrayList<HashMap<Integer, Double>> resultat = new ArrayList<HashMap<Integer, Double>>();	//le retour
-		HashMap<Integer, Double> mapBoule = new HashMap<Integer, Double>(49);	//Map des boules, qui sera rajouté dans l'ArrayList
-		HashMap<Integer, Double> mapNumeroComplementaire = new HashMap<Integer, Double>(49);	//Pareil pour les numéros complémentaires
+		HashMap<Integer, Double> mapBoule = new HashMap<Integer, Double>(49);	//Map des boules, qui sera rajoutÃ© dans l'ArrayList
+		HashMap<Integer, Double> mapNumeroComplementaire = new HashMap<Integer, Double>(49);	//Pareil pour les numÃ©ros complÃ©mentaires
 		int[] nbBouleTiree = new int[50];
 		int[] nbComplementaireTiree = new int[50];
 		int nbTirage = 0;
 		int boule = 0;
 		int numeroComplementaire = 0;
-		double stat;	//Statistique calculée
+		double stat;	//Statistique calculÃ©e
 		int i, j;	//Parcours de boucle
 		TirageLoto tirageEnCours; //Sauvegarde du tirage dans la boucle
 		
@@ -47,7 +47,7 @@ public class Loto /* implements Jeu*/{
 				nbBouleTiree[boule]++; 
 			}
 			//Cas des numeros complementaires
-			numeroComplementaire = tirageEnCours.getBouleComplémentaire();
+			numeroComplementaire = tirageEnCours.getBouleComplementaire();
 			nbComplementaireTiree[numeroComplementaire]++;
 			nbTirage++;
 		}
@@ -71,11 +71,11 @@ public class Loto /* implements Jeu*/{
 	 * @return une map contenant les tirages, et les statistiques des gagnants pour chaque rang
 	 */
 	public HashMap<TirageLoto, HashMap<Integer, Double>> calculStatGagnant() {
-		HashMap<TirageLoto, HashMap<Integer, Double>> retour = new HashMap<TirageLoto, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<TirageLoto, HashMap<Integer, Double>> retour = new HashMap<TirageLoto, HashMap<Integer, Double>>();	//Map retournÃ©e
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 		int[] nombreDeGagnantsRg;	//nombre de gagnant pour un tirage
 		int i;	//variable de boucle 
-		double stat; //statistique calculée
+		double stat; //statistique calculÃ©e
 		TirageLoto tirageEnCours;
 		Iterator it = tirages.iterator();
 		
@@ -98,11 +98,11 @@ public class Loto /* implements Jeu*/{
 	 * @return une map contenant les tirages, et les statistiques des gains pour chaque rang
 	 */
 	public HashMap<TirageLoto, HashMap<Integer, Double>> calculStatGain() {
-		HashMap<TirageLoto, HashMap<Integer, Double>> retour = new HashMap<TirageLoto, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<TirageLoto, HashMap<Integer, Double>> retour = new HashMap<TirageLoto, HashMap<Integer, Double>>();	//Map retournÃ©e
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 		double[] tableauGain;
 		int i;	//variable de boucle
-		double stat; 	//statistique calculée
+		double stat; 	//statistique calculÃ©e
 		TirageLoto tirageEnCours;
 		Iterator it = tirages.iterator();
 		
