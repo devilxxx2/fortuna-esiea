@@ -372,7 +372,7 @@
 <val>(1.0, 0.0, 0.0, 1.0, 1534.0, 652.0)</val>
 </matrix>
 <width>
-<val>112.0</val>
+<val>123.0</val>
 </width>
 <height>
 <val>62.0</val>
@@ -401,7 +401,7 @@
 <val>0</val>
 </horizontal>
 <points>
-<val>[(0.0, 0.0), (143.0, 94.0)]</val>
+<val>[(0.0, 0.0), (148.40178571428578, 94.0)]</val>
 </points>
 <head-connection>
 <ref refid="80e6e324-68ff-11e0-9944-1c6f6584514a"/>
@@ -542,7 +542,7 @@
 <val>(1.0, 0.0, 0.0, 1.0, 559.0, 506.0)</val>
 </matrix>
 <width>
-<val>119.0</val>
+<val>130.0</val>
 </width>
 <height>
 <val>76.0</val>
@@ -623,7 +623,7 @@
 <val>0</val>
 </horizontal>
 <points>
-<val>[(0.0, 0.0), (197.0, -146.0)]</val>
+<val>[(0.0, 0.0), (201.15966386554624, -146.0)]</val>
 </points>
 <head-connection>
 <ref refid="989a8c20-6902-11e0-9944-1c6f6584514a"/>
@@ -710,7 +710,7 @@
 <val>0</val>
 </show_stereotypes_attrs>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 628.0, 506.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 634.37815126050418, 506.0)</val>
 </matrix>
 <orthogonal>
 <val>0</val>
@@ -719,7 +719,7 @@
 <val>0</val>
 </horizontal>
 <points>
-<val>[(0.0, 0.0), (0.0, -156.0)]</val>
+<val>[(0.0, 0.0), (-6.3781512605041826, -156.0)]</val>
 </points>
 <head-connection>
 <ref refid="ad93aae8-6903-11e0-b3d6-1c6f6584514a"/>
@@ -829,7 +829,7 @@
 <val>(1.0, 0.0, 0.0, 1.0, 1531.0, 238.0)</val>
 </matrix>
 <width>
-<val>116.0</val>
+<val>127.0</val>
 </width>
 <height>
 <val>51.0</val>
@@ -910,7 +910,7 @@
 <val>0</val>
 </horizontal>
 <points>
-<val>[(0.0, 0.0), (165.0, 107.90163934426229)]</val>
+<val>[(0.0, 0.0), (168.0344827586207, 107.90163934426229)]</val>
 </points>
 <head-connection>
 <ref refid="297e5c36-6e7a-11e0-a6c1-1c6f6584514a"/>
@@ -1121,7 +1121,7 @@
 </reflist>
 </clientDependency>
 <name>
-<val><![CDATA[AncienLoto]]></val>
+<val><![CDATA[NouveauLoto]]></val>
 </name>
 <package>
 <ref refid="c245cbe6-68fa-11e0-9944-1c6f6584514a"/>
@@ -1463,7 +1463,7 @@
 </reflist>
 </clientDependency>
 <name>
-<val><![CDATA[GrilleAncienLoto]]></val>
+<val><![CDATA[GrilleNouveauLoto]]></val>
 </name>
 <ownedAttribute>
 <reflist>
@@ -1800,7 +1800,7 @@ voir les règles de fracisco]]></val>
 </reflist>
 </clientDependency>
 <name>
-<val><![CDATA[TirageAncienLoto]]></val>
+<val><![CDATA[TirageNouveauLoto]]></val>
 </name>
 <ownedAttribute>
 <reflist>
@@ -2257,7 +2257,7 @@ voir les règles de fracisco]]></val>
 </reflist>
 </clientDependency>
 <name>
-<val><![CDATA[JGrilleAncienLoto]]></val>
+<val><![CDATA[JGrilleNouveauLoto]]></val>
 </name>
 <package>
 <ref refid="c245cbe6-68fa-11e0-9944-1c6f6584514a"/>
