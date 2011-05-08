@@ -21,10 +21,9 @@ public class JGrilleNumeros extends JPanel {
 	private JToggleButton[] grille;
 	private final int NB_CASES;
 
-	public JGrilleNumeros(int num, String title){
+	public JGrilleNumeros(int num, int cols, String title){
 		super();
 
-		int cols = (int)Math.sqrt(num);
 		GridLayout g = new GridLayout((int)Math.ceil(((double)num)/cols), cols);
 		this.setLayout(g);
 
@@ -35,7 +34,7 @@ public class JGrilleNumeros extends JPanel {
 		titledBorder.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(titledBorder);
 
-		grille=new JToggleButton[49];
+		grille=new JToggleButton[NB_CASES];
 		createGrille();
 	}
 
@@ -48,6 +47,7 @@ public class JGrilleNumeros extends JPanel {
 			//box.setPreferredSize(new Dimension(8,8));
 			// box.setMaximumSize(new Dimension(2,2));
 			add(box);
+			grille[i] = box;
 		}
 	}
 }

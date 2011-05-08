@@ -16,14 +16,17 @@ import javax.swing.JToggleButton;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-public class JGrilleLoto extends JPanel implements JGrille {
+public class JGrilleEuroMillions extends JPanel implements JGrille {
 	private JGrilleNumeros nums;
+	private JGrilleNumeros etoiles;
 
-	public JGrilleLoto(){
+	public JGrilleEuroMillions(){
 		super();
 
-		nums = new JGrilleNumeros(49, 7, "Loto");
+		nums = new JGrilleNumeros(50, 6, "Numéros");
+		etoiles = new JGrilleNumeros(9, 3, "Étoiles");
 		this.add(nums);
+		this.add(etoiles);
 	}
 
 	@Override
