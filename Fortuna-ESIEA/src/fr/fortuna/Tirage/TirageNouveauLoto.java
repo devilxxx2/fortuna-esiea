@@ -156,5 +156,10 @@ public class TirageNouveauLoto implements Tirage {
 	public int getNumeroChance() {
 		return NumeroChance;
 	}
+
+	public void setNombreDeGagnantsRg(int[] nbGag) {
+		// TODO Auto-generated method stub
+		NombreDeGagnantsRg=nbGag;
+	}
 	
 }

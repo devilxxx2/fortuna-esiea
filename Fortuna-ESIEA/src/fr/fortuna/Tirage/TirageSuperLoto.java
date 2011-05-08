@@ -156,4 +156,9 @@ public class TirageSuperLoto implements Tirage {
 		return BouleComplémentaire;
 	}
 
+	public void setNombreDeGagnantsRg(int[] nbGag) {
+		// TODO Auto-generated method stub
+		NombreDeGagnantsRg=nbGag;
+	}
+
 }

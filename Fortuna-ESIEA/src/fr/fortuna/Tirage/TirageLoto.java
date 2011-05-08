@@ -174,4 +174,9 @@ public class TirageLoto implements Tirage {
 		return NumeroJoker;
 	}
 	
+	public void setNombreDeGagnantsRg(int[] nbGag) {
+		// TODO Auto-generated method stub
+		NombreDeGagnantsRg=nbGag;
+	}
+	
 }
