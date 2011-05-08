@@ -16,6 +16,8 @@ import javax.swing.JToggleButton;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import fr.fortuna.model.Grille;
+
 public class JGrilleEuroMillions extends JPanel implements JGrille {
 	private JGrilleNumeros nums;
 	private JGrilleNumeros etoiles;
