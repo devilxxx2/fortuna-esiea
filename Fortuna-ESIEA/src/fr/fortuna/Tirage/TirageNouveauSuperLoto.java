@@ -156,5 +156,9 @@ public class TirageNouveauSuperLoto implements Tirage {
 	public int getNumeroChance() {
 		return NumeroChance;
 	}
+
+	public void setNombreDeGagnantsRg(int[] nbGag) {
+		NombreDeGagnantsRg=nbGag;	
+	}
 	
 }
