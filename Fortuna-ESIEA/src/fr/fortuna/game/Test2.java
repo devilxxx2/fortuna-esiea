@@ -15,9 +15,9 @@ public class Test2 {
 		f.pack();
 		f.validate();
 
-		f=new JFrame("Loto");
+		f=new JFrame("Nouveau Loto");
 		f.setVisible(true);
-		f.add(new JGrilleLoto());
+		f.add(new JGrilleNouveauLoto());
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(70, 70);
 		f.pack();
