@@ -29,7 +29,7 @@ public class JGrilleLoto extends JPanel implements JGrille {
 	}
 
 	@Override
-	public ArrayList<Grille> getGrilles() {
+	public Grille getGrille() {
 		// TODO Auto-generated method stub
 		return null;
 	}

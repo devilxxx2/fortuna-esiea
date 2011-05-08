@@ -2,10 +2,17 @@ package fr.fortuna.model;
 
 import java.util.HashMap;
 
-class GrilleEuroMillions implements Grille {
+public class GrilleEuroMillions implements Grille {
 	private int[] nums;
 	private int[] stars;
 	private double prix;
+
+	public GrilleEuroMillions() {
+	}
+
+	public GrilleEuroMillions(int[] nums, int[] stars) {
+		setValue(nums, stars);
+	}
 
 	public void setValue(int[] nums, int[] stars) {
 		this.prix = CombiEuroMillions.getPrix(nums.length, stars.length);
@@ -27,7 +34,10 @@ class CombiEuroMillions {
 	{
 		if (combi == null)
 			buildCombi();
-		return combi.get(new Pair<Integer, Integer>(numeros, etoiles));
+		Double d = combi.get(new Pair<Integer, Integer>(numeros, etoiles));
+		if (d == null)
+			throw new IllegalArgumentException();
+		return d;
 	}
 
 	private static void buildCombi()

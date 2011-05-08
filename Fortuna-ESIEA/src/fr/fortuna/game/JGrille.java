@@ -10,7 +10,5 @@ public interface JGrille {
 	 * @param args
 	 */
 
-	public ArrayList<Grille> getGrilles();
-	
-
+	public Grille getGrille();
 }

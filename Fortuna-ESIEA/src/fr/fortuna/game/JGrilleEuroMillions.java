@@ -17,6 +17,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import fr.fortuna.model.Grille;
+import fr.fortuna.model.GrilleEuroMillions;
 
 public class JGrilleEuroMillions extends JPanel implements JGrille {
 	private JGrilleNumeros nums;
@@ -32,8 +33,7 @@ public class JGrilleEuroMillions extends JPanel implements JGrille {
 	}
 
 	@Override
-	public ArrayList<Grille> getGrilles() {
-		// TODO Auto-generated method stub
-		return null;
+	public Grille getGrille() {
+		return new GrilleEuroMillions(nums.getNums(), etoiles.getNums());
 	}
 }
