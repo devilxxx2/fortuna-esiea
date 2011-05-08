@@ -29,9 +29,9 @@ public class Euromillions/* implements Jeu*/ {
 	/*
 	 * Calcule les statistiques sur les boules et étoiles d'euromillions
 	 * 
-	 * @return liste avec les statistiques 
+	 * @return liste de map avec les statistiques  des boules et des étoiles
 	 */
-	public ArrayList<HashMap<Integer, Double>> calculStatEuromillions() {
+	public ArrayList<HashMap<Integer, Double>> calculStatJeu() {
 		ArrayList<HashMap<Integer, Double>> resultat = new ArrayList<HashMap<Integer, Double>>();	//le retour
 		HashMap<Integer, Double> mapBoule = new HashMap<Integer, Double>(50);	//Map des boules, qui sera rajouté dans l'ArrayList
 		HashMap<Integer, Double> mapEtoile = new HashMap<Integer, Double>(9);	//Pareil pour les étoiles
@@ -75,6 +75,115 @@ public class Euromillions/* implements Jeu*/ {
 		resultat.add(mapEtoile);
 		return resultat;
 	}
+	
+	/*
+	 * Calcule les statistiques sur les gagnants de l'euromillions en Europe
+	 * 
+	 * @return une map contenant les tirages, et les statistiques des gagnants pour chaque rang en Europe
+	 */
+	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGagnantEurope() {
+		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
+		int[] nombreDeGagnantsRgEurope;	//nombre de gagnant en Europe pour un tirage
+		int i;	//variable de boucle 
+		double stat; //statistique calculée
+		TirageEuromillions tirageEnCours;
+		Iterator it = tirages.iterator();
+		
+		//On parcourt l'ensemble des tirages
+		while(it.hasNext()) {
+			tirageEnCours = (TirageEuromillions) it.next();
+			nombreDeGagnantsRgEurope = tirageEnCours.getNombreDeGagnantsRgEurope();
+			for (i = 0; i < nombreDeGagnantsRgEurope.length; i++) {
+				stat = nombreDeGagnantsRgEurope[i] / tirageEnCours.getNombreDeGagnantsTotalEurope();
+				statistiqueRang.put(i+1, stat);
+			}
+			retour.put(tirageEnCours, statistiqueRang); 				
+		}
+		
+		return retour;
+	}
+	
+	/*
+	 * Calcule les statistiques sur les gagnants de l'euromillions en France
+	 * 
+	 *  @return une map contenant les tirages, et les statistiques des gagnants pour chaque rang en France
+	 */
+	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGagnantFrance() {
+		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
+		int[] nombreDeGagnantsRgFrance;	//nombre de gagnant en Europe pour un tirage
+		int i;	//variable de boucle 
+		double stat; //statistique calculée
+		TirageEuromillions tirageEnCours;
+		Iterator it = tirages.iterator();
+		
+		//On parcourt l'ensemble des tirages
+		while(it.hasNext()) {
+			tirageEnCours = (TirageEuromillions) it.next();
+			nombreDeGagnantsRgFrance = tirageEnCours.getNombreDeGagnantsRgFrance();
+			for (i = 0; i < nombreDeGagnantsRgFrance.length; i++) {
+				stat = nombreDeGagnantsRgFrance[i] / tirageEnCours.getNombreDeGagnantsTotalFrance();
+				statistiqueRang.put(i+1, stat);
+			}
+			retour.put(tirageEnCours, statistiqueRang); 				
+		}
+		
+		return retour;
+	}
+	
+	/*
+	 * Calcule les statistiques sur les gains de l'euromillions en Europe
+	 * 
+	 * @return une map contenant les tirages, et les statistiques des gains pour chaque rang en Europe
+	 */
+	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGainEurope() {
+		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
+		double[] tableauGain;
+		int i;	//variable de boucle
+		double stat; 	//statistique calculée
+		TirageEuromillions tirageEnCours;
+		Iterator it = tirages.iterator();
+		
+		//On parcourt l'ensemble des tirages
+		while(it.hasNext()) {
+			tirageEnCours = (TirageEuromillions) it.next();
+			tableauGain = tirageEnCours.getGainParRgEurope();
+			for (i = 0; i < tableauGain.length; i++) {
+				stat = tableauGain[i] / tirageEnCours.getGainTotalEurope();
+				statistiqueRang.put(i+1, stat);
+			}
+			retour.put(tirageEnCours, statistiqueRang);
+		}
+		return retour;
+	}
+	
+	/*
+	 * Calcule les statistiques sur les gains de l'euromillions en France
+	 * 
+	 * @return une map contenant les tirages, et les statistiques des gains pour chaque rang en France
+	 */
+	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGainFrance() {
+		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
+		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
+		double[] tableauGain;
+		int i;	//variable de boucle
+		double stat; 	//statistique calculée
+		TirageEuromillions tirageEnCours;
+		Iterator it = tirages.iterator();
+		
+		//On parcourt l'ensemble des tirages
+		while(it.hasNext()) {
+			tirageEnCours = (TirageEuromillions) it.next();
+			tableauGain = tirageEnCours.getGainParRgFrance();
+			for (i = 0; i < tableauGain.length; i++) {
+				stat = tableauGain[i] / tirageEnCours.getGainTotalFrance();
+				statistiqueRang.put(i+1, stat);
+			}
+			retour.put(tirageEnCours, statistiqueRang);
+		}
+		return retour;
+	}
 }
-
 
