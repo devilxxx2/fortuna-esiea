@@ -30,7 +30,7 @@ public class JGrilleNumeros extends JPanel {
 		NB_CASES = num;
 
 		TitledBorder titledBorder=BorderFactory.createTitledBorder(
-				BorderFactory.createLineBorder(Color.RED), title);
+				BorderFactory.createLineBorder(Color.BLACK), title);
 		titledBorder.setTitleJustification(TitledBorder.CENTER);
 		this.setBorder(titledBorder);
 
@@ -43,9 +43,7 @@ public class JGrilleNumeros extends JPanel {
 			JToggleButton box;
 			box=new JToggleButton(Integer.toString(i+1));
 			box.setMargin(new Insets(0, 0, 0, 0));
-			// box.setSize(2, 2);
-			//box.setPreferredSize(new Dimension(8,8));
-			// box.setMaximumSize(new Dimension(2,2));
+
 			add(box);
 			grille[i] = box;
 		}

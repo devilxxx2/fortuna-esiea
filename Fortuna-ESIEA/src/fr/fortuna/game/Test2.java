@@ -1,6 +1,7 @@
 package fr.fortuna.game;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Test2 {
 	/**
@@ -9,7 +10,14 @@ public class Test2 {
 	public static void main(String[] args) {
 		JFrame f=new JFrame("Euromillions");
 		f.setVisible(true);
-		f.add(new JGrilleEuroMillions());
+		JPanel pan=new JPanel();
+		f.add(pan);
+		int num=0;
+		pan.add(new JGrilleEuroMillions(num++));
+		pan.add(new JGrilleEuroMillions(num++));
+		pan.add(new JGrilleEuroMillions(num++));
+		pan.add(new JGrilleEuroMillions(num++));
+		pan.add(new JGrilleEuroMillions(num++));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(70, 70);
 		f.pack();

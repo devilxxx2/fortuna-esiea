@@ -20,20 +20,26 @@ import fr.fortuna.model.Grille;
 import fr.fortuna.model.GrilleEuroMillions;
 
 public class JGrilleEuroMillions extends JPanel implements JGrille {
-	private JGrilleNumeros nums;
-	private JGrilleNumeros etoiles;
+        private JGrilleNumeros nums;
+        private JGrilleNumeros etoiles;
 
-	public JGrilleEuroMillions(){
-		super();
+        public JGrilleEuroMillions(int numeroGrille){
+                super();
 
-		nums = new JGrilleNumeros(50, 6, "NumÃ©ros");
-		etoiles = new JGrilleNumeros(9, 3, "Ã‰toiles");
-		this.add(nums);
-		this.add(etoiles);
-	}
+                TitledBorder titledBorder=BorderFactory.createTitledBorder(
+                		BorderFactory.createMatteBorder(3, 3, 3, 3, Color.red),
+                		Integer.toString(numeroGrille));
+        		titledBorder.setTitleJustification(TitledBorder.CENTER);
+        		this.setBorder(titledBorder);
 
-	@Override
-	public Grille getGrille() {
-		return new GrilleEuroMillions(nums.getNums(), etoiles.getNums());
-	}
+                nums = new JGrilleNumeros(50, 6, "Numéros");
+                etoiles = new JGrilleNumeros(9, 3, "Étoiles");
+                this.add(nums);
+                this.add(etoiles);
+        }
+
+        @Override
+        public Grille getGrille() {
+                return new GrilleEuroMillions(nums.getNums(), etoiles.getNums());
+        }
 }
