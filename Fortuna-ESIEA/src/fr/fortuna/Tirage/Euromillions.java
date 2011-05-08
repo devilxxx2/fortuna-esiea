@@ -112,7 +112,7 @@ public class Euromillions/* implements Jeu*/ {
 	public HashMap<TirageEuromillions, HashMap<Integer, Double>> calculStatGagnantFrance() {
 		HashMap<TirageEuromillions, HashMap<Integer, Double>> retour = new HashMap<TirageEuromillions, HashMap<Integer, Double>>();	//Map retournée
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
-		int[] nombreDeGagnantsRgFrance;	//nombre de gagnant en Europe pour un tirage
+		int[] nombreDeGagnantsRgFrance;	//nombre de gagnant en France pour un tirage
 		int i;	//variable de boucle 
 		double stat; //statistique calculée
 		TirageEuromillions tirageEnCours;
