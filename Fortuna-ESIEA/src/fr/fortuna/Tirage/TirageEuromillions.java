@@ -3,6 +3,8 @@ package fr.fortuna.Tirage;
 import java.util.Arrays;
 
 public class TirageEuromillions implements Tirage {
+	
+	
 	public TirageEuromillions()
 	{
 		Boules=new int[5];
@@ -204,6 +206,11 @@ public class TirageEuromillions implements Tirage {
 
 	public double[] getGainParRgEurope() {
 		return GainParRgEurope;
+	}
+	
+	public boolean equals(TirageEuromillions t)
+	{
+		return ((t.getNumeroDeTirage().compareTo(NumeroDeTirage))==0);
 	}
 	
 }

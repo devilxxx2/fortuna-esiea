@@ -9,13 +9,13 @@ import fr.fortuna.Tirage.Tirage;
 public class Test1 {
 	public static void main(String[] args)
 	{
-		File csv=new File("CSV Files/euromillions.csv");
+		File csv=new File("CSV Files/nouveau_superloto.csv");
 		
-		EuromillionsCsvTirageDAO t= new EuromillionsCsvTirageDAO(csv);
+		NouveauSuperLotoCsvTirageDAO t= new NouveauSuperLotoCsvTirageDAO(csv);
 		
-		Euromillions eur= new Euromillions(t.loadAllTirages());
+		NouveauSuperLoto eur= new NouveauSuperLoto(t.loadAllTirages());
 		
-		System.out.println(eur.getTirages().get(0).getGainParRgEurope()[0]);
+		System.out.println(eur.getTirages().get(0).getGainParRg()[0]);
 
 	}
 }
