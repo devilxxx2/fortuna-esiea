@@ -76,8 +76,8 @@ public class TirageLoto implements Tirage {
 		return NumeroJokerPlus;
 	}
 
-	public void setNombreDeGagnantsRg(int[] nombreDeGagnantsRg) {
-		NombreDeGagnantsRg = nombreDeGagnantsRg;
+	public int[] getNombreDeGagnantsRg() {
+		return NombreDeGagnantsRg; 
 	}
 
 	public void setDateForclusion(String dateForclusion) {
