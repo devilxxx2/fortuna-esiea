@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.print.attribute.standard.Media;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -55,25 +56,45 @@ public class Loto extends JPanel implements ActionListener{
 
 	}
 
+	public void createNewFrameGame(){
+		JFrame newFrame=new JFrame();
+		JDialog dial=new JDialog();
+
+	}
+
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-			this.removeAll();
+
 		if ( ((JMenuItem)(e.getSource()) ).getText().equals("Euromillions")){
-			this.add(new JGrilleEuroMillions(1));
+			JDialog dial=new JDialog(frame, "Euromillions");
+			dial.setModal(false);
+			dial.setVisible(true);
+			dial.add(new JGrilleEuroMillions(2));
+			dial.pack();
+
+			/*		this.add(new JGrilleEuroMillions(1));
 			this.add(new JGrilleEuroMillions(2));
 			this.add(new JGrilleEuroMillions(3));
 			this.add(new JGrilleEuroMillions(4));
-			
+			 */
 
 			this.validate();frame.pack();
 		}
 		if ( ((JMenuItem)(e.getSource()) ).getText().equals("Nouveau Loto")){
+			JDialog dial=new JDialog(frame, "Nouveau Loto");
+			dial.setModal(false);
+			dial.setVisible(true);
+			dial.add(new JGrilleNouveauLoto());
+			dial.pack();
+
+			/*
 			this.add(new JGrilleNouveauLoto());
 
 			this.validate();frame.pack();
+			 */
 		}
 
 
