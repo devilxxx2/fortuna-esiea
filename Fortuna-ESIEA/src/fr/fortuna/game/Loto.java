@@ -60,12 +60,13 @@ public class Loto extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
+			this.removeAll();
 		if ( ((JMenuItem)(e.getSource()) ).getText().equals("Euromillions")){
 			this.add(new JGrilleEuroMillions(1));
 			this.add(new JGrilleEuroMillions(2));
 			this.add(new JGrilleEuroMillions(3));
 			this.add(new JGrilleEuroMillions(4));
+			
 
 			this.validate();frame.pack();
 		}
