@@ -1,45 +1,53 @@
 package fr.fortuna.game;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Insets;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JToggleButton;
-import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import fr.fortuna.model.Grille;
 import fr.fortuna.model.GrilleEuroMillions;
 
-public class JGrilleEuroMillions extends JPanel implements JGrille {
-        private JGrilleNumeros nums;
-        private JGrilleNumeros etoiles;
+public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener, ActionListener {
 
-        public JGrilleEuroMillions(int numeroGrille){
-                super();
+	private JGrilleNumeros nums;
+	private JGrilleNumeros etoiles;
 
-                TitledBorder titledBorder=BorderFactory.createTitledBorder(
-                		BorderFactory.createMatteBorder(3, 3, 3, 3, Color.red),
-                		Integer.toString(numeroGrille));
-        		titledBorder.setTitleJustification(TitledBorder.CENTER);
-        		this.setBorder(titledBorder);
+	public JGrilleEuroMillions(int numeroGrille){
+		super();
 
-                nums = new JGrilleNumeros(50, 6, "Numéros");
-                etoiles = new JGrilleNumeros(9, 3, "Étoiles");
-                this.add(nums);
-                this.add(etoiles);
-        }
+		TitledBorder titledBorder=BorderFactory.createTitledBorder(
+				BorderFactory.createMatteBorder(3, 3, 3, 3, Color.red),
+				Integer.toString(numeroGrille));
+		titledBorder.setTitleJustification(TitledBorder.CENTER);
+		this.setBorder(titledBorder);
 
-        @Override
-        public Grille getGrille() {
-                return new GrilleEuroMillions(nums.getNums(), etoiles.getNums());
-        }
+		nums = new JGrilleNumeros(50, 6, "NumÃ©ros");
+		etoiles = new JGrilleNumeros(9, 3, "Etoiles");
+		this.add(nums);
+		this.add(etoiles);
+	}
+
+	@Override
+	public Grille getGrille() {
+		return new GrilleEuroMillions(nums.getNums(), etoiles.getNums());
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
+
+
+	}
 }

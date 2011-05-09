@@ -55,6 +55,12 @@ public class JGrilleNumeros extends JPanel {
 			if (grille[i].isSelected())
 				list.add(i+1);
 		int[] ret = new int[list.size()];
+		
+		/*
+			Integer[] ret1=new Integer[list.size()];
+			ret1=(Integer[])list.toArray(new Integer[0]);
+		*/
+		
 		for (int i = 0; i < ret.length; ++i)
 			ret[i] = list.get(i);
 		return ret;
