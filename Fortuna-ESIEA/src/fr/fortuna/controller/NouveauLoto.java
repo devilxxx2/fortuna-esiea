@@ -20,6 +20,93 @@ public class NouveauLoto /* implements Jeu*/{
 	private NouveauLoto(){}
 	
 	/*
+	 * Recherche dans les anciens tirages les resultats d'une grille
+	 * 
+	 * @return ArrayList de Resultat, contenant le rang et les gains
+	 */
+	public ArrayList<Resultat> rechercheAncienResultat(Grille g) {
+		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les résultats
+		GrilleNouveauLoto grille = (GrilleNouveauLoto) g;	//cast en Grille NouveauLoto
+		Resultat resultat;
+		TirageNouveauLoto tirage;
+		int rang = 0;
+		double gain = 0;
+		Iterator it = tirages.iterator();
+		
+		while(it.hasNext()) {
+			tirage = (TirageNouveauLoto)it.next();
+			rang = this.calculRang(grille, tirage);
+			if (rang != 0) {
+				gain = tirage.getRapportRang()[rang-1];
+				resultat = new Resultat(tirage, grille, rang, gain);
+				retour.add(resultat);
+			}
+		}
+		return retour;		
+	}
+	
+	/*
+	 * Calcule le rang d'une grille pour un tirage
+	 * 
+	 * @return le rang
+	 */
+	private int calculRang(Grille g, Tirage t) {
+		GrilleNouveauLoto grille = (GrilleNouveauLoto) g;	//cast en GrilleNouveauLoto
+		TirageNouveauLoto tirage = (TirageNouveauLoto) t; //cast en TirageNouveauLoto
+		int[] numsGrille = grille.getNums();
+		int[] chanceGrille = grille.getChance();
+		int[] numsTirage = tirage.getBoules();
+		int chanceTirage = tirage.getNumeroChance();
+		
+		int numMatch = 0;	//Le nombre de numéro gagnant
+		boolean numeroChanceObtenu = false;	//Numéro chance obtenu ou non
+		int i, j;	//Variable de boucle
+		
+		//Calcul du nombre d'occurence de numéro
+		for (i = 0; i < numsGrille.length; i++) {
+			for (j = 0; j < numsTirage.length; j++) {
+				if (numsGrille[i] == numsTirage[j]) {
+					numMatch++;
+				}
+			}
+		}
+		
+		//Verification du numéro chance
+		for (i = 0; i < chanceGrille.length; i++) {
+			if(chanceGrille[i] == chanceTirage) {
+				numeroChanceObtenu = true;
+			}
+		}
+		
+		//retourne le rang selon le nombre de numéro, et si il y a le numéro chance ou non
+		switch(numMatch) {
+			case 5:
+				if(numeroChanceObtenu) {
+					return 1;
+				}
+				else {
+					return 2;
+				}
+				
+			case 4:
+				return 3;
+				
+			case 3:
+				return 4;
+				
+			case 2:
+				return 5;
+				
+			case 0:
+				if(numeroChanceObtenu) {
+					return 6;
+				}
+			break;
+		}
+		return 0; //perdu
+	}
+	
+	/*
 	 * Calcule les statistiques sur les boules et des numéros chance du Nouveau Loto
 	 * 
 	 * @return liste de map avec les statistiques  des boules et des numéros chance

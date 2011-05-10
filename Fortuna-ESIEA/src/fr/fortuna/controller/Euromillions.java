@@ -20,11 +20,116 @@ public class Euromillions/* implements Jeu*/ {
 	
 	private Euromillions(){}
 
-	/*	@Override
-	public void jouer(Grille g) {
-		// TODO Auto-generated method stub
+	/*
+	 * Recherche dans les anciens tirages les resultats d'une grille
+	 * 
+	 * @return ArrayList de Resultat, contenant le rang et les gains
+	 */
+	public ArrayList<Resultat> rechercheAncienResultat(Grille g) {
+		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les résultats
+		GrilleEuroMillions grille = (GrilleEuroMillions) g;	//cast en Grille Euromillions
+		Resultat resultat;
+		TirageEuromillions tirage;
+		int rang = 0;
+		double gain = 0;
+		Iterator it = tirages.iterator();
 		
-	}*/
+		while(it.hasNext()) {
+			tirage = (TirageEuromillions)it.next();
+			rang = this.calculRang(grille, tirage);
+			if (rang != 0) {
+				gain = tirage.getRapportRang()[rang-1];
+				resultat = new Resultat(tirage, grille, rang, gain);
+				retour.add(resultat);
+			}
+		}
+		return retour;		
+	}
+	
+	/*
+	 * Calcule le rang d'une grille pour un tirage
+	 * 
+	 * @return le rang
+	 */
+	private int calculRang(Grille g, Tirage t) {
+		GrilleEuroMillions grille = (GrilleEuroMillions) g;	//cast en GrilleEuroMillions
+		TirageEuromillions tirage = (TirageEuromillions) t; //cast en TirageEuromillions
+		int[] numsGrille = grille.getNums();
+		int[] starsGrille = grille.getStars();
+		int[] numsTirage = tirage.getBoules();
+		int[] starsTirage = tirage.getEtoiles();
+		int numMatch = 0;	//Le nombre de numéro gagnant
+		int starsMatch = 0;	//Le nombre d'étoile gagnant
+		int i, j;	//Variable de boucle
+		
+		//Calcul du nombre d'occurence de numéro
+		for (i = 0; i < numsGrille.length; i++) {
+			for (j = 0; j < numsTirage.length; j++) {
+				if (numsGrille[i] == numsTirage[j]) {
+					numMatch++;
+				}
+			}
+		}
+		
+		//Calcul du nombre d'occurence d'étoile
+		for (i = 0; i < starsGrille.length; i++) {
+			for (j = 0; j < starsTirage.length; j++) {
+				if(starsGrille[i] == starsTirage[j]) {
+					starsMatch++;
+				}
+			}
+		}
+		
+		//Retourne le rang selon le nombre de numéro et d'étoile
+		switch(numMatch) {
+			case 5:
+				switch(starsMatch) {
+					case 2:
+						return 1;
+					case 1:
+						return 2;
+					case 0:
+						return 3;
+				}
+				break;
+				
+			case 4:
+				switch(starsMatch) {
+					case 2:
+						return 4;
+					case 1:
+						return 5;
+					case 0:
+						return 6;
+				}
+				break;
+				
+			case 3:
+				switch(starsMatch) {
+					case 2:
+						return 7;
+					case 1:
+						return 8;
+					case 0:
+						return 10;
+				}
+				break;
+			case 2:
+				switch(starsMatch) {
+					case 2:
+						return 9;
+					case 1:
+						return 12;
+				}
+				break;
+			case 1:
+				switch(starsMatch) {
+					case 2:
+						return 11;
+				}
+		}
+		return 0;	//Perdu
+	}
 	
 	/*
 	 * Calcule les statistiques sur les boules et étoiles d'euromillions
