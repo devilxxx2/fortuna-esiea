@@ -1,5 +1,6 @@
 package fr.fortuna.game;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,9 +18,13 @@ public class Loto extends JPanel implements ActionListener{
 	JFrame frame;
 
 	public Loto(JFrame f){
-		super(new GridLayout(4, 1, 0, 3));
-
+		super(new GridLayout(4, 1, 0, 5));
 		this.frame=f;
+		
+/*		setPreferredSize(new Dimension(750, 500));
+		setSize(750, 500);
+	*/	validate();updateUI();
+		
 		createMenu();
 		addButtons();
 
@@ -27,27 +32,19 @@ public class Loto extends JPanel implements ActionListener{
 
 
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		JFrame frame=new JFrame("Jeux de Loto");
-		frame.setVisible(true);
-		frame.setSize(500, 500);
-		frame.add(new Loto(frame));
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
-
-	}
-
 	public void addButtons(){
 
 		JButton b=new JButton("Jouer à Euromillions");
-		this.add(b);
 		b.addActionListener(this);
-
+		this.add(b);
+		
 		b=new JButton("Jouer au Nouveau Loto");
-		this.add(b);
 		b.addActionListener(this);
+		this.add(b);
+		
+		b=new JButton("Règles des jeux");
+		b.addActionListener(this);
+		this.add(b);
 
 	}
 
@@ -70,34 +67,65 @@ public class Loto extends JPanel implements ActionListener{
 		frame.setJMenuBar(menuBar);
 
 	}
+	public void popEuroMillions(){
+		JDialog dial=new JDialog(frame, "Euromillions");
+		dial.setModal(false);
+		dial.setVisible(true);
+		dial.add(new JGrilleEuroMillions(2));
+		dial.pack();
+		this.validate();frame.pack();
 
+	}
+	
+	public void popNouveauLoto(){
+		JDialog dial=new JDialog(frame, "Nouveau Loto");
+		dial.setModal(false);
+		dial.setVisible(true);
+		dial.add(new JGrilleNouveauLoto());
+		dial.pack();
+	}
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		JFrame frame=new JFrame("Jeux de Loto");
+		frame.setVisible(true);
+		frame.setSize(750, 500);
+		frame.add(new Loto(frame));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setPreferredSize(new Dimension(350, 450));
+		frame.pack();
+
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
 		if(e.getSource() instanceof JMenuItem) {
-			JMenuItem button=(JMenuItem)(e.getSource());
-			if ( button.getText().equals("Euromillions")){
-				JDialog dial=new JDialog(frame, "Euromillions");
-				dial.setModal(false);
-				dial.setVisible(true);
-				dial.add(new JGrilleEuroMillions(2));
-				dial.pack();
-
-
-
-				this.validate();frame.pack();
+			JMenuItem item=(JMenuItem)(e.getSource());
+			if ( item.getText().equals("Euromillions")){
+				popEuroMillions();
 			}
-			if ( button.getText().equals("Nouveau Loto")){
-				JDialog dial=new JDialog(frame, "Nouveau Loto");
-				dial.setModal(false);
-				dial.setVisible(true);
-				dial.add(new JGrilleNouveauLoto());
-				dial.pack();
+			if ( item.getText().equals("Nouveau Loto")){
+				popNouveauLoto();
 
 			}
 
+		}
+		if(e.getSource() instanceof JButton){
+			System.out.println("");
+
+			JButton button=(JButton)(e.getSource());
+			if ( button.getText().equals("Jouer à Euromillions")){
+				popEuroMillions();
+			}
+			if ( button.getText().equals("Jouer au Nouveau Loto")){
+				popNouveauLoto();
+
+
+			}
+			
 		}
 
 
