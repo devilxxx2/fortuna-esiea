@@ -1,26 +1,26 @@
-package fr.fortuna.Tirage;
+package fr.fortuna.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class Loto /* implements Jeu*/{
-	private List<TirageLoto> tirages;
+public class SuperLoto /* implements Jeu*/{
+	private List<TirageSuperLoto> tirages;
 	
-	public Loto(List<TirageLoto> t){
+	public SuperLoto(List<TirageSuperLoto> t){
 		tirages=t;
 	}
 	
-	public List<TirageLoto> getTirages()
+	public List<TirageSuperLoto> getTirages()
 	{
 		return tirages;
 	}
 	
-	private Loto(){}
+	private SuperLoto(){}
 	
 	/*
-	 * Calcule les statistiques sur les boules du loto
+	 * Calcule les statistiques sur les boules du super loto
 	 * 
 	 * @return liste de map avec les statistiques des boules et les numéros complémentaires
 	 */
@@ -102,7 +102,7 @@ public class Loto /* implements Jeu*/{
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 		double[] tableauGain;
 		int i;	//variable de boucle
-		double stat; 	//statistique calculée
+		double stat; 	//statistique calcul�e
 		TirageLoto tirageEnCours;
 		Iterator it = tirages.iterator();
 		

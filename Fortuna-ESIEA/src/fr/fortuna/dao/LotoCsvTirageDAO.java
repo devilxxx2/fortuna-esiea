@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.fortuna.Tirage.*;
+import fr.fortuna.controller.*;
 
 public class LotoCsvTirageDAO extends CsvTirageDAO {
 

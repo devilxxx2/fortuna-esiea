@@ -1,4 +1,4 @@
-package fr.fortuna.Tirage;
+package fr.fortuna.controller;
 
 public interface Jeu {
 	//public void jouer(Grille g);

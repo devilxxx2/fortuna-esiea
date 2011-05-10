@@ -1,4 +1,4 @@
-package fr.fortuna.model;
+package fr.fortuna.controller;
 
 public interface Grille {
 	public double getPrice();

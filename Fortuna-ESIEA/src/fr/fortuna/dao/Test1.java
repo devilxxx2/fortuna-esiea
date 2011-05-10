@@ -1,10 +1,8 @@
 package fr.fortuna.dao;
 
 import java.io.File;
-import fr.fortuna.Tirage.*;
+import fr.fortuna.controller.*;
 import java.util.List;
-
-import fr.fortuna.Tirage.Tirage;
 
 public class Test1 {
 	public static void main(String[] args)

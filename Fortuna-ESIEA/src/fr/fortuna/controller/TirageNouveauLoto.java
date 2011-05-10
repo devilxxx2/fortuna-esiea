@@ -1,16 +1,16 @@
-package fr.fortuna.Tirage;
+package fr.fortuna.controller;
 
 import java.util.Arrays;
 
-public class TirageSuperLoto implements Tirage {
+public class TirageNouveauLoto implements Tirage {
 	
 	
-	public TirageSuperLoto()
+	public TirageNouveauLoto()
 	{
-		boules=new int[6];
-		nombreDeGagnantsRg=new int[7];
-		rapportRang=new double[7];		
-		gainParRg=new double[7];
+		boules=new int[5];
+		nombreDeGagnantsRg=new int[6];
+		rapportRang=new double[6];		
+		gainParRg=new double[6];
 	}
 	
 	private String numeroDeTirage;
@@ -18,7 +18,7 @@ public class TirageSuperLoto implements Tirage {
 	private String dateTirage;
 	private String dateForclusion;
 	private int[] boules;
-	private int bouleComplementaire;
+	private int numeroChance;
 	private int[] nombreDeGagnantsRg;
 	private double[] rapportRang;
 	private String numeroJokerPlus;
@@ -35,7 +35,7 @@ public class TirageSuperLoto implements Tirage {
 	}
 
 	public void setNumeroDeTirage(String numeroDeTirage) {
-		numeroDeTirage = numeroDeTirage;
+		this.numeroDeTirage = numeroDeTirage;
 	}
 
 	public String getNumeroDeTirage() {
@@ -47,7 +47,7 @@ public class TirageSuperLoto implements Tirage {
 	}
 
 	public String getJour() {
-		return this.jour;
+		return jour;
 	}
 
 	public void setRapportRang(double[] rapportRang) {
@@ -148,17 +148,18 @@ public class TirageSuperLoto implements Tirage {
 		return ((t.getNumeroDeTirage().compareTo(numeroDeTirage))==0);
 	}
 
-	public void setBouleComplementaire(int bouleComplementaire) {
-		this.bouleComplementaire = bouleComplementaire;
+
+	public void setNumeroChance(int numeroChance) {
+		this.numeroChance = numeroChance;
 	}
 
-	public int getBouleComplementaire() {
-		return bouleComplementaire;
+	public int getNumeroChance() {
+		return this.numeroChance;
 	}
 
 	public void setNombreDeGagnantsRg(int[] nbGag) {
 		// TODO Auto-generated method stub
 		nombreDeGagnantsRg=nbGag;
 	}
-
+	
 }

@@ -6,7 +6,7 @@ import java.awt.event.ItemListener;
 
 import javax.swing.JToggleButton;
 
-import fr.fortuna.model.GrilleEuroMillions;
+import fr.fortuna.controller.GrilleEuroMillions;
 
 public class NumeroListener implements ItemListener {
 	

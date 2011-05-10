@@ -7,8 +7,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import fr.fortuna.model.Grille;
-import fr.fortuna.model.GrilleNouveauLoto;
+import fr.fortuna.controller.Grille;
+import fr.fortuna.controller.GrilleNouveauLoto;
 
 public class JGrilleNouveauLoto extends JPanel implements JGrille {
 	private JGrilleNumeros nums;

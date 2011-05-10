@@ -1,26 +1,26 @@
-package fr.fortuna.Tirage;
+package fr.fortuna.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class NouveauLoto /* implements Jeu*/{
-	private List<TirageNouveauLoto> tirages;
+public class NouveauSuperLoto /* implements Jeu*/{
+	private List<TirageNouveauSuperLoto> tirages;
 	
-	public NouveauLoto(List<TirageNouveauLoto> t){
+	public NouveauSuperLoto(List<TirageNouveauSuperLoto> t){
 		tirages=t;
 	}
 	
-	public List<TirageNouveauLoto> getTirages()
+	public List<TirageNouveauSuperLoto> getTirages()
 	{
 		return tirages;
 	}
 	
-	private NouveauLoto(){}
+	private NouveauSuperLoto(){}
 	
 	/*
-	 * Calcule les statistiques sur les boules et des numéros chance du Nouveau Loto
+	 * Calcule les statistiques sur les boules et des numéros chance du Nouveau Super Loto
 	 * 
 	 * @return liste de map avec les statistiques  des boules et des numéros chance
 	 */
@@ -35,12 +35,12 @@ public class NouveauLoto /* implements Jeu*/{
 		int numeroChance = 0;
 		double stat;	//Statistique calculée
 		int i, j;	//Parcours de boucle
-		TirageNouveauLoto tirageEnCours; //Sauvegarde du tirage dans la boucle
+		TirageNouveauSuperLoto tirageEnCours; //Sauvegarde du tirage dans la boucle
 		
 		Iterator it = tirages.iterator();
 		//On parcourt l'ensemble des tirages
 		while (it.hasNext()) {
-			tirageEnCours = (TirageNouveauLoto) it.next();
+			tirageEnCours = (TirageNouveauSuperLoto) it.next();
 			//Cas des boules
 			for (i = 0; i < 5; i++) {
 				boule = tirageEnCours.getBoules()[i];
@@ -68,22 +68,22 @@ public class NouveauLoto /* implements Jeu*/{
 	}
 	
 	/*
-	 * Calcule les statistiques sur les gagnants du nouveau loto
+	 * Calcule les statistiques sur les gagnants du nouveau super loto
 	 * 
 	 * @return une map contenant les tirages, et les statistiques des gagnants pour chaque rang
 	 */
-	public HashMap<TirageNouveauLoto, HashMap<Integer, Double>> calculStatGagnant() {
-		HashMap<TirageNouveauLoto, HashMap<Integer, Double>> retour = new HashMap<TirageNouveauLoto, HashMap<Integer, Double>>();	//Map retournée
+	public HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>> calculStatGagnant() {
+		HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>> retour = new HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>>();	//Map retournée
 		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 		int[] nombreDeGagnantsRg;	//nombre de gagnant en Europe pour un tirage
 		int i;	//variable de boucle 
 		double stat; //statistique calculée
-		TirageNouveauLoto tirageEnCours;
+		TirageNouveauSuperLoto tirageEnCours;
 		Iterator it = tirages.iterator();
 		
 		//On parcourt l'ensemble des tirages
 		while(it.hasNext()) {
-			tirageEnCours = (TirageNouveauLoto) it.next();
+			tirageEnCours = (TirageNouveauSuperLoto) it.next();
 			nombreDeGagnantsRg = tirageEnCours.getNombreDeGagnantsRg();
 			for (i = 0; i < nombreDeGagnantsRg.length; i++) {
 				stat = nombreDeGagnantsRg[i] / tirageEnCours.getNombreDeGagnantsTotal();
@@ -96,7 +96,7 @@ public class NouveauLoto /* implements Jeu*/{
 	}
 	
 	/*
-	 * Calcule les statistiques sur les gains du nouveau loto
+	 * Calcule les statistiques sur les gains du nouveau Super loto
 	 * 
 	 * @return une map contenant les tirages, et les statistiques des gains pour chaque rang
 	 */
@@ -121,4 +121,6 @@ public class NouveauLoto /* implements Jeu*/{
 		}
 		return retour;
 	}
+	
+	
 }

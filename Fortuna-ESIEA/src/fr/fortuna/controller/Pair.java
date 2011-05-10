@@ -1,4 +1,4 @@
-package fr.fortuna.model;
+package fr.fortuna.controller;
 
 class Pair<A, B> {
 	private final A first;

@@ -1,4 +1,4 @@
-package fr.fortuna.Tirage;
+package fr.fortuna.controller;
 
 import java.util.Arrays;
 

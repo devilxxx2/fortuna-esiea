@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-import fr.fortuna.Tirage.Tirage;
+import fr.fortuna.controller.Tirage;
 
 public abstract class CsvTirageDAO implements TirageDAO {
 

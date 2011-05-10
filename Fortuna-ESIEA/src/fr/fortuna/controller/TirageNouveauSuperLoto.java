@@ -1,11 +1,11 @@
-package fr.fortuna.Tirage;
+package fr.fortuna.controller;
 
 import java.util.Arrays;
 
-public class TirageNouveauLoto implements Tirage {
+public class TirageNouveauSuperLoto implements Tirage {
 	
 	
-	public TirageNouveauLoto()
+	public TirageNouveauSuperLoto()
 	{
 		boules=new int[5];
 		nombreDeGagnantsRg=new int[6];

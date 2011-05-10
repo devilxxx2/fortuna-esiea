@@ -1,4 +1,4 @@
-package fr.fortuna.model;
+package fr.fortuna.controller;
 
 import java.util.HashMap;
 

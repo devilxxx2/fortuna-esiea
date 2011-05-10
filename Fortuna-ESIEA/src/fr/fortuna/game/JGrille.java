@@ -2,7 +2,7 @@ package fr.fortuna.game;
 
 import java.util.ArrayList;
 
-import fr.fortuna.model.Grille;
+import fr.fortuna.controller.Grille;
 
 public interface JGrille {
 

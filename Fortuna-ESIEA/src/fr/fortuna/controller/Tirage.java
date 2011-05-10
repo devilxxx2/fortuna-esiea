@@ -1,4 +1,4 @@
-package fr.fortuna.Tirage;
+package fr.fortuna.controller;
 
 public interface Tirage {
 	

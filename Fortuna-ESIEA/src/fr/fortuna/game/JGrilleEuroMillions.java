@@ -12,8 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import fr.fortuna.model.Grille;
-import fr.fortuna.model.GrilleEuroMillions;
+import fr.fortuna.controller.Grille;
+import fr.fortuna.controller.GrilleEuroMillions;
 
 public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener, ActionListener {
 
