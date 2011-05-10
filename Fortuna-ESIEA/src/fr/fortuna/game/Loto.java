@@ -1,11 +1,9 @@
 package fr.fortuna.game;
 
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.print.attribute.standard.Media;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
