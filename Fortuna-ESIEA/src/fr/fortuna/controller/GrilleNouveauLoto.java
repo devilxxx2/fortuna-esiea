@@ -20,6 +20,14 @@ public class GrilleNouveauLoto implements Grille {
 		this.nums = nums;
 		this.chance = chance;
 	}
+	
+	public int[] getNums() {
+		return nums;
+	}
+	
+	public int[] getChance() {
+		return chance;
+	}
 
 	public double getPrice() {
 		return prix;

@@ -24,6 +24,14 @@ public class GrilleEuroMillions implements Grille {
 	public double getPrice() {
 		return prix;
 	}
+	
+	public int[] getNums() {
+		return nums;
+	}
+	
+	public int[] getStars() {
+		return stars;
+	}
 }
 
 class CombiEuroMillions {
