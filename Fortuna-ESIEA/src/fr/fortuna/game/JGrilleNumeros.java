@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 public class JGrilleNumeros extends JPanel {
+	
 	private JToggleButton[] grille;
 	private final int NB_CASES;
 

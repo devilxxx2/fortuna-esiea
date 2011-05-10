@@ -3,19 +3,7 @@ package fr.fortuna.Tirage;
 import java.util.Arrays;
 
 public class TirageEuromillions implements Tirage {
-	
-	
-	public TirageEuromillions()
-	{
-		boules=new int[5];
-		etoiles=new int[2];
-		nombreDeGagnantsRgEurope=new int[12];
-		nombreDeGagnantsRgFrance=new int[12];
-		rapportRang=new double[12];		
-		gainParRgEurope=new double[12];
-		gainParRgFrance=new double[12];
-	}
-	
+
 	private String numeroDeTirage;
 	private String jour;
 	private String dateTirage;
@@ -33,14 +21,26 @@ public class TirageEuromillions implements Tirage {
 	private double gainTotalEurope;
 	private double[] gainParRgFrance;
 	private double[] gainParRgEurope;
-	
+
+	public TirageEuromillions()
+	{
+		boules=new int[5];
+		etoiles=new int[2];
+		nombreDeGagnantsRgEurope=new int[12];
+		nombreDeGagnantsRgFrance=new int[12];
+		rapportRang=new double[12];		
+		gainParRgEurope=new double[12];
+		gainParRgFrance=new double[12];
+	}
+
+
 	public int[] getBoulesCroissantes()
 	{
 		int[] tmp=boules;
 		Arrays.sort(tmp);
 		return tmp;
 	}
-	
+
 	public int[] getEtoilesCroissantes()
 	{
 		int[] tmp=etoiles;
@@ -143,11 +143,11 @@ public class TirageEuromillions implements Tirage {
 	public double getGainTotalEurope() {
 		return gainTotalEurope;
 	}
-	
+
 	public int getNombreDeGagnantsTotalFrance() {
 		return nombreDeGagnantsTotalFrance;
 	}
-	
+
 	public int getNombreDeGagnantsTotalEurope() {
 		return nombreDeGagnantsTotalEurope;
 	}
@@ -158,7 +158,7 @@ public class TirageEuromillions implements Tirage {
 		for(int NombreDeGagnants : nombreDeGagnantsRgFrance)
 			nombreDeGagnantsTotalFrance+=NombreDeGagnants;
 	}
-	
+
 	/*
 	 *  Calcule le nombre de gagnants total en Europe
 	 */
@@ -166,7 +166,7 @@ public class TirageEuromillions implements Tirage {
 		for(int NombreDeGagnants : nombreDeGagnantsRgEurope)
 			nombreDeGagnantsTotalEurope+=NombreDeGagnants;
 	}
-	
+
 	/*
 	 *  Calcule le gain total en france
 	 */
@@ -174,7 +174,7 @@ public class TirageEuromillions implements Tirage {
 		for(int i=0;i<nombreDeGagnantsRgFrance.length;i++)
 			gainTotalFrance+=rapportRang[i]*nombreDeGagnantsRgFrance[i];
 	}
-	
+
 	/*
 	 *  Calcule le gain total en Europe
 	 */
@@ -182,7 +182,7 @@ public class TirageEuromillions implements Tirage {
 		for(int i=0;i<nombreDeGagnantsRgEurope.length;i++)
 			gainTotalEurope+=rapportRang[i]*nombreDeGagnantsRgEurope[i];
 	}
-	
+
 	/*
 	 *  Calcule le gain par rang en france
 	 */
@@ -190,7 +190,7 @@ public class TirageEuromillions implements Tirage {
 		for(int i=0;i<nombreDeGagnantsRgFrance.length;i++)
 			gainParRgFrance[i]=rapportRang[i]*nombreDeGagnantsRgFrance[i];
 	}
-	
+
 	/*
 	 *  Calcule le gain par rang en Europe
 	 */
@@ -207,10 +207,10 @@ public class TirageEuromillions implements Tirage {
 	public double[] getGainParRgEurope() {
 		return gainParRgEurope;
 	}
-	
+
 	public boolean equals(TirageEuromillions t)
 	{
 		return ((t.getNumeroDeTirage().compareTo(numeroDeTirage))==0);
 	}
-	
+
 }

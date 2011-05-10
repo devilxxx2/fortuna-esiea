@@ -13,24 +13,22 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-public class Loto extends JPanel implements ActionListener{
+public class MainFrame extends JPanel implements ActionListener{
 
 	JFrame frame;
 
-	public Loto(JFrame f){
+	public MainFrame(JFrame f){
 		super(new GridLayout(4, 1, 0, 5));
 		this.frame=f;
 		
 /*		setPreferredSize(new Dimension(750, 500));
-		setSize(750, 500);
-	*/	validate();updateUI();
+		setSize(750, 500);  */
+		validate();updateUI();
 		
 		createMenu();
 		addButtons();
 
 	}
-
-
 
 	public void addButtons(){
 
@@ -57,7 +55,6 @@ public class Loto extends JPanel implements ActionListener{
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
-
 		menuItem=new JMenuItem("Nouveau Loto");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
@@ -67,6 +64,7 @@ public class Loto extends JPanel implements ActionListener{
 		frame.setJMenuBar(menuBar);
 
 	}
+	
 	public void popEuroMillions(){
 		JDialog dial=new JDialog(frame, "Euromillions");
 		dial.setModal(false);
@@ -85,16 +83,17 @@ public class Loto extends JPanel implements ActionListener{
 		dial.pack();
 	}
 
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		JFrame frame=new JFrame("Jeux de Loto");
 		frame.setVisible(true);
 		frame.setSize(750, 500);
-		frame.add(new Loto(frame));
+		frame.add(new MainFrame(frame));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(350, 450));
+		frame.setAlwaysOnTop(true); // FIST FUCK POUR BLASTCOCK
+		frame.setResizable(false);
 		frame.pack();
 
 	}
@@ -114,8 +113,6 @@ public class Loto extends JPanel implements ActionListener{
 
 		}
 		if(e.getSource() instanceof JButton){
-			System.out.println("");
-
 			JButton button=(JButton)(e.getSource());
 			if ( button.getText().equals("Jouer à Euromillions")){
 				popEuroMillions();
@@ -130,5 +127,7 @@ public class Loto extends JPanel implements ActionListener{
 
 
 	}
+	
+	
 
 }

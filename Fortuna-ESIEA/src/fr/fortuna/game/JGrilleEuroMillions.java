@@ -19,9 +19,11 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 
 	private JGrilleNumeros nums;
 	private JGrilleNumeros etoiles;
+	private JPanel buttonPanel;
 
 	public JGrilleEuroMillions(int numeroGrille){
 		super();
+		
 		
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
@@ -35,6 +37,9 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 		etoiles = new JGrilleNumeros(9, 3, "Etoiles");
 		this.add(nums);
 		this.add(etoiles);
+		
+		
+		buttonPanel=new JPanel();
 		
 		JButton button=new JButton("Valider la grille");
 		button.addActionListener(this);
@@ -50,6 +55,7 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
 
 	}
 
