@@ -4,15 +4,6 @@ import java.util.Arrays;
 
 public class TirageLoto implements Tirage {
 	
-	
-	public TirageLoto()
-	{
-		boules=new int[6];
-		nombreDeGagnantsRg=new int[7];
-		rapportRang=new double[7];		
-		gainParRg=new double[7];
-	}
-	
 	private String numeroDeTirage;
 	private int ordreDeTirage;
 	private String jour;
@@ -28,6 +19,71 @@ public class TirageLoto implements Tirage {
 	private int nombreDeGagnantsTotal;
 	private double gainTotal;
 	private double[] gainParRg;
+	
+	public TirageLoto()
+	{
+		boules=new int[6];
+		nombreDeGagnantsRg=new int[7];
+		rapportRang=new double[7];		
+		gainParRg=new double[7];
+	}
+	
+	/*
+	 * Calcule le rang et le gain pour une grille donnée
+	 * 
+	 * @return résultat du tirage pour la grille
+	 */
+	public Resultat getResult(Grille g) {
+		GrilleLoto grille = (GrilleLoto) g;	//cast en GrilleLoto
+		int[] numsGrille = grille.getNums();
+		
+		int numMatch = 0;	//Le nombre de numéro gagnant
+		boolean numeroComplementaireObtenu = false;	//Numéro complementaire obtenu ou non
+		int i, j;	//Variable de boucle
+		
+		//Calcul du nombre d'occurence de numéro et du numéro complémentaire
+		for (i = 0; i < numsGrille.length; i++) {
+			for (j = 0; j < boules.length; j++) {
+				if (numsGrille[i] == boules[j]) {
+					numMatch++;
+				}
+				if (!numeroComplementaireObtenu && numsGrille[i] == bouleComplementaire) {
+					numeroComplementaireObtenu = true;
+				}
+			}
+		}
+		
+		//retourne le resultat et le gain selon le nombre de numéro, et si il y a le numéro complémentaire ou non
+		switch(numMatch) {
+			case 6:
+					return new Resultat(this, grille, 1, rapportRang[0]);	//rang 1 (cagnotte)
+				
+			case 5:
+				if (numeroComplementaireObtenu) {
+					return new Resultat(this, grille, 2, rapportRang[1]);
+				}
+				else {
+					return new Resultat(this, grille, 3, rapportRang[2]);
+				}
+				
+			case 4:
+				if (numeroComplementaireObtenu) {
+					return new Resultat(this, grille, 4, rapportRang[3]);
+				}
+				else {
+					return new Resultat(this, grille, 5, rapportRang[4]);
+				}
+				
+			case 3:
+				if (numeroComplementaireObtenu) {
+					return new Resultat(this, grille, 6, rapportRang[5]);
+				}
+				else {
+					return new Resultat(this, grille, 7, rapportRang[6]);
+				}
+		}
+		return new Resultat(this, grille, 0, 0); //perdu
+	}
 	
 	public int[] getBoulesCroissantes()
 	{

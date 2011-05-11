@@ -30,7 +30,6 @@ public class Euromillions/* implements Jeu*/ {
 		GrilleEuroMillions grille = (GrilleEuroMillions) g;	//cast en Grille Euromillions
 		Resultat resultat;
 		TirageEuromillions tirage;
-		double gain = 0;
 		Iterator it = tirages.iterator();
 		
 		while(it.hasNext()) {

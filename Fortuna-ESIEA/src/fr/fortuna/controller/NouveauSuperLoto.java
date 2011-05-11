@@ -20,6 +20,28 @@ public class NouveauSuperLoto /* implements Jeu*/{
 	private NouveauSuperLoto(){}
 	
 	/*
+	 * Recherche dans les anciens tirages les resultats d'une grille
+	 * 
+	 * @return ArrayList de Resultat, contenant le rang et les gains
+	 */
+	public ArrayList<Resultat> rechercheAncienResultat(Grille g) {
+		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les résultats
+		GrilleNouveauLoto grille = (GrilleNouveauLoto) g;	//cast en Grille NouveauLoto (même grille pour NouveauLoto et NouveauSuperLoto)
+		Resultat resultat;
+		TirageNouveauSuperLoto tirage;
+		Iterator it = tirages.iterator();
+		
+		while(it.hasNext()) {
+			tirage = (TirageNouveauSuperLoto)it.next();
+			resultat = tirage.getResult(grille);
+			if (resultat.getRang() != 0) {
+				retour.add(resultat);
+			}
+		}
+		return retour;		
+	}
+	
+	/*
 	 * Calcule les statistiques sur les boules et des numÃ©ros chance du Nouveau Super Loto
 	 * 
 	 * @return liste de map avec les statistiques  des boules et des numÃ©ros chance
