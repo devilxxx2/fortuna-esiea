@@ -33,7 +33,90 @@ public class TirageEuromillions implements Tirage {
 		gainParRgFrance=new double[12];
 	}
 
-
+	/*
+	 * Calcule le rang et le gain pour une grille donnée
+	 * 
+	 * @return resultat du tirage pour la grille
+	 */
+	public Resultat getResult(Grille g){
+		GrilleEuroMillions grille = (GrilleEuroMillions) g;
+		int[] numsGrille = grille.getNums();
+		int[] starsGrille = grille.getStars();
+		int numMatch = 0;	//Le nombre de numéro gagnant
+		int starsMatch = 0;	//Le nombre d'étoile gagnant
+		int i, j;	//Variable de boucle
+		
+		//Calcul du nombre d'occurence de numéro
+		for (i = 0; i < numsGrille.length; i++) {
+			for (j = 0; j < boules.length; j++) {
+				if (numsGrille[i] == boules[j]) {
+					numMatch++;
+				}
+			}
+		}
+		
+		//Calcul du nombre d'occurence d'étoile
+		for (i = 0; i < starsGrille.length; i++) {
+			for (j = 0; j < etoiles.length; j++) {
+				if(starsGrille[i] == etoiles[j]) {
+					starsMatch++;
+				}
+			}
+		}
+		
+		//Retourne le resultat selon le nombre de numéro et d'étoile
+		switch(numMatch) {
+			case 5:
+				switch(starsMatch) {
+					case 2:
+						return new Resultat(this, grille, 1, rapportRang[0]);
+					case 1:
+						return new Resultat(this, grille, 2, rapportRang[1]);
+					case 0:
+						return new Resultat(this, grille, 3, rapportRang[2]);
+				}
+				break;
+				
+			case 4:
+				switch(starsMatch) {
+					case 2:
+						return new Resultat(this, grille, 4, rapportRang[3]);
+					case 1:
+						return new Resultat(this, grille, 5, rapportRang[4]);
+					case 0:
+						return new Resultat(this, grille, 6, rapportRang[5]);
+				}
+				break;
+				
+			case 3:
+				switch(starsMatch) {
+					case 2:
+						return new Resultat(this, grille, 7, rapportRang[6]);
+					case 1:
+						return new Resultat(this, grille, 8, rapportRang[7]);
+					case 0:
+						return new Resultat(this, grille, 10, rapportRang[9]);
+				}
+				break;
+			case 2:
+				switch(starsMatch) {
+					case 2:
+						return new Resultat(this, grille, 9, rapportRang[8]);
+					case 1:
+						return new Resultat(this, grille, 12, rapportRang[11]);
+				}
+				break;
+			case 1:
+				switch(starsMatch) {
+					case 2:
+						return new Resultat(this, grille, 11, rapportRang[10]);
+				}
+		}
+		return new Resultat(this, grille, 0, 0);	//Perdu
+	}
+	
+	
+	
 	public int[] getBoulesCroissantes()
 	{
 		int[] tmp=boules;
