@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class NouveauSuperLoto /* implements Jeu*/{
+public class NouveauSuperLoto implements Jeu {
 	private List<TirageNouveauSuperLoto> tirages;
 	
 	public NouveauSuperLoto(List<TirageNouveauSuperLoto> t){
@@ -25,8 +25,11 @@ public class NouveauSuperLoto /* implements Jeu*/{
 	 * @return ArrayList de Resultat, contenant le rang et les gains
 	 */
 	public ArrayList<Resultat> rechercheAncienResultat(Grille g) {
-		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les résultats
-		GrilleNouveauLoto grille = (GrilleNouveauLoto) g;	//cast en Grille NouveauLoto (même grille pour NouveauLoto et NouveauSuperLoto)
+		if (!(g instanceof GrilleNouveauLoto))
+			throw new IllegalArgumentException("GrilleNouveauLoto attendue");
+
+		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les rÃ©sultats
+		GrilleNouveauLoto grille = (GrilleNouveauLoto) g;	//cast en Grille NouveauLoto (mÃªme grille pour NouveauLoto et NouveauSuperLoto)
 		Resultat resultat;
 		TirageNouveauSuperLoto tirage;
 		Iterator it = tirages.iterator();

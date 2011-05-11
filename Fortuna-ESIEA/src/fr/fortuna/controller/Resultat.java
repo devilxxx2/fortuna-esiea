@@ -7,23 +7,7 @@ public class Resultat {
 	private int rang;
 	private double gain;
 	
-	public Resultat(Tirage t, GrilleEuroMillions g, int r, double ga ) {
-		tirage = t;
-		grille = g;
-		rang = r;
-		gain = ga;
-		
-	}
-	
-	public Resultat(Tirage t, GrilleNouveauLoto g, int r, double ga ) {
-		tirage = t;
-		grille = g;
-		rang = r;
-		gain = ga;
-		
-	}
-	
-	public Resultat(Tirage t, GrilleLoto g, int r, double ga ) {
+	public Resultat(Tirage t, Grille g, int r, double ga ) {
 		tirage = t;
 		grille = g;
 		rang = r;

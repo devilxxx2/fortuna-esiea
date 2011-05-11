@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 
-public class Euromillions/* implements Jeu*/ {
+public class Euromillions implements Jeu {
 	private List<TirageEuromillions> tirages;
 	
 	public Euromillions(List<TirageEuromillions> t){
@@ -18,28 +18,26 @@ public class Euromillions/* implements Jeu*/ {
 		return tirages;
 	}
 	
-	private Euromillions(){}
-
 	/*
 	 * Recherche dans les anciens tirages les resultats d'une grille
 	 * 
 	 * @return ArrayList de Resultat, contenant le rang et les gains
 	 */
 	public ArrayList<Resultat> rechercheAncienResultat(Grille g) {
+		if (!(g instanceof GrilleEuroMillions))
+			throw new IllegalArgumentException("GrilleEuroMillions attendue");
+
 		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les résultats
 		GrilleEuroMillions grille = (GrilleEuroMillions) g;	//cast en Grille Euromillions
 		Resultat resultat;
-		TirageEuromillions tirage;
-		Iterator it = tirages.iterator();
 		
-		while(it.hasNext()) {
-			tirage = (TirageEuromillions)it.next();
+		for (TirageEuromillions tirage : tirages) {
 			resultat = tirage.getResult(grille);
 			if (resultat.getRang() != 0) {
 				retour.add(resultat);
 			}
 		}
-		return retour;		
+		return retour;
 	}
 	
 	/*
@@ -60,10 +58,10 @@ public class Euromillions/* implements Jeu*/ {
 		int i, j;	//Parcours de boucle
 		TirageEuromillions tirageEnCours; //Sauvegarde du tirage dans la boucle
 		
-		Iterator it = tirages.iterator();
+		Iterator<TirageEuromillions> it = tirages.iterator();
 		//On parcourt l'ensemble des tirages
 		while (it.hasNext()) {
-			tirageEnCours = (TirageEuromillions) it.next();
+			tirageEnCours = it.next();
 			//Cas des boules
 			for (i = 0; i < 5; i++) {
 				boule = tirageEnCours.getBoules()[i];

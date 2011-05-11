@@ -27,20 +27,23 @@ public class TirageNouveauSuperLoto implements Tirage {
 	}
 	
 	/*
-	 * Calcule le rang et le gain pour une grille donnée
+	 * Calcule le rang et le gain pour une grille donnÃ©e
 	 * 
-	 * @return résultat du tirage pour la grille
+	 * @return rÃ©sultat du tirage pour la grille
 	 */
 	public Resultat getResult(Grille g) {
+		if (!(g instanceof GrilleNouveauLoto))
+			throw new IllegalArgumentException("GrilleNouveauLoto attendue");
+
 		GrilleNouveauLoto grille = (GrilleNouveauLoto) g;	//cast en GrilleNouveauLoto
 		int[] numsGrille = grille.getNums();
 		int[] chanceGrille = grille.getChance();
 		
-		int numMatch = 0;	//Le nombre de numéro gagnant
-		boolean numeroChanceObtenu = false;	//Numéro chance obtenu ou non
+		int numMatch = 0;	//Le nombre de numÃ©ro gagnant
+		boolean numeroChanceObtenu = false;	//NumÃ©ro chance obtenu ou non
 		int i, j;	//Variable de boucle
 		
-		//Calcul du nombre d'occurence de numéro
+		//Calcul du nombre d'occurence de numÃ©ro
 		for (i = 0; i < numsGrille.length; i++) {
 			for (j = 0; j < boules.length; j++) {
 				if (numsGrille[i] == boules[j]) {
@@ -49,14 +52,14 @@ public class TirageNouveauSuperLoto implements Tirage {
 			}
 		}
 		
-		//Verification du numéro chance
+		//Verification du numÃ©ro chance
 		for (i = 0; i < chanceGrille.length; i++) {
 			if(chanceGrille[i] == numeroChance) {
 				numeroChanceObtenu = true;
 			}
 		}
 		
-		//retourne le resultat et le gain selon le nombre de numéro, et si il y a le numéro chance ou non
+		//retourne le resultat et le gain selon le nombre de numÃ©ro, et si il y a le numÃ©ro chance ou non
 		switch(numMatch) {
 			case 5:
 				if(numeroChanceObtenu) {

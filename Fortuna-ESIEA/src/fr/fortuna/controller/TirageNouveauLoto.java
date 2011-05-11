@@ -32,6 +32,9 @@ public class TirageNouveauLoto implements Tirage {
 	 * @return résultat du tirage pour la grille
 	 */
 	public Resultat getResult(Grille g) {
+		if (!(g instanceof GrilleNouveauLoto))
+			throw new IllegalArgumentException("GrilleNouveauLoto attendue");
+
 		GrilleNouveauLoto grille = (GrilleNouveauLoto) g;	//cast en GrilleNouveauLoto
 		int[] numsGrille = grille.getNums();
 		int[] chanceGrille = grille.getChance();

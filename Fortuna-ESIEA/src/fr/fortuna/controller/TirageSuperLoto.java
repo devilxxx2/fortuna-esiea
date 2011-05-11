@@ -27,19 +27,22 @@ public class TirageSuperLoto implements Tirage {
 	}
 	
 	/*
-	 * Calcule le rang et le gain pour une grille donnée
+	 * Calcule le rang et le gain pour une grille donnÃ©e
 	 * 
-	 * @return résultat du tirage pour la grille
+	 * @return rÃ©sultat du tirage pour la grille
 	 */
 	public Resultat getResult(Grille g) {
+		if (!(g instanceof GrilleLoto))
+			throw new IllegalArgumentException("GrilleLoto attendue");
+
 		GrilleLoto grille = (GrilleLoto) g;	//cast en GrilleLoto
 		int[] numsGrille = grille.getNums();
 		
-		int numMatch = 0;	//Le nombre de numéro gagnant
-		boolean numeroComplementaireObtenu = false;	//Numéro complementaire obtenu ou non
+		int numMatch = 0;	//Le nombre de numÃ©ro gagnant
+		boolean numeroComplementaireObtenu = false;	//NumÃ©ro complementaire obtenu ou non
 		int i, j;	//Variable de boucle
 		
-		//Calcul du nombre d'occurence de numéro et du numéro complémentaire
+		//Calcul du nombre d'occurence de numÃ©ro et du numÃ©ro complÃ©mentaire
 		for (i = 0; i < numsGrille.length; i++) {
 			for (j = 0; j < boules.length; j++) {
 				if (numsGrille[i] == boules[j]) {
@@ -51,7 +54,7 @@ public class TirageSuperLoto implements Tirage {
 			}
 		}
 		
-		//retourne le resultat et le gain selon le nombre de numéro, et si il y a le numéro complémentaire ou non
+		//retourne le resultat et le gain selon le nombre de numÃ©ro, et si il y a le numÃ©ro complÃ©mentaire ou non
 		switch(numMatch) {
 			case 6:
 					return new Resultat(this, grille, 1, rapportRang[0]);	//rang 1 (cagnotte)

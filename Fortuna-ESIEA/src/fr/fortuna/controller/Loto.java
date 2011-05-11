@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class Loto /* implements Jeu*/{
+public class Loto implements Jeu {
 	private List<TirageLoto> tirages;
 	
 	public Loto(List<TirageLoto> t){
@@ -17,15 +17,16 @@ public class Loto /* implements Jeu*/{
 		return tirages;
 	}
 	
-	private Loto(){}
-	
 	/*
 	 * Recherche dans les anciens tirages les resultats d'une grille
 	 * 
 	 * @return ArrayList de Resultat, contenant le rang et les gains
 	 */
 	public ArrayList<Resultat> rechercheAncienResultat(Grille g) {
-		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les résultats
+		if (!(g instanceof GrilleLoto))
+			throw new IllegalArgumentException("GrilleLoto attendue");
+
+		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les rÃ©sultats
 		GrilleLoto grille = (GrilleLoto) g;	//cast en Grille NouveauLoto
 		Resultat resultat;
 		TirageLoto tirage;

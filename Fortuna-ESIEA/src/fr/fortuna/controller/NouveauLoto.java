@@ -25,6 +25,9 @@ public class NouveauLoto /* implements Jeu*/{
 	 * @return ArrayList de Resultat, contenant le rang et les gains
 	 */
 	public ArrayList<Resultat> rechercheAncienResultat(Grille g) {
+		if (!(g instanceof GrilleNouveauLoto))
+			throw new IllegalArgumentException("GrilleNouveauLoto attendue");
+
 		ArrayList<Resultat> retour = new ArrayList<Resultat>();	//ArrayList contenant les résultats
 		GrilleNouveauLoto grille = (GrilleNouveauLoto) g;	//cast en Grille NouveauLoto
 		Resultat resultat;

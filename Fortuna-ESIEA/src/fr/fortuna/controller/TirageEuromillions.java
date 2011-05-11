@@ -126,13 +126,11 @@ public class TirageEuromillions implements Tirage {
 	public ArrayList<Resultat> jouer(ArrayList<Grille> g) {
 		ArrayList<Resultat> retour = new ArrayList<Resultat>();
 		Resultat resultat;
-		GrilleEuroMillions grille;
-		this.generate();	//création du tirage
-		Iterator it = g.iterator();
-		
-		while(it.hasNext()) {
-			grille = (GrilleEuroMillions)it.next();
-			resultat = this.getResult(grille);
+
+		for (Grille grille : g) {
+			if (!(grille instanceof GrilleEuroMillions))
+				throw new IllegalArgumentException("GrilleEuroMillions attendue");
+			resultat = this.getResult((GrilleEuroMillions)grille);
 			retour.add(resultat);
 		}
 		return retour;
