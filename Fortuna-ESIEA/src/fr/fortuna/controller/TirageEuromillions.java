@@ -1,6 +1,9 @@
 package fr.fortuna.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Random;
 
 public class TirageEuromillions implements Tirage {
 
@@ -115,8 +118,66 @@ public class TirageEuromillions implements Tirage {
 		return new Resultat(this, grille, 0, 0);	//Perdu
 	}
 	
+	/*
+	 * Permet de jouer une partie d'Euromillions
+	 * 
+	 * @return les résultats du tirage
+	 */
+	public ArrayList<Resultat> jouer(ArrayList<Grille> g) {
+		ArrayList<Resultat> retour = new ArrayList<Resultat>();
+		Resultat resultat;
+		GrilleEuroMillions grille;
+		this.generate();	//création du tirage
+		Iterator it = g.iterator();
+		
+		while(it.hasNext()) {
+			grille = (GrilleEuroMillions)it.next();
+			resultat = this.getResult(grille);
+			retour.add(resultat);
+		}
+		return retour;
+	}
 	
-	
+	/*
+	 * Génère un tirage aléatoire
+	 * 
+	 */
+	public void generate() {
+		ArrayList<Integer> boulesTombees = new ArrayList<Integer>();
+		ArrayList<Integer> etoilesTombees = new ArrayList<Integer>();
+		Random random = new Random();
+		int boule;
+		boolean ok;	//au cas où la boule retombe dans la boucle
+		
+		//Cas des boules
+		for (int i = 0; i < boules.length; i++) {
+			ok = false;
+			while(!ok) {
+				boule = random.nextInt(50) + 1;	//nombre aléatoire entre 1 et 50 
+				if (!boulesTombees.contains(boule)) {
+					boules[i] = boule;
+					boulesTombees.add(boule);
+					ok = true;
+				}
+			}
+		}
+		
+		//Cas des étoiles
+		for (int i = 0; i < etoiles.length; i++) {
+			ok = false;
+			while(!ok) {
+				boule = random.nextInt(9) + 1;	//nombre aléatoire entre 1 et 9 
+				if (!etoilesTombees.contains(boule)) {
+					boules[i] = boule;
+					etoilesTombees.add(boule);
+					ok = true;
+				}
+			}
+		}
+		//initialisation des gains
+		rapportRang = new double[] {15000000, 954234, 53451, 1133, 373.1, 128.2, 56.1, 25.35, 20.2, 17.1, 10.1, 9.9};
+			
+	}
 	public int[] getBoulesCroissantes()
 	{
 		int[] tmp=boules;
