@@ -23,6 +23,14 @@ public class Resultat {
 		
 	}
 	
+	public Resultat(Tirage t, GrilleLoto g, int r, double ga ) {
+		tirage = t;
+		grille = g;
+		rang = r;
+		gain = ga;
+		
+	}
+	
 	public Tirage getTirage() {
 		return tirage;
 	}
