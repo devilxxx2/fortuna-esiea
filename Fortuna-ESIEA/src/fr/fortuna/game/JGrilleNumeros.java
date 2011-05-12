@@ -66,4 +66,12 @@ public class JGrilleNumeros extends JPanel {
 			ret[i] = list.get(i);
 		return ret;
 	}
+
+	public JToggleButton[] getGrille() {
+		return grille;
+	}
+
+	public void setGrille(JToggleButton[] grille) {
+		this.grille = grille;
+	}
 }
