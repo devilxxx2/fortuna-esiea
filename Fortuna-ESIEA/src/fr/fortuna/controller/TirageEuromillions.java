@@ -166,7 +166,7 @@ public class TirageEuromillions implements Tirage {
 			while(!ok) {
 				boule = random.nextInt(9) + 1;	//nombre aléatoire entre 1 et 9 
 				if (!etoilesTombees.contains(boule)) {
-					boules[i] = boule;
+					etoiles[i] = boule;
 					etoilesTombees.add(boule);
 					ok = true;
 				}
