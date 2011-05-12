@@ -13,7 +13,6 @@ import javax.swing.border.TitledBorder;
 
 import fr.fortuna.controller.Grille;
 import fr.fortuna.controller.GrilleNouveauLoto;
-import fr.fortuna.controller.TirageEuromillions;
 import fr.fortuna.controller.TirageNouveauLoto;
 
 
@@ -57,8 +56,6 @@ public class JGrilleNouveauLoto extends JPanel implements JGrille {
 		JToggleButton[] grilleNums=nums.getGrille();
 		JToggleButton[] grilleChances=chance.getGrille();
 
-		JToggleButton button;
-
 		for(int i=0; i<grilleNums.length; i++)
 			((JToggleButton)grilleNums[i]).setSelected(false);
 		for(int i=0; i<grilleChances.length; i++)
@@ -90,8 +87,6 @@ public class JGrilleNouveauLoto extends JPanel implements JGrille {
 
 			JToggleButton[] grilleNums=nums.getGrille();
 			JToggleButton[] grilleChances=chance.getGrille();
-
-			JToggleButton button;
 
 			for(int i=0; i<randomBoules.length;i++)
 				System.out.println(randomBoules[i]+ "\n");
