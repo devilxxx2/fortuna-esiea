@@ -47,6 +47,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		b.addActionListener(this);
 		panel.add(b);
 
+		b=new JButton("Jouer au Loto");
+		b.addActionListener(this);
+		panel.add(b);
+
 		b=new JButton("Règles des jeux");
 		b.addActionListener(this);
 		panel.add(b);
@@ -64,6 +68,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
+		menuItem=new JMenuItem("Loto");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+
 		menuBar.add(menu);
 
 		setJMenuBar(menuBar);
@@ -75,6 +83,10 @@ public class MainFrame extends JFrame implements ActionListener{
 
 	public void popNouveauLoto(){
 		new JNouveauLotoDialog(this);
+	}
+
+	public void popLoto(){
+		new JLotoDialog(this);
 	}
 
 	public static void main(String[] args) {
@@ -91,6 +103,9 @@ public class MainFrame extends JFrame implements ActionListener{
 			if ( item.getText().equals("Nouveau Loto")){
 				popNouveauLoto();
 			}
+			if ( item.getText().equals("Loto")){
+				popLoto();
+			}
 		}
 		if(e.getSource() instanceof JButton){
 			JButton button=(JButton)(e.getSource());
@@ -99,6 +114,9 @@ public class MainFrame extends JFrame implements ActionListener{
 			}
 			if ( button.getText().equals("Jouer au Nouveau Loto")){
 				popNouveauLoto();
+			}
+			if ( button.getText().equals("Jouer au Loto")){
+				popLoto();
 			}
 		}
 	}

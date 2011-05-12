@@ -8,13 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import fr.fortuna.controller.Grille;
-import fr.fortuna.controller.GrilleNouveauLoto;
+import fr.fortuna.controller.GrilleLoto;
 
-public class JGrilleNouveauSuperLoto extends JPanel implements JGrille {
+public class JGrilleLoto extends JPanel implements JGrille {
 	private JGrilleNumeros nums;
-	private JGrilleNumeros chance;
 
-	public JGrilleNouveauSuperLoto(){
+	public JGrilleLoto(){
 		super();
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -32,6 +31,6 @@ public class JGrilleNouveauSuperLoto extends JPanel implements JGrille {
 
 	@Override
 	public Grille getGrille() {
-		return new GrilleNouveauLoto(nums.getNums(), chance.getNums());
+		return new GrilleLoto(nums.getNums());
 	}
 }
