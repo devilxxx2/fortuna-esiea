@@ -20,7 +20,7 @@ class JEuroMillionsDialog extends JDialog
 		super(parent, "Euromillions");
 		setModal(false);
 		setVisible(true);
-
+		setResizable(false);
 
 		mainPanel=new JPanel();
 		layout=new GroupLayout(mainPanel);
