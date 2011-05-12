@@ -1,6 +1,8 @@
 package fr.fortuna.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class TirageNouveauLoto implements Tirage {
 	
@@ -85,6 +87,33 @@ public class TirageNouveauLoto implements Tirage {
 			break;
 		}
 		return new Resultat(this, grille, 0, 0); //perdu
+	}
+	
+	public void generate() {
+		ArrayList<Integer> boulesTombees = new ArrayList<Integer>();
+		Random random = new Random();
+		int boule;
+		boolean ok;	//au cas où la boule retombe dans la boucle
+		
+		//Cas des boules
+		for (int i = 0; i < boules.length; i++) {
+			ok = false;
+			while(!ok) {
+				boule = random.nextInt(49) + 1;	//nombre aléatoire entre 1 et 50 
+				if (!boulesTombees.contains(boule)) {
+					boules[i] = boule;
+					boulesTombees.add(boule);
+					ok = true;
+				}
+			}
+		}
+		
+		//Cas du numéro chance
+		boule = random.nextInt(10) + 1;	//nombre aléatoire entre 1 et 10 
+		numeroChance = boule;
+		//initialisation des gains
+		rapportRang = new double[] {1000000, 155462, 1156.3, 10.80, 5.40, 2};
+			
 	}
 	
 	public int[] getBoulesCroissantes()
