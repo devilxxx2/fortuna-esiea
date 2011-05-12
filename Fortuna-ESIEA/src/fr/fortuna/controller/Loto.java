@@ -76,11 +76,11 @@ public class Loto implements Jeu {
 		}
 		//Calcul les stats pour les boules
 		for (i = 1; i < nbBouleTiree.length; i++) {
-			stat = nbBouleTiree[i] / nbTirage;
+			stat = (double)nbBouleTiree[i] / nbTirage;
 			mapBoule.put(i, stat);
 		}
 		for (j = 1; j < nbComplementaireTiree.length; j++) {
-			stat = nbComplementaireTiree[j] / nbTirage;
+			stat = (double)nbComplementaireTiree[j] / nbTirage;
 			mapNumeroComplementaire.put(j, stat);
 		}
 		resultat.add(mapBoule);
@@ -107,7 +107,7 @@ public class Loto implements Jeu {
 			tirageEnCours = (TirageLoto) it.next();
 			nombreDeGagnantsRg = tirageEnCours.getNombreDeGagnantsRg();
 			for (i = 0; i < nombreDeGagnantsRg.length; i++) {
-				stat = nombreDeGagnantsRg[i] / tirageEnCours.getNombreDeGagnantsTotal();
+				stat = (double)nombreDeGagnantsRg[i] / tirageEnCours.getNombreDeGagnantsTotal();
 				statistiqueRang.put(i+1, stat);
 			}
 			retour.put(tirageEnCours, statistiqueRang); 

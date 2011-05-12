@@ -76,13 +76,13 @@ public class Euromillions implements Jeu {
 		}
 		//Calcul les stats pour les boules
 		for (i = 1; i < nbBouleTiree.length; i++) {
-			stat = nbBouleTiree[i] / nbTirage;
+			stat = (double)nbBouleTiree[i] / nbTirage;
 			mapBoule.put(i, stat);
 		}
 		
 		//Calcul les stats pour les étoiles
 		for (j = 1; j < nbEtoileTiree.length; j++) {
-			stat = nbEtoileTiree[j] / nbTirage;
+			stat = (double)nbEtoileTiree[j] / nbTirage;
 			mapEtoile.put(j, stat);
 		}
 		resultat.add(mapBoule);
@@ -109,7 +109,7 @@ public class Euromillions implements Jeu {
 			tirageEnCours = (TirageEuromillions) it.next();
 			nombreDeGagnantsRgEurope = tirageEnCours.getNombreDeGagnantsRgEurope();
 			for (i = 0; i < nombreDeGagnantsRgEurope.length; i++) {
-				stat = nombreDeGagnantsRgEurope[i] / tirageEnCours.getNombreDeGagnantsTotalEurope();
+				stat = (double)nombreDeGagnantsRgEurope[i] / tirageEnCours.getNombreDeGagnantsTotalEurope();
 				statistiqueRang.put(i+1, stat);
 			}
 			retour.put(tirageEnCours, statistiqueRang); 				
@@ -137,7 +137,7 @@ public class Euromillions implements Jeu {
 			tirageEnCours = (TirageEuromillions) it.next();
 			nombreDeGagnantsRgFrance = tirageEnCours.getNombreDeGagnantsRgFrance();
 			for (i = 0; i < nombreDeGagnantsRgFrance.length; i++) {
-				stat = nombreDeGagnantsRgFrance[i] / tirageEnCours.getNombreDeGagnantsTotalFrance();
+				stat = (double)nombreDeGagnantsRgFrance[i] / tirageEnCours.getNombreDeGagnantsTotalFrance();
 				statistiqueRang.put(i+1, stat);
 			}
 			retour.put(tirageEnCours, statistiqueRang); 				

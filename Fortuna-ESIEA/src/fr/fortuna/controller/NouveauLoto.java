@@ -78,13 +78,13 @@ public class NouveauLoto /* implements Jeu*/{
 		}
 		//Calcul les stats pour les boules
 		for (i = 1; i < nbBouleTiree.length; i++) {
-			stat = nbBouleTiree[i] / nbTirage;
+			stat = (double)nbBouleTiree[i] / nbTirage;
 			mapBoule.put(i, stat);
 		}
 		
 		//Calcul les stats pour les numéros chance
 		for (j = 1; j < nbNumeroChanceTiree.length; j++) {
-			stat = nbNumeroChanceTiree[j] / nbTirage;
+			stat = (double)nbNumeroChanceTiree[j] / nbTirage;
 			mapNumeroChance.put(j, stat);
 		}
 		resultat.add(mapBoule);
@@ -111,7 +111,7 @@ public class NouveauLoto /* implements Jeu*/{
 			tirageEnCours = (TirageNouveauLoto) it.next();
 			nombreDeGagnantsRg = tirageEnCours.getNombreDeGagnantsRg();
 			for (i = 0; i < nombreDeGagnantsRg.length; i++) {
-				stat = nombreDeGagnantsRg[i] / tirageEnCours.getNombreDeGagnantsTotal();
+				stat = (double)nombreDeGagnantsRg[i] / tirageEnCours.getNombreDeGagnantsTotal();
 				statistiqueRang.put(i+1, stat);
 			}
 			retour.put(tirageEnCours, statistiqueRang); 				
