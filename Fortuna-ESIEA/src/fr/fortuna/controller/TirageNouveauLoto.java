@@ -89,6 +89,24 @@ public class TirageNouveauLoto implements Tirage {
 		return new Resultat(this, grille, 0, 0); //perdu
 	}
 	
+	/*
+	 * Permet de jouer une partie de Nouveau Loto
+	 * 
+	 * @return les résultats du tirage
+	 */
+	public ArrayList<Resultat> jouer(ArrayList<Grille> g) {
+		ArrayList<Resultat> retour = new ArrayList<Resultat>();
+		Resultat resultat;
+
+		for (Grille grille : g) {
+			if (!(grille instanceof GrilleNouveauLoto))
+				throw new IllegalArgumentException("GrilleEuroMillions attendue");
+			resultat = this.getResult((GrilleNouveauLoto)grille);
+			retour.add(resultat);
+		}
+		return retour;
+	}
+	
 	public void generate() {
 		ArrayList<Integer> boulesTombees = new ArrayList<Integer>();
 		Random random = new Random();

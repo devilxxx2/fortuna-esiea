@@ -90,6 +90,24 @@ public class TirageNouveauSuperLoto implements Tirage {
 	}
 	
 	/*
+	 * Permet de jouer une partie de Nouveau Super Loto
+	 * 
+	 * @return les résultats du tirage
+	 */
+	public ArrayList<Resultat> jouer(ArrayList<Grille> g) {
+		ArrayList<Resultat> retour = new ArrayList<Resultat>();
+		Resultat resultat;
+
+		for (Grille grille : g) {
+			if (!(grille instanceof GrilleNouveauLoto))
+				throw new IllegalArgumentException("GrilleEuroMillions attendue");
+			resultat = this.getResult((GrilleNouveauLoto)grille);
+			retour.add(resultat);
+		}
+		return retour;
+	}
+	
+	/*
 	 * Génère un tirage aléatoire
 	 */
 	public void generate() {
