@@ -6,12 +6,14 @@ public class GrilleEuroMillions implements Grille {
 	private int[] nums;
 	private int[] stars;
 	private double prix;
+	private int numeroGrille;
 
 	public GrilleEuroMillions() {
 	}
 
-	public GrilleEuroMillions(int[] nums, int[] stars) {
+	public GrilleEuroMillions(int[] nums, int[] stars, int numeroGrille) {
 		setValue(nums, stars);
+		this.numeroGrille=numeroGrille;
 	}
 
 	public void setValue(int[] nums, int[] stars) {
@@ -31,6 +33,14 @@ public class GrilleEuroMillions implements Grille {
 	
 	public int[] getStars() {
 		return stars;
+	}
+
+	public int getNumeroGrille() {
+		return numeroGrille;
+	}
+
+	public void setNumeroGrille(int numeroGrille) {
+		this.numeroGrille = numeroGrille;
 	}
 }
 
