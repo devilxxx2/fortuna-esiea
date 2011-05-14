@@ -99,7 +99,7 @@ public class NouveauLoto /* implements Jeu*/{
 	 */
 	public HashMap<TirageNouveauLoto, HashMap<Integer, Double>> calculStatGagnant() {
 		HashMap<TirageNouveauLoto, HashMap<Integer, Double>> retour = new HashMap<TirageNouveauLoto, HashMap<Integer, Double>>();	//Map retournée
-		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
+		HashMap<Integer, Double> statistiqueRang;	//Stock les statistiques pour chaque rang d'un tirage
 		int[] nombreDeGagnantsRg;	//nombre de gagnant en Europe pour un tirage
 		int i;	//variable de boucle 
 		double stat; //statistique calculée
@@ -109,6 +109,7 @@ public class NouveauLoto /* implements Jeu*/{
 		//On parcourt l'ensemble des tirages
 		while(it.hasNext()) {
 			tirageEnCours = (TirageNouveauLoto) it.next();
+			statistiqueRang = new HashMap<Integer, Double>();
 			nombreDeGagnantsRg = tirageEnCours.getNombreDeGagnantsRg();
 			for (i = 0; i < nombreDeGagnantsRg.length; i++) {
 				stat = (double)nombreDeGagnantsRg[i] / tirageEnCours.getNombreDeGagnantsTotal();
@@ -127,7 +128,7 @@ public class NouveauLoto /* implements Jeu*/{
 	 */
 	public HashMap<TirageNouveauLoto, HashMap<Integer, Double>> calculStatGain() {
 		HashMap<TirageNouveauLoto, HashMap<Integer, Double>> retour = new HashMap<TirageNouveauLoto, HashMap<Integer, Double>>();	//Map retournée
-		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
+		HashMap<Integer, Double> statistiqueRang;	//Stock les statistiques pour chaque rang d'un tirage
 		double[] tableauGain;
 		int i;	//variable de boucle
 		double stat; 	//statistique calculée
@@ -137,6 +138,7 @@ public class NouveauLoto /* implements Jeu*/{
 		//On parcourt l'ensemble des tirages
 		while(it.hasNext()) {
 			tirageEnCours = (TirageNouveauLoto) it.next();
+			statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 			tableauGain = tirageEnCours.getGainParRg();
 			for (i = 0; i < tableauGain.length; i++) {
 				stat = tableauGain[i] / tirageEnCours.getGainTotal();

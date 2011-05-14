@@ -99,7 +99,7 @@ public class NouveauSuperLoto implements Jeu {
 	 */
 	public HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>> calculStatGagnant() {
 		HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>> retour = new HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>>();	//Map retournée
-		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
+		HashMap<Integer, Double> statistiqueRang;	//Stock les statistiques pour chaque rang d'un tirage
 		int[] nombreDeGagnantsRg;	//nombre de gagnant en Europe pour un tirage
 		int i;	//variable de boucle 
 		double stat; //statistique calculée
@@ -109,21 +109,13 @@ public class NouveauSuperLoto implements Jeu {
 		//On parcourt l'ensemble des tirages
 		while(it.hasNext()) {
 			tirageEnCours = (TirageNouveauSuperLoto) it.next();
+			statistiqueRang = new HashMap<Integer, Double>();
 			nombreDeGagnantsRg = tirageEnCours.getNombreDeGagnantsRg();
-			//System.out.println("Tirage " + tirageEnCours.getDateTirage());
 			for (i = 0; i < nombreDeGagnantsRg.length; i++) {
 				stat = (double)nombreDeGagnantsRg[i] / tirageEnCours.getNombreDeGagnantsTotal();
-				//System.out.println("Stat " + (i+1) + " : " + stat);
 				statistiqueRang.put(i+1, stat);
 			}
 			retour.put(tirageEnCours, statistiqueRang); 				
-		}
-		for (TirageNouveauSuperLoto mapKey : retour.keySet()) {
-			HashMap<Integer, Double> mapStatGagnantTirage = retour.get(mapKey);
-			System.out.println("Tirage du " + mapKey.getDateTirage());
-			for (i = 1; i <= mapStatGagnantTirage.size(); i++) {
-				System.out.println("Stat au rang " + i + " : " + mapStatGagnantTirage.get(i));
-			}
 		}
 		return retour;
 	}
@@ -135,7 +127,7 @@ public class NouveauSuperLoto implements Jeu {
 	 */
 	public HashMap<TirageNouveauLoto, HashMap<Integer, Double>> calculStatGain() {
 		HashMap<TirageNouveauLoto, HashMap<Integer, Double>> retour = new HashMap<TirageNouveauLoto, HashMap<Integer, Double>>();	//Map retournée
-		HashMap<Integer, Double> statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
+		HashMap<Integer, Double> statistiqueRang;
 		double[] tableauGain;
 		int i;	//variable de boucle
 		double stat; 	//statistique calculée
@@ -145,6 +137,7 @@ public class NouveauSuperLoto implements Jeu {
 		//On parcourt l'ensemble des tirages
 		while(it.hasNext()) {
 			tirageEnCours = (TirageNouveauLoto) it.next();
+			statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 			tableauGain = tirageEnCours.getGainParRg();
 			for (i = 0; i < tableauGain.length; i++) {
 				stat = tableauGain[i] / tirageEnCours.getGainTotal();
