@@ -41,26 +41,46 @@ public class TestStat {
 		}
 		*/
 		
+		/*
 		//Test sur les Stat des gagnants
 		HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>> mapStatGagnant = eur.calculStatGagnant();
 		HashMap<Integer, Double> mapStatGagnantTirage;
 		for (TirageNouveauSuperLoto mapKey : mapStatGagnant.keySet()) {
 			mapStatGagnantTirage = mapStatGagnant.get(mapKey);
-			//System.out.println("Tirage du " + mapKey.getDateTirage());
+			System.out.println("Tirage du " + mapKey.getDateTirage());
 			for (i = 1; i <= mapStatGagnantTirage.size(); i++) {
-				//System.out.println("Stat au rang " + i + " : " + mapStatGagnantTirage.get(i));
+				System.out.println("Stat au rang " + i + " : " + mapStatGagnantTirage.get(i));
 			}
 		}
-		
+		*/
 		
 		/*
+		//Test sur les Stat des gains
+		HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>> mapStatGain = eur.calculStatGain();
+		HashMap<Integer, Double> mapStatGainTirage;
+		for (TirageNouveauSuperLoto mapKey : mapStatGain.keySet()) {
+			mapStatGainTirage = mapStatGain.get(mapKey);
+			System.out.println("Tirage du " + mapKey.getDateTirage());
+			for (i = 1; i <= mapStatGainTirage.size(); i++) {
+				System.out.println("Stat au rang " + i + " : " + mapStatGainTirage.get(i));
+			}
+		}
+		*/
+		
+		
+		
 		TirageEuromillions tirage=new TirageEuromillions();
 		tirage.generate();
 		int[] randomBoules=tirage.getBoules();
 		int[] randomStars=tirage.getEtoiles();
+		System.out.println("BOULE 1 : " + randomBoules[0]);
+		System.out.println("BOULE 2 : " + randomBoules[1]);
+		System.out.println("BOULE 3 : " + randomBoules[2]);
+		System.out.println("BOULE 4 : " + randomBoules[3]);
+		System.out.println("BOULE 5 : " + randomBoules[4]);
 		System.out.println("ETOILE 1 : " + randomStars[0]);
 		System.out.println("ETOILE 2 : " + randomStars[1]);
-		*/
+		
 	}
 
 }
