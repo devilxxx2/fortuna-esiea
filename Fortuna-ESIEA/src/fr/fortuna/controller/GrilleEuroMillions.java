@@ -31,7 +31,29 @@ public class GrilleEuroMillions implements Grille {
 		return nums;
 	}
 	
+	public String getNumsString() {
+		String numeros="";
+		for(int i=0; i<nums.length; i++){
+			if(i!=0 && i<nums.length-1) numeros+=" " + nums[i] + " -";
+			else if(i==nums.length-1) numeros+=" " + nums[i];
+			else numeros+=nums[i] + " -";
+		}
+		
+		return numeros;
+	}
+	
 	public int[] getStars() {
+		return stars;
+	}
+	
+	public String getStarsString() {
+		String stars="";
+		for(int i=0; i<this.stars.length; i++){
+			if(i!=0) stars+=" " + this.stars[i] + " -";
+			else if(i==this.stars.length-1) stars+=" " + this.stars[i];
+			else stars+=this.stars[i];
+		}
+		
 		return stars;
 	}
 

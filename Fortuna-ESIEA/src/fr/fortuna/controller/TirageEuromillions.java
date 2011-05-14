@@ -183,6 +183,17 @@ public class TirageEuromillions implements Tirage {
 		Arrays.sort(tmp);
 		return tmp;
 	}
+	
+	public String getBoulesCroissantesStr(){
+		String boules="";
+		for(int i=0; i<this.boules.length; i++){
+			if(i!=0 && i<this.boules.length-1) boules+=" " + this.boules[i] + " -";
+			else if(i==this.boules.length-1) boules+=" " + this.boules[i];
+			else boules+=this.boules[i] + " -";
+		}
+		
+		return boules;
+	}
 
 	public int[] getEtoilesCroissantes()
 	{
