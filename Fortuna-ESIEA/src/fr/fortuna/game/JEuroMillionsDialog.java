@@ -14,6 +14,7 @@ class JEuroMillionsDialog extends JDialog
 
 	JPanel mainPanel, grillePanel, buttonPanel;
 	GroupLayout layout;
+	JGrilleEuroMillions[] grilles;
 
 	public JEuroMillionsDialog(JFrame parent)
 	{
@@ -35,9 +36,14 @@ class JEuroMillionsDialog extends JDialog
 		mainPanel.add(buttonPanel);
 		 */
 
-		grillePanel.add(new JGrilleEuroMillions(2));
-		grillePanel.add(new JGrilleEuroMillions(2));
+		grilles = new JGrilleEuroMillions[5];
+		for (int i = 0; i < grilles.length; ++i)
+		{
+			grilles[i] = new JGrilleEuroMillions(i+1);
+			grillePanel.add(grilles[i]);
+		}
 		buttonPanel.add(new JButton(new ValiderAction()));
+		buttonPanel.add(new JButton(new RechercherAction()));
 
 		layout.setAutoCreateGaps(true);
 		layout.setAutoCreateContainerGaps(true);
@@ -55,21 +61,24 @@ class JEuroMillionsDialog extends JDialog
 		pack();
 	}
 
-
-
 	private class ValiderAction extends AbstractAction {
-
 		public ValiderAction(){
-			super("Valider");
+			super("Jouer");
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
-			
+		}
+	}
 
+	private class RechercherAction extends AbstractAction {
+		public RechercherAction(){
+			super("Rechercher");
 		}
 
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+		}
 	}
 
 }
