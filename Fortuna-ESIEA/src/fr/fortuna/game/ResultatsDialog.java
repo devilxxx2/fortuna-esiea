@@ -1,10 +1,12 @@
 package fr.fortuna.game;
 
+import java.awt.BorderLayout;
 import java.awt.Dialog;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Window;
 import java.util.List;
+import java.util.prefs.BackingStoreException;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -22,8 +24,8 @@ public class ResultatsDialog extends JDialog {
 
 	JTable table;
 	Tirage tirage;
-	JPanel panel, tablePanel;
-	JLabel label;
+	JPanel panel, tablePanel, bottomPanel;
+	JLabel topLabel, bottomLabel, label;
 
 
 	public ResultatsDialog(List<Resultat> resultats, Window parent){
@@ -36,26 +38,33 @@ public class ResultatsDialog extends JDialog {
 			this.dispose();
 			throw new IllegalArgumentException("Le tableau de résultat est vide");			
 		}
-		panel=new JPanel(/*new GridLayout(resultats.size(), 1)*/);
-		add(new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
-		panel.add(tablePanel=new JPanel(new GridLayout(resultats.size(), 1)));
+		
+		BorderLayout layout=new BorderLayout(0,0);
 
+		panel=new JPanel(layout);
+		add(new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
+		JScrollPane js=new JScrollPane();
+
+		tablePanel=new JPanel(new GridLayout(resultats.size(), 1));
+		panel.add(tablePanel, BorderLayout.CENTER);
+		
+		bottomPanel=new JPanel();
+		
 		if(resultats.get(0).getTirage() instanceof TirageEuromillions){
 			TirageEuromillions tirageEuro=((TirageEuromillions)resultats.get(0).getTirage());
 
-			label=new JLabel("Tirage : " + tirageEuro.getBoulesCroissantesStr());
-			tablePanel.add(label);
+			topLabel=new JLabel("Tirage : " + tirageEuro.getBoulesCroissantesStr());
+			panel.add(topLabel, BorderLayout.NORTH);
 
 			table = new JTable(new ModeleResultatEuromillions(resultats));
 			tablePanel.add(new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
 			table.setAutoCreateRowSorter(true);
 			
-			tablePanel.add(label);
-			
 			label=new JLabel("Prix cumulés des grilles :" + prixTotalGrilles(resultats));
-			tablePanel.add(label);
+			bottomPanel.add(label);
 			label=new JLabel("Total des gains : " + sommeTotaleGains(resultats));
-			tablePanel.add(label);
+			bottomPanel.add(label);
+			panel.add(bottomPanel, BorderLayout.SOUTH);
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
 		}
