@@ -110,13 +110,21 @@ public class NouveauSuperLoto implements Jeu {
 		while(it.hasNext()) {
 			tirageEnCours = (TirageNouveauSuperLoto) it.next();
 			nombreDeGagnantsRg = tirageEnCours.getNombreDeGagnantsRg();
+			//System.out.println("Tirage " + tirageEnCours.getDateTirage());
 			for (i = 0; i < nombreDeGagnantsRg.length; i++) {
 				stat = (double)nombreDeGagnantsRg[i] / tirageEnCours.getNombreDeGagnantsTotal();
+				//System.out.println("Stat " + (i+1) + " : " + stat);
 				statistiqueRang.put(i+1, stat);
 			}
 			retour.put(tirageEnCours, statistiqueRang); 				
 		}
-		
+		for (TirageNouveauSuperLoto mapKey : retour.keySet()) {
+			HashMap<Integer, Double> mapStatGagnantTirage = retour.get(mapKey);
+			System.out.println("Tirage du " + mapKey.getDateTirage());
+			for (i = 1; i <= mapStatGagnantTirage.size(); i++) {
+				System.out.println("Stat au rang " + i + " : " + mapStatGagnantTirage.get(i));
+			}
+		}
 		return retour;
 	}
 	
