@@ -125,18 +125,18 @@ public class NouveauSuperLoto implements Jeu {
 	 * 
 	 * @return une map contenant les tirages, et les statistiques des gains pour chaque rang
 	 */
-	public HashMap<TirageNouveauLoto, HashMap<Integer, Double>> calculStatGain() {
-		HashMap<TirageNouveauLoto, HashMap<Integer, Double>> retour = new HashMap<TirageNouveauLoto, HashMap<Integer, Double>>();	//Map retournée
+	public HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>> calculStatGain() {
+		HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>> retour = new HashMap<TirageNouveauSuperLoto, HashMap<Integer, Double>>();	//Map retournée
 		HashMap<Integer, Double> statistiqueRang;
 		double[] tableauGain;
 		int i;	//variable de boucle
 		double stat; 	//statistique calculée
-		TirageNouveauLoto tirageEnCours;
+		TirageNouveauSuperLoto tirageEnCours;
 		Iterator it = tirages.iterator();
 		
 		//On parcourt l'ensemble des tirages
 		while(it.hasNext()) {
-			tirageEnCours = (TirageNouveauLoto) it.next();
+			tirageEnCours = (TirageNouveauSuperLoto) it.next();
 			statistiqueRang = new HashMap<Integer, Double>();	//Stock les statistiques pour chaque rang d'un tirage
 			tableauGain = tirageEnCours.getGainParRg();
 			for (i = 0; i < tableauGain.length; i++) {
