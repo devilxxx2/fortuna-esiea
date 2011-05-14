@@ -9,49 +9,109 @@ import fr.fortuna.controller.Resultat;
 import fr.fortuna.controller.TirageEuromillions;
 
 public class ModeleResultatEuromillions extends AbstractTableModel {
-	
-	
-	private final String[] entetes	= { "Réf.", "Marque", "Poids", "Couleur", "Smart", "Type" };
-	private ArrayList<Resultat> resultats;
-	
 
-	public ModeleResultatEuromillions(List<Resultat> resultats) {
+
+	private final String[] entetes	= { "Bons numéros", "Bonnes étoiles", "Nb gagants France", "Nb gagant Europe", "Gains"};
+	private Resultat resultat;
+
+
+	public ModeleResultatEuromillions(Resultat resultat) {
 		super();
-		this.resultats=(ArrayList<Resultat>) resultats;
+		this.resultat=resultat;
 	}
 
 	@Override
 	public int getColumnCount() {
-		// TODO Auto-generated method stub
 		return entetes.length;
 	}
-
+	
+	public String getColumnName(int columnIndex) {
+		return entetes[columnIndex];
+	}
+	
 	@Override
 	public int getRowCount() {
-		// TODO Auto-generated method stub	
-		return resultats.size();
+		return ((TirageEuromillions)(resultat.getTirage())).getGainParRgEurope().length;
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		// TODO Auto-generated method stub
 		switch (columnIndex) {
-		case 0: // Date
-			return ((TirageEuromillions)(resultats.get(rowIndex).getTirage())).getDateTirage();
-		case 1: // Jour
-			return ((TirageEuromillions)(resultats.get(rowIndex).getTirage())).getJour();
+		
+		case 0:
+			switch(rowIndex) {
+			case 0:
+				return 5;
+			case 1:
+				return 5;
+			case 2:
+				return 5;
+			case 3:
+				return 4;
+			case 4:
+				return 4;
+			case 5:
+				return 4;
+			case 6:
+				return 3;
+			case 7:
+				return 2;
+			case 8:
+				return 3;
+			case 9:
+				return 3;
+			case 10:
+				return 1;
+			case 11:
+				return 2;
+			case 12:
+				return 2;				
+			}
+		case 1:
+			switch(rowIndex) {
+
+			case 0:
+				return 2;
+			case 1:
+				return 1;
+			case 2:
+				return 0;
+			case 3:
+				return 2;
+			case 4:
+				return 1;
+			case 5:
+				return 0;
+			case 6:
+				return 2;
+			case 7:
+				return 2;
+			case 8:
+				return 1;
+			case 9:
+				return 0;
+			case 10:
+				return 2;
+			case 11:
+				return 1;
+			case 12:
+				return 0;				
+			}
+
 		case 2: // Boules
-			return ((TirageEuromillions)(resultats.get(rowIndex).getTirage())).getBoulesCroissantes();
+			int[] nbGagantsRangFrance=((TirageEuromillions)(resultat.getTirage())).getNombreDeGagnantsRgFrance();
+			return nbGagantsRangFrance[rowIndex];
 		case 3: // Spécial
-			return ((TirageEuromillions)(resultats.get(rowIndex).getTirage())).getEtoilesCroissantes();
+			int[] nbGagantsRangEurope=((TirageEuromillions)(resultat.getTirage())).getNombreDeGagnantsRgEurope();
+			return nbGagantsRangEurope[rowIndex];
 		case 4:
-			
+			return resultat.getGain();
 
 		default:
 			return null;
 		}
 	}
-	
-	
+
+
 
 }
