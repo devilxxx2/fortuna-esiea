@@ -10,6 +10,7 @@ import java.awt.Insets;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.lang.Math;
+import java.util.Random;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -67,11 +68,26 @@ public class JGrilleNumeros extends JPanel {
 		return ret;
 	}
 
-	public JToggleButton[] getGrille() {
-		return grille;
+	public void reset() {
+		for (int i = 0; i < NB_CASES; ++i)
+			grille[i].setSelected(false);
 	}
 
-	public void setGrille(JToggleButton[] grille) {
-		this.grille = grille;
+	public void randomFill(int num) {
+		if (num > NB_CASES)
+			throw new IllegalArgumentException("Plus de cases à cocher que de disponibles");
+
+		Random random = new Random();
+		int val;
+
+		while (num > 0)
+		{
+			val = random.nextInt(NB_CASES);
+			if (!grille[val].isSelected())
+			{
+				grille[val].setSelected(true);
+				num--;
+			}
+		}
 	}
 }

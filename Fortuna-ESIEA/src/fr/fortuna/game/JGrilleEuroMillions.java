@@ -57,15 +57,13 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 	}
 
 	public void resetGrille(){
-		
-		JToggleButton[] grilleNums=nums.getGrille();
-		JToggleButton[] grilleStars=etoiles.getGrille();
+		nums.reset();
+		etoiles.reset();
+	}
 
-		for(int i=0; i<grilleNums.length; i++)
-			((JToggleButton)grilleNums[i]).setSelected(false);
-		for(int i=0; i<grilleStars.length; i++)
-			((JToggleButton)grilleStars[i]).setSelected(false);
-		
+	public void randomFillGrille(){
+		nums.randomFill(5);
+		etoiles.randomFill(2);
 	}
 	
 	@Override
@@ -96,28 +94,8 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
 			resetGrille();
-			
-			TirageEuromillions tirage=new TirageEuromillions();
-			tirage.generate();
-			int[] randomBoules=tirage.getBoules();
-			int[] randomStars=tirage.getEtoiles();
-
-			JToggleButton[] grilleNums=nums.getGrille();
-			JToggleButton[] grilleStars=etoiles.getGrille();
-
-			for(int i=0; i<randomBoules.length;i++)
-				System.out.println(randomBoules[i]+ "\n");
-			for(int i=0; i<randomStars.length;i++)
-				System.out.println(randomStars[i]);
-
-
-			for(int i=0; i<randomBoules.length; i++)
-				grilleNums[randomBoules[i]-1].setSelected(true);
-			for(int i=0; i<randomStars.length; i++)
-				grilleStars[randomStars[i]-1].setSelected(true);
-
+			randomFillGrille();
 		}
 	}
 

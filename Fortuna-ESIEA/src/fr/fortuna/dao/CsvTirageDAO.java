@@ -11,10 +11,6 @@ public abstract class CsvTirageDAO implements TirageDAO {
 
 	protected File csvFile;
 	
-	@SuppressWarnings("unused")
-	private CsvTirageDAO() {
-	}
-
 	public CsvTirageDAO(File f)
 	{
 		csvFile=f;

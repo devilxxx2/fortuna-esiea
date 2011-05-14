@@ -52,17 +52,14 @@ public class JGrilleNouveauLoto extends JPanel implements JGrille {
 	}
 	
 	public void resetGrille(){
-		
-		JToggleButton[] grilleNums=nums.getGrille();
-		JToggleButton[] grilleChances=chance.getGrille();
-
-		for(int i=0; i<grilleNums.length; i++)
-			((JToggleButton)grilleNums[i]).setSelected(false);
-		for(int i=0; i<grilleChances.length; i++)
-			((JToggleButton)grilleChances[i]).setSelected(false);
-		
+		nums.reset();
+		chance.reset();
 	}
-	
+
+	public void randomFillGrille(){
+		nums.randomFill(5);
+		chance.randomFill(1);
+	}
 
 	@Override
 	public Grille getGrille() {
@@ -77,26 +74,8 @@ public class JGrilleNouveauLoto extends JPanel implements JGrille {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
 			resetGrille();
-			
-			TirageNouveauLoto tirage=new TirageNouveauLoto();
-			tirage.generate();
-			int[] randomBoules=tirage.getBoules();
-			int randomChances=tirage.getNumeroChance();
-
-			JToggleButton[] grilleNums=nums.getGrille();
-			JToggleButton[] grilleChances=chance.getGrille();
-
-			for(int i=0; i<randomBoules.length;i++)
-				System.out.println(randomBoules[i]+ "\n");
-				System.out.println(randomChances);
-
-
-			for(int i=0; i<randomBoules.length; i++)
-				grilleNums[randomBoules[i]-1].setSelected(true);
-				grilleChances[randomChances-1].setSelected(true);
-
+			randomFillGrille();
 		}
 	}
 
