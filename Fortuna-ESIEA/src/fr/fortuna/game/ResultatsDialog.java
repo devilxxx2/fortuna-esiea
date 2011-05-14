@@ -23,11 +23,12 @@ public class ResultatsDialog extends JDialog {
 		
 		super(parent, "Résultats de " + parent.getTitle(), Dialog.ModalityType.APPLICATION_MODAL);
 		
-		if(tirages instanceof TirageEuromillions){
+		//FIXME: pas de sens (from pilipili)
+		//if(tirages instanceof TirageEuromillions){
 			
 			table = new JTable(new ModeleResultatEuromillions(tirages));
 			
-		}
+		//}
 		
 		
 	}

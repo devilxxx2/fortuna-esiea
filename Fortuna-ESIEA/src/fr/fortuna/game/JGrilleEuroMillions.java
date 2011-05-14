@@ -24,6 +24,7 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 	private JGrilleNumeros nums;
 	private JGrilleNumeros etoiles;
 	private JPanel buttonPanel;
+	private int numGrille;
 
 	public JGrilleEuroMillions(int numeroGrille){
 		super();
@@ -52,6 +53,7 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 		button=new JButton(new ResetAction());
 		buttonPanel.add(button);
 
+		numGrille = numeroGrille;
 	}
 
 	public void resetGrille(){
@@ -68,7 +70,8 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 	
 	@Override
 	public Grille getGrille() {
-		return new GrilleEuroMillions(nums.getNums(), etoiles.getNums());
+		return new GrilleEuroMillions(nums.getNums(), etoiles.getNums(),
+				numGrille);
 	}
 
 	@Override
