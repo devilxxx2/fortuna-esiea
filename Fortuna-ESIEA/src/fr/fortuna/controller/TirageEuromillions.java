@@ -3,6 +3,7 @@ package fr.fortuna.controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 public class TirageEuromillions implements Tirage {
@@ -123,7 +124,7 @@ public class TirageEuromillions implements Tirage {
 	 * 
 	 * @return les résultats du tirage
 	 */
-	public ArrayList<Resultat> jouer(ArrayList<Grille> g) {
+	public ArrayList<Resultat> jouer(List<Grille> g) {
 		ArrayList<Resultat> retour = new ArrayList<Resultat>();
 		Resultat resultat;
 
