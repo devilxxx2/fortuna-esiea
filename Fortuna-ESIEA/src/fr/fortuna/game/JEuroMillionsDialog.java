@@ -32,17 +32,17 @@ class JEuroMillionsDialog extends JDialog
 		setResizable(false);
 
 		mainPanel=new JPanel(new BorderLayout());
-	//	layout=new GroupLayout(mainPanel);
+		//	layout=new GroupLayout(mainPanel);
 		//	mainPanel.setLayout(layout);
 
 		grillePanel=new JPanel();
 		buttonPanel=new JPanel();
 
 		add(mainPanel);
-		
+
 		mainPanel.add(grillePanel, BorderLayout.CENTER);
 		mainPanel.add(buttonPanel, BorderLayout.SOUTH);
-		 
+
 
 		grilles = new JGrilleEuroMillions[5];
 		for (int i = 0; i < grilles.length; ++i)
@@ -53,31 +53,33 @@ class JEuroMillionsDialog extends JDialog
 		buttonPanel.add(new JButton(new ValiderAction()));
 		buttonPanel.add(new JButton(new RechercherAction()));
 
-		
+
 
 
 		validate();
 		pack();
 	}
-	
+
 	public void afficherResultat(){
 		List<Grille> grillesAValider=new ArrayList<Grille>();
 		for(JGrilleEuroMillions jgrille : grilles) {
 			try{
-			grillesAValider.add(jgrille.getGrille());
+				grillesAValider.add(jgrille.getGrille());
 			}
 			catch(IllegalArgumentException i){
 				// Si la grille soumise n'est pas correcte, on attrape l'exception.
-		//		System.out.println(i.getMessage());
+				//		System.out.println(i.getMessage());
 			}
 		}
 
-	//	grillesAValider.add(grilles[0].getGrille());
-		TirageEuromillions tirageEuro=new TirageEuromillions();
-		tirageEuro.generate();
-		int[] bla=tirageEuro.getBoulesCroissantes();
+		//	grillesAValider.add(grilles[0].getGrille());
+		for(int i=0; i<20; i++)	{
+			TirageEuromillions tirageEuro=new TirageEuromillions();
+			tirageEuro.generate();
+			int[] bla=tirageEuro.getBoulesCroissantes();
 
-		new ResultatsDialog(tirageEuro.jouer(grillesAValider), this);
+			new ResultatsDialog(tirageEuro.jouer(grillesAValider), this);
+		}
 	}
 
 	private class ValiderAction extends AbstractAction {
@@ -88,8 +90,8 @@ class JEuroMillionsDialog extends JDialog
 		@Override
 		public void actionPerformed(ActionEvent actionEvent) {
 			afficherResultat();
-		//	Euromillions em=new Euromillions();
-			
+			//	Euromillions em=new Euromillions();
+
 		}
 	}
 

@@ -31,39 +31,46 @@ public class ResultatsDialog extends JDialog {
 		super(parent, "Blup", Dialog.ModalityType.MODELESS);
 
 		setVisible(true);
-		System.out.println("OK 1");
-		
+
 		if(resultats.isEmpty()) {
-			System.out.println("BLUOP");
 			this.dispose();
 			throw new IllegalArgumentException("Le tableau de résultat est vide");			
 		}
 		panel=new JPanel(/*new GridLayout(resultats.size(), 1)*/);
 		add(new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
 		panel.add(tablePanel=new JPanel(new GridLayout(resultats.size(), 1)));
-		
+
 		if(resultats.get(0).getTirage() instanceof TirageEuromillions){
-			for(Resultat r : resultats)	{
-				// Les numeros sous formes string
-				label=new JLabel(((TirageEuromillions)r.getTirage()).getDateTirage());
-				tablePanel.add(label);
-				// Les étoiles sous strings
-				label=new JLabel(((TirageEuromillions)r.getTirage()).toString());
-				ModeleResultatEuromillions mod=new ModeleResultatEuromillions(r);
-				table = new JTable(mod);
-				tablePanel.add(new JScrollPane(table));
-				table.setAutoCreateRowSorter(true);
-			}
+			TirageEuromillions tirageEuro=((TirageEuromillions)resultats.get(0).getTirage());
+
+			label=new JLabel("Tirage : " + tirageEuro.getBoulesCroissantesStr());
+			tablePanel.add(label);
+
+			table = new JTable(new ModeleResultatEuromillions(resultats));
+			tablePanel.add(new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
+			table.setAutoCreateRowSorter(true);
+			
+			tablePanel.add(label);
+			
+			label=new JLabel("Prix cumulés des grilles :" + prixTotalGrilles(resultats));
+			tablePanel.add(label);
+			label=new JLabel("Total des gains : " + sommeTotaleGains(resultats));
+			tablePanel.add(label);
+			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
 		}
 		if(resultats.get(0).getTirage() instanceof TirageNouveauLoto){
-			for(Resultat r : resultats)	{
-				table = new JTable(new ModeleResultatEuromillions(r));
-				tablePanel.add(table);
-			}
+
 		}
 
+		pack();
 
-
+	}
+	public double sommeTotaleGains(List<Resultat> resultats){
+		return 11.5;
+	}
+	public double prixTotalGrilles(List<Resultat> resultats){
+		return 12.0;
 	}
 
 
