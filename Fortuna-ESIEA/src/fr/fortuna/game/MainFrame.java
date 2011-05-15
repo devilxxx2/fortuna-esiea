@@ -93,6 +93,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		b=new JButton("Règles des jeux");
 		b.addActionListener(this);
 		panel.add(b);
+
+		b=new JButton("Statistiques du Loto");
+		b.addActionListener(this);
+		panel.add(b);
 	}
 
 	public void createMenu(){
@@ -146,35 +150,24 @@ public class MainFrame extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() instanceof JMenuItem) {
-			JMenuItem item=(JMenuItem)(e.getSource());
-			if ( item.getText().equals("Euromillions")){
-				popEuroMillions();
-			}
-			if ( item.getText().equals("Nouveau Loto")){
-				popNouveauLoto();
-			}
-			if ( item.getText().equals("Loto")){
-				popLoto();
-			}
+
+		if ( e.getActionCommand().equals("Euromillions") || e.getActionCommand().equals("Jouer à Euromillions")){
+			popEuroMillions();
 		}
-		if(e.getSource() instanceof JButton){
-			JButton button=(JButton)(e.getSource());
-			if ( button.getText().equals("Jouer à Euromillions")){
-				popEuroMillions();
-			}
-			if ( button.getText().equals("Jouer au Nouveau Loto")){
-				popNouveauLoto();
-			}
-			if ( button.getText().equals("Jouer au Nouveau SuperLoto")){
-				popNouveauSuperLoto();
-			}
-			if ( button.getText().equals("Jouer au Loto")){
-				popLoto();
-			}
-			if ( button.getText().equals("Jouer au SuperLoto")){
-				popSuperLoto();
-			}
+		if ( e.getActionCommand().equals("Nouveau Loto") || e.getActionCommand().equals("Jouer au Nouveau Loto")){
+			popNouveauLoto();
+		}
+		if ( e.getActionCommand().equals("Loto") || e.getActionCommand().equals("Jouer au Loto")){
+			popLoto();
+		}
+
+		if ( e.getActionCommand().equals("Jouer au Nouveau SuperLoto")){
+			popNouveauSuperLoto();
+		}
+
+		if ( e.getActionCommand().equals("Jouer au SuperLoto")){
+			popSuperLoto();
+
 		}
 	}
 }
