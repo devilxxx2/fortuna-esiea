@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import fr.fortuna.dao.NouveauSuperLotoCsvTirageDAO;
+import fr.fortuna.dao.NouveauLotoCsvTirageDAO;
 
 public class TestStat {
 
@@ -17,8 +17,8 @@ public class TestStat {
 		
 		
 		File csv=new File("CSV Files/nouveau_superloto.csv");
-		NouveauSuperLotoCsvTirageDAO t= new NouveauSuperLotoCsvTirageDAO(csv);
-		NouveauSuperLoto eur= new NouveauSuperLoto(t.loadAllTirages());
+		NouveauLotoCsvTirageDAO t= new NouveauLotoCsvTirageDAO(csv);
+		NouveauLoto eur= new NouveauLoto(t.loadAllTirages());
 		
 		int i, j;
 		

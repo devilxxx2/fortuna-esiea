@@ -9,9 +9,9 @@ public class Test1 {
 	{
 		File csv=new File("CSV Files/nouveau_superloto.csv");
 		
-		NouveauSuperLotoCsvTirageDAO t= new NouveauSuperLotoCsvTirageDAO(csv);
+		NouveauLotoCsvTirageDAO t= new NouveauLotoCsvTirageDAO(csv);
 		
-		NouveauSuperLoto eur= new NouveauSuperLoto(t.loadAllTirages());
+		NouveauLoto eur= new NouveauLoto(t.loadAllTirages());
 		
 		System.out.println(eur.getTirages().get(0).getGainParRg()[0]);
 

@@ -22,8 +22,9 @@ class JNouveauLotoDialog extends JDialog
 {
 	JPanel mainPanel, grillePanel, buttonPanel;
 	JGrilleNouveauLoto[] grilles;
+	boolean superLoto;
 
-	public JNouveauLotoDialog(JFrame parent, NouveauLoto loto)
+	public JNouveauLotoDialog(JFrame parent, NouveauLoto loto, boolean superLoto)
 	{
 		super(parent, "Nouveau Loto");
 		setModal(false);
@@ -52,6 +53,8 @@ class JNouveauLotoDialog extends JDialog
 
 		validate();
 		pack();
+
+		this.superLoto = superLoto;
 	}
 
 	public void afficherResultat(){
@@ -81,7 +84,10 @@ class JNouveauLotoDialog extends JDialog
 		//	grillesAValider.add(grilles[0].getGrille());
 		//for(int i=0; i<20; i++)	{
 			TirageNouveauLoto tirage = new TirageNouveauLoto();
-			tirage.generate();
+			if (superLoto)
+				tirage.generateSuperLoto();
+			else
+				tirage.generateLoto();
 
 			new ResultatsDialog(tirage.jouer(grillesAValider), this);
 		//}

@@ -115,11 +115,11 @@ public class MainFrame extends JFrame implements ActionListener{
 	}
 
 	public void popNouveauLoto(){
-		new JNouveauLotoDialog(this, nouveauloto);
+		new JNouveauLotoDialog(this, nouveauloto, false);
 	}
 
 	public void popNouveauSuperLoto(){
-		new JNouveauLotoDialog(this, nouveausuperloto);
+		new JNouveauLotoDialog(this, nouveausuperloto, true);
 	}
 
 	public void popLoto(){

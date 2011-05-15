@@ -109,7 +109,7 @@ public class TirageNouveauLoto implements Tirage {
 		return retour;
 	}
 	
-	public void generate() {
+	private void generateBoules() {
 		ArrayList<Integer> boulesTombees = new ArrayList<Integer>();
 		Random random = new Random();
 		int boule;
@@ -131,7 +131,12 @@ public class TirageNouveauLoto implements Tirage {
 		//Cas du numéro chance
 		boule = random.nextInt(10) + 1;	//nombre aléatoire entre 1 et 10 
 		numeroChance = boule;
-		
+	}
+
+	public void generateLoto() {
+		generateBoules();
+
+		Random random = new Random();
 		//initialisation des gains
 		double[] tableauGain = new double[rapportRang.length];
 		double gain;
@@ -148,7 +153,28 @@ public class TirageNouveauLoto implements Tirage {
 		}
 		tableauGain[5] = 2d;
 		rapportRang = tableauGain;
-			
+	}
+
+	public void generateSuperLoto() {
+		generateBoules();
+
+		Random random = new Random();
+		//initialisation des gains
+		double[] tableauGain = new double[rapportRang.length];
+		double gain;
+		double[] maximumGain = new double[] { 30000000, 700000, 4000, 30, 20};
+		double[] minimumGain = new double[] { 3000000, 200000, 1000, 10, 5};
+		for (int i = 0; i < tableauGain.length - 1; i++) {
+			do {
+				gain = random.nextDouble() * maximumGain[i];
+			}
+			while (gain < minimumGain[i]);
+			gain = (10d*gain);
+			gain = Math.round(gain)/10d;
+			tableauGain[i] = gain;
+		}
+		tableauGain[5] = 2d;
+		rapportRang = tableauGain;
 	}
 	
 	/*
