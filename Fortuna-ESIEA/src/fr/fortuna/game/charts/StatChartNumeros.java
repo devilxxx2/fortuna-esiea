@@ -23,6 +23,8 @@ import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
+import org.jfree.ui.RefineryUtilities;
+
 import fr.fortuna.controller.Loto;
 import fr.fortuna.controller.TirageLoto;
 import fr.fortuna.dao.LotoCsvTirageDAO;
@@ -33,7 +35,7 @@ import fr.fortuna.dao.LotoCsvTirageDAO;
  */
 public class StatChartNumeros extends ApplicationFrame{
 	
-	/*statistiques é afficher*/
+	/*statistiques � afficher*/
 	private ArrayList<HashMap<Integer, Double>> resultatStat; 
 	private boolean isNumero;
 	/**
@@ -68,14 +70,14 @@ public class StatChartNumeros extends ApplicationFrame{
 	}
 	
 	private CategoryDataset createDataset() {
-		Double value = 0.0;// La statistique à afficher
+		Double value = 0.0;// La statistique � afficher
 		DefaultCategoryDataset defaultcategorydataset = new DefaultCategoryDataset();
-		// récupération de la stat par numéro/étoile
+		// r�cup�ration de la stat par num�ro/�toile
 		int index=-1;
 		String label="";
 		if(isNumero){
 			index=0; 
-			label="Numéros";
+			label="Num�ros";
 		}else{
 			index=1;
 			label="Etoiles";

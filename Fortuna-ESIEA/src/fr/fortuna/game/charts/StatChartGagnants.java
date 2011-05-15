@@ -61,7 +61,7 @@ public abstract class StatChartGagnants extends ApplicationFrame {
 	
 	protected JFreeChart createChart(CategoryDataset categorydataset) {
 		JFreeChart jfreechart = ChartFactory
-				.createBarChart("Pourcentage de gagnants à un rang en Europe", "Rangs",
+				.createBarChart("Pourcentage de gagnants à un rang", "Rangs",
 						"", categorydataset, PlotOrientation.HORIZONTAL, false,
 						true, false);
 		CategoryPlot categoryplot = (CategoryPlot) jfreechart.getPlot();
