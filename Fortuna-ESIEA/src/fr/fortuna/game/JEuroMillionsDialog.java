@@ -42,7 +42,6 @@ class JEuroMillionsDialog extends JDialog
 		mainPanel.add(grillePanel, BorderLayout.CENTER);
 		mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-
 		grilles = new JGrilleEuroMillions[5];
 		for (int i = 0; i < grilles.length; ++i)
 		{
@@ -70,6 +69,13 @@ class JEuroMillionsDialog extends JDialog
 					return;
 				}
 			}
+		}
+
+		if (grillesAValider.size() == 0)
+		{
+			JOptionPane.showMessageDialog(this,
+					"Veuillez remplir au moins une grille");
+			return;
 		}
 
 		//	grillesAValider.add(grilles[0].getGrille());
