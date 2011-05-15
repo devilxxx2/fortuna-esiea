@@ -13,20 +13,27 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import fr.fortuna.controller.Euromillions;
+import fr.fortuna.controller.NouveauLoto;
 import fr.fortuna.dao.EuromillionsCsvTirageDAO;
+import fr.fortuna.dao.NouveauLotoCsvTirageDAO;
 
 import java.io.File;
 
 public class MainFrame extends JFrame implements ActionListener{
 	private JPanel panel;
 	private Euromillions euromillions;
+	private NouveauLoto nouveauloto;
 
 	public MainFrame(){
 		super("Jeux de Loto");
 
 		File csv=new File("CSV Files/euromillions.csv");
-		EuromillionsCsvTirageDAO t = new EuromillionsCsvTirageDAO(csv);
-		euromillions = new Euromillions(t.loadAllTirages());
+		EuromillionsCsvTirageDAO te = new EuromillionsCsvTirageDAO(csv);
+		euromillions = new Euromillions(te.loadAllTirages());
+
+		csv=new File("CSV Files/nouveau_loto.csv");
+		NouveauLotoCsvTirageDAO tnl = new NouveauLotoCsvTirageDAO(csv);
+		nouveauloto = new NouveauLoto(tnl.loadAllTirages());
 
 		setVisible(true);
 		setSize(750, 500);
@@ -92,7 +99,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	}
 
 	public void popNouveauLoto(){
-		new JNouveauLotoDialog(this);
+		new JNouveauLotoDialog(this, nouveauloto);
 	}
 
 	public void popLoto(){

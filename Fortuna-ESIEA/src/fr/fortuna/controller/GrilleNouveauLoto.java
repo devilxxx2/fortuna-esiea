@@ -6,12 +6,11 @@ public class GrilleNouveauLoto implements Grille {
 	private int[] nums;
 	private int[] chance;
 	private double prix;
+	private int numeroGrille;
 
-	public GrilleNouveauLoto() {
-	}
-
-	public GrilleNouveauLoto(int[] nums, int[] chance) {
+	public GrilleNouveauLoto(int[] nums, int[] chance, int numeroGrille) {
 		setValue(nums, chance);
+		this.numeroGrille = numeroGrille;
 	}
 
 	public void setValue(int[] nums, int[] chance) {
@@ -24,13 +23,43 @@ public class GrilleNouveauLoto implements Grille {
 	public int[] getNums() {
 		return nums;
 	}
+
+	public String getNumsString() {
+		String nums = "";
+		for(int i = 0; i < this.nums.length; i++)
+			if (i == this.nums.length-1)
+				nums += this.nums[i];
+			else
+				nums += this.nums[i] + " - ";
+		return nums;
+	}
 	
 	public int[] getChance() {
 		return chance;
 	}
 
+	public String getChanceString() {
+		String chance = "";
+		for(int i = 0; i < this.chance.length; i++)
+			if (i == this.chance.length-1)
+				chance += this.chance[i];
+			else
+				chance += this.chance[i] + " - ";
+		return chance;
+	}
+
+	public String toString() {
+		return
+			getNumsString() + " ~ [" +
+			getChanceString() + "]";
+	}
+
 	public double getPrice() {
 		return prix;
+	}
+
+	public int getNumeroGrille() {
+		return numeroGrille;
 	}
 }
 

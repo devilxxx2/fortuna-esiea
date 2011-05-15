@@ -8,9 +8,7 @@ import fr.fortuna.controller.GrilleEuroMillions;
 import fr.fortuna.controller.Resultat;
 
 public class ModeleResultatEuromillions extends AbstractTableModel {
-
-
-	private final String[] entetes	= { "Numéro grille", "Numéros joués", "Mise", "Rang", "Montant"};
+	private final String[] entetes = {"Numéro grille", "Numéros joués", "Mise", "Rang", "Montant"};
 	private List<Resultat> resultats;
 
 
@@ -50,7 +48,4 @@ public class ModeleResultatEuromillions extends AbstractTableModel {
 			return null;
 		}
 	}
-
-
-
 }

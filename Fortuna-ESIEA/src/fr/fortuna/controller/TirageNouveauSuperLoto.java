@@ -3,6 +3,7 @@ package fr.fortuna.controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.List;
 
 public class TirageNouveauSuperLoto implements Tirage {
 	
@@ -94,7 +95,7 @@ public class TirageNouveauSuperLoto implements Tirage {
 	 * 
 	 * @return les résultats du tirage
 	 */
-	public ArrayList<Resultat> jouer(ArrayList<Grille> g) {
+	public ArrayList<Resultat> jouer(List<Grille> g) {
 		ArrayList<Resultat> retour = new ArrayList<Resultat>();
 		Resultat resultat;
 

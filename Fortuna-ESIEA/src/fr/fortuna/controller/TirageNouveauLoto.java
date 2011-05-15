@@ -3,6 +3,7 @@ package fr.fortuna.controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.List;
 
 public class TirageNouveauLoto implements Tirage {
 	
@@ -94,7 +95,7 @@ public class TirageNouveauLoto implements Tirage {
 	 * 
 	 * @return les résultats du tirage
 	 */
-	public ArrayList<Resultat> jouer(ArrayList<Grille> g) {
+	public ArrayList<Resultat> jouer(List<Grille> g) {
 		ArrayList<Resultat> retour = new ArrayList<Resultat>();
 		Resultat resultat;
 
@@ -139,8 +140,26 @@ public class TirageNouveauLoto implements Tirage {
 		int[] tmp=boules;
 		Arrays.sort(tmp);
 		return tmp;
-	}	
+	}
 	
+	public String getBoulesStr() {
+		String boules = "";
+		for(int i = 0; i < this.boules.length; i++)
+			if (i == this.boules.length-1)
+				boules += this.boules[i];
+			else
+				boules += this.boules[i] + " - ";
+		return boules;
+	}
+
+	public int getNumChance() {
+		return numeroChance;
+	}
+
+	public String toString() {
+		return getBoulesStr() + " ~ [" + getNumChance() + "]";
+	}
+
 	public void setNumeroDeTirage(String numeroDeTirage) {
 		this.numeroDeTirage = numeroDeTirage;
 	}

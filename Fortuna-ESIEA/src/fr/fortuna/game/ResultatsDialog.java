@@ -33,27 +33,28 @@ public class ResultatsDialog extends JDialog {
 
 		JPanel mainPanel = new JPanel(new BorderLayout(0,0));
 
+		JTable table = new JTable();
+		table.setAutoCreateRowSorter(true);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		mainPanel.add(new JScrollPane(table,
+					JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+					JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED), BorderLayout.CENTER);
+
+		mainPanel.add(new JLabel("Tirage : " +
+				resultats.get(0).getTirage().toString()), BorderLayout.NORTH);
+
+		JPanel bottomPanel = new JPanel();
+		bottomPanel.add(new JLabel("Prix cumulés des grilles : " +
+					prixTotalGrilles(resultats)));
+		bottomPanel.add(new JLabel("Total des gains : " +
+					sommeTotaleGains(resultats)));
+		mainPanel.add(bottomPanel, BorderLayout.SOUTH);
+
 		if(resultats.get(0).getTirage() instanceof TirageEuromillions) {
-			TirageEuromillions tirageEuro =
-				(TirageEuromillions)resultats.get(0).getTirage();
-			mainPanel.add(new JLabel("Tirage : " +
-					tirageEuro.getBoulesStr()), BorderLayout.NORTH);
-
-			JTable table = new JTable(new ModeleResultatEuromillions(resultats));
-			table.setAutoCreateRowSorter(true);
-			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-			mainPanel.add(new JScrollPane(table,
-						JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-						JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED), BorderLayout.CENTER);
-
-			JPanel bottomPanel = new JPanel();
-			bottomPanel.add(new JLabel("Prix cumulés des grilles : " +
-						prixTotalGrilles(resultats)));
-			bottomPanel.add(new JLabel("Total des gains : " +
-						sommeTotaleGains(resultats)));
-			mainPanel.add(bottomPanel, BorderLayout.SOUTH);
+			table.setModel(new ModeleResultatEuromillions(resultats));
 		}
-		if(resultats.get(0).getTirage() instanceof TirageNouveauLoto){
+		else if(resultats.get(0).getTirage() instanceof TirageNouveauLoto) {
+			table.setModel(new ModeleResultatNouveauLoto(resultats));
 		}
 
 		add(mainPanel);

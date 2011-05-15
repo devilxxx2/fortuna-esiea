@@ -3,9 +3,6 @@ package fr.fortuna.game;
 import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 import javax.swing.JDialog;
 import javax.swing.AbstractAction;

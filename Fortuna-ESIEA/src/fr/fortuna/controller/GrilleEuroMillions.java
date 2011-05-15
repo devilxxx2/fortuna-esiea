@@ -8,9 +8,6 @@ public class GrilleEuroMillions implements Grille {
 	private double prix;
 	private int numeroGrille;
 
-	public GrilleEuroMillions() {
-	}
-
 	public GrilleEuroMillions(int[] nums, int[] stars, int numeroGrille) {
 		setValue(nums, stars);
 		this.numeroGrille=numeroGrille;
@@ -32,32 +29,26 @@ public class GrilleEuroMillions implements Grille {
 	}
 	
 	public String getNumsString() {
-		String nums="";
-		for(int i = 0; i < this.nums.length; i++){
+		String nums = "";
+		for(int i = 0; i < this.nums.length; i++)
 			if (i == this.nums.length-1)
-				nums += " " + this.nums[i];
-			else if (i == 0)
-				nums += this.nums[i] + " -";
+				nums += this.nums[i];
 			else
-				nums += " " + this.nums[i] + " -";
-		}
+				nums += this.nums[i] + " - ";
 		return nums;
 	}
-	
+
 	public int[] getStars() {
 		return stars;
 	}
-	
+
 	public String getStarsString() {
-		String stars="";
-		for(int i = 0; i < this.stars.length; i++){
+		String stars = "";
+		for(int i = 0; i < this.stars.length; i++)
 			if (i == this.stars.length-1)
-				stars += " " + this.stars[i];
-			else if (i == 0)
-				stars += this.stars[i] + " -";
+				stars += this.stars[i];
 			else
-				stars += " " + this.stars[i] + " -";
-		}
+				stars += this.stars[i] + " - ";
 		return stars;
 	}
 

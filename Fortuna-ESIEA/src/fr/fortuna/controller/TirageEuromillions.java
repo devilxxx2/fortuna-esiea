@@ -184,14 +184,13 @@ public class TirageEuromillions implements Tirage {
 		return tmp;
 	}
 	
-	public String getBoulesStr(){
-		String boules="";
-		for(int i=0; i<this.boules.length; i++){
-			if(i!=0 && i<this.boules.length-1) boules+=" " + this.boules[i] + " -";
-			else if(i==this.boules.length-1) boules+=" " + this.boules[i];
-			else boules+=this.boules[i] + " -";
-		}
-		
+	public String getBoulesStr() {
+		String boules = "";
+		for(int i = 0; i < this.boules.length; i++)
+			if (i == this.boules.length-1)
+				boules += this.boules[i];
+			else
+				boules += this.boules[i] + " - ";
 		return boules;
 	}
 
@@ -204,13 +203,16 @@ public class TirageEuromillions implements Tirage {
 
 	public String getEtoilesStr(){
 		String etoiles="";
-		for(int i=0; i<this.etoiles.length; i++){
-			if(i!=0 && i<this.etoiles.length-1) etoiles+=" " + this.etoiles[i] + " -";
-			else if(i==this.etoiles.length-1) etoiles+=" " + this.etoiles[i];
-			else etoiles+=this.etoiles[i] + " -";
-		}
-		
+		for(int i = 0; i < this.etoiles.length; i++)
+			if (i == this.etoiles.length-1)
+				etoiles += this.etoiles[i];
+			else
+				etoiles += this.etoiles[i] + " - ";
 		return etoiles;
+	}
+
+	public String toString() {
+		return getBoulesStr() + " ~ [" + getEtoilesStr() + "]";
 	}
 
 	public void setNumeroDeTirage(String numeroDeTirage) {
