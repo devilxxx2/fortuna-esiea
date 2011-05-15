@@ -70,7 +70,7 @@ public class StatChartNumeros extends ApplicationFrame{
 		return new ChartPanel(jfreechart);
 	}
 	/**
-	 * création de la liste de données à afficher
+	 * création de la liste de données à afficher dans le diagramme
 	 * @return CategoryDataset le dataset
 	 */
 	private CategoryDataset createDataset() {
