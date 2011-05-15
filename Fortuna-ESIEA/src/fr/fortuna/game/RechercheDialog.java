@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import fr.fortuna.controller.Resultat;
 import fr.fortuna.controller.Tirage;
 import fr.fortuna.controller.Grille;
+import fr.fortuna.controller.GrilleLoto;
 import fr.fortuna.controller.GrilleEuroMillions;
 import fr.fortuna.controller.GrilleNouveauLoto;
 
@@ -36,7 +37,7 @@ public class RechercheDialog extends JDialog {
 
 		Grille grille = resultats.get(0).getGrille();
 		mainPanel.add(new JLabel("Grille : " +
-				grille + " Prix : " +
+				grille + " | Prix : " +
 				grille.getPrice()), BorderLayout.NORTH);
 
 		JTable table = new JTable();
@@ -46,12 +47,12 @@ public class RechercheDialog extends JDialog {
 					JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 					JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED), BorderLayout.CENTER);
 
-		if(resultats.get(0).getGrille() instanceof GrilleEuroMillions) {
+		if(resultats.get(0).getGrille() instanceof GrilleEuroMillions)
 			table.setModel(new ModeleRechercheEuroMillions(resultats));
-		}
-		else if(resultats.get(0).getGrille() instanceof GrilleNouveauLoto){
+		else if(resultats.get(0).getGrille() instanceof GrilleNouveauLoto)
 			table.setModel(new ModeleRechercheNouveauLoto(resultats));
-		}
+		else if(resultats.get(0).getGrille() instanceof GrilleLoto)
+			table.setModel(new ModeleRechercheLoto(resultats));
 
 		add(mainPanel);
 		pack();

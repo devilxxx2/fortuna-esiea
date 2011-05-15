@@ -50,12 +50,7 @@ public class ResultatsDialog extends JDialog {
 					sommeTotaleGains(resultats)));
 		mainPanel.add(bottomPanel, BorderLayout.SOUTH);
 
-		if(resultats.get(0).getTirage() instanceof TirageEuromillions) {
-			table.setModel(new ModeleResultatEuromillions(resultats));
-		}
-		else if(resultats.get(0).getTirage() instanceof TirageNouveauLoto) {
-			table.setModel(new ModeleResultatNouveauLoto(resultats));
-		}
+		table.setModel(new ModeleResultat(resultats));
 
 		add(mainPanel);
 		pack();

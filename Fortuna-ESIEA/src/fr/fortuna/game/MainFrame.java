@@ -14,8 +14,10 @@ import javax.swing.JPanel;
 
 import fr.fortuna.controller.Euromillions;
 import fr.fortuna.controller.NouveauLoto;
+import fr.fortuna.controller.Loto;
 import fr.fortuna.dao.EuromillionsCsvTirageDAO;
 import fr.fortuna.dao.NouveauLotoCsvTirageDAO;
+import fr.fortuna.dao.LotoCsvTirageDAO;
 
 import java.io.File;
 
@@ -24,6 +26,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	private Euromillions euromillions;
 	private NouveauLoto nouveauloto;
 	private NouveauLoto nouveausuperloto;
+	private Loto loto;
 
 	public MainFrame(){
 		super("Jeux de Loto");
@@ -40,13 +43,12 @@ public class MainFrame extends JFrame implements ActionListener{
 		NouveauLotoCsvTirageDAO tnsl = new NouveauLotoCsvTirageDAO(csv);
 		nouveausuperloto = new NouveauLoto(tnsl.loadAllTirages());
 
-		setVisible(true);
-		setSize(750, 500);
+		csv=new File("CSV Files/loto.csv");
+		LotoCsvTirageDAO tl = new LotoCsvTirageDAO(csv);
+		loto = new Loto(tl.loadAllTirages());
 
 		panel = new JPanel(new GridLayout(7, 1, 0, 5));
 
-/*		setPreferredSize(new Dimension(750, 500));
-		setSize(750, 500);  */
 		panel.validate();
 		panel.updateUI();
 
@@ -57,6 +59,7 @@ public class MainFrame extends JFrame implements ActionListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setPreferredSize(new Dimension(350, 450));
 		setResizable(false);
+		setVisible(true);
 		pack();
 	}
 
@@ -120,7 +123,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	}
 
 	public void popLoto(){
-		new JLotoDialog(this);
+		new JLotoDialog(this, loto);
 	}
 
 	public static void main(String[] args) {
