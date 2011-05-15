@@ -1,6 +1,10 @@
 package fr.fortuna.game.charts;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.HashMap;
+
+import javax.swing.JPanel;
 
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -14,11 +18,20 @@ public class StatChartGainsNouveauLoto extends StatChartGains {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/** La stat à calculer*/
 	private HashMap<Integer, Double> result;
 
 	public StatChartGainsNouveauLoto(String title, TirageNouveauLoto tirage) {
 		super(title, tirage);
 		result=tirage.calculStatGain();
+		JPanel pan = new JPanel(new BorderLayout());
+		JPanel panMid = new JPanel();
+		pan.add(panMid, BorderLayout.CENTER);
+		// création du panel de diagramme
+		JPanel jpanelChart = createPanel();
+		jpanelChart.setPreferredSize(new Dimension(500, 600));
+		setContentPane(pan);
+		panMid.add(jpanelChart);
 	}
 
 	@Override
@@ -31,6 +44,7 @@ public class StatChartGainsNouveauLoto extends StatChartGains {
 			System.out.println(value);
 			defaultcategorydataset.addValue(value, "Rang",String.valueOf(i));
 		}
+		
 		return defaultcategorydataset;
 	}
 

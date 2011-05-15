@@ -1,6 +1,10 @@
 package fr.fortuna.game.charts;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.util.HashMap;
+
+import javax.swing.JPanel;
 
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -18,6 +22,15 @@ public class StatChartGagnantNouveauLoto extends StatChartGagnants {
 	public StatChartGagnantNouveauLoto(String title, TirageNouveauLoto tirage) {
 		super(title, tirage);
 		result=tirage.calculStatGagnant();
+		JPanel pan = new JPanel(new BorderLayout());
+		JPanel panMid = new JPanel();
+		pan.add(panMid, BorderLayout.CENTER);
+		// création du panel de diagramme
+		JPanel jpanelChart = createPanel();
+		jpanelChart.setPreferredSize(new Dimension(500, 600));
+		setContentPane(pan);
+		panMid.add(jpanelChart);
+		System.out.println("plop");
 		
 	}
 	

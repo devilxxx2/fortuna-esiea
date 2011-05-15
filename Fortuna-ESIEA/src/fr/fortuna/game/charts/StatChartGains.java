@@ -41,15 +41,6 @@ public abstract class StatChartGains extends ApplicationFrame {
 		 */
 		public StatChartGains(String title, Tirage tirage){
 			super(title);		
-			// création des panels de base
-			JPanel pan = new JPanel(new BorderLayout());
-			JPanel panMid = new JPanel();
-			pan.add(panMid, BorderLayout.CENTER);
-			// création du panel de diagramme
-			JPanel jpanelChart = createPanel();
-			jpanelChart.setPreferredSize(new Dimension(500, 600));
-			setContentPane(pan);
-			panMid.add(jpanelChart);
 		}
 		
 		/**
