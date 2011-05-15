@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import org.jfree.ui.RefineryUtilities;
@@ -93,7 +94,7 @@ public class MainFrame extends JFrame implements ActionListener{
 		b.addActionListener(this);
 		panel.add(b);
 
-		b=new JButton("Règles des jeux");
+		b=new JButton("Regles des jeux");
 		b.addActionListener(this);
 		panel.add(b);
 
@@ -119,6 +120,18 @@ public class MainFrame extends JFrame implements ActionListener{
 		menu.add(menuItem);
 
 		menuItem=new JMenuItem("Loto");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+		
+		menuBar.add(menu);
+
+		
+		menu=new JMenu("?");
+		menuItem=new JMenuItem("Regles");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+		
+		menuItem=new JMenuItem("Credits");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
@@ -175,7 +188,19 @@ public class MainFrame extends JFrame implements ActionListener{
 
 			new StatsGeneralesDialog(this, "Statistiques générales", chart, chart1);
 		}
+		if(e.getActionCommand().equals("Regles des jeux") || e.getActionCommand().equals("Regles")){
+			JOptionPane.showMessageDialog(this, "Désolé, cette fonctione n'est pas activées par manque de temps.", 
+					"Oups !", JOptionPane.OK_OPTION);
+			
+		}
 		
-		
+		if(e.getActionCommand().equals("Credits")){
+			String noms= "Marvin BALUNGIDI\nJordan Cochard\nPhilippe DAOUDI\n Oriane DOREY\n"+
+			"Quentin Leuly\nFrancisco MICAELLI";
+			JOptionPane.showMessageDialog(this, noms, "Developpeurs", JOptionPane.OK_OPTION);
+			
+		}
+
+
 	}
 }
