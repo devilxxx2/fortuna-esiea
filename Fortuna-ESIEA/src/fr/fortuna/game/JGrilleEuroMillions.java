@@ -19,8 +19,7 @@ import fr.fortuna.controller.GrilleEuroMillions;
 import fr.fortuna.controller.TirageEuromillions;
 
 
-public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener, ActionListener {
-
+public class JGrilleEuroMillions extends JPanel implements JGrille {
 	private JGrilleNumeros nums;
 	private JGrilleNumeros etoiles;
 	private JPanel buttonPanel;
@@ -30,7 +29,7 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 		super();
 
 		buttonPanel=new JPanel();
-		
+
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
 		TitledBorder titledBorder=BorderFactory.createTitledBorder(
@@ -44,9 +43,8 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 		this.add(nums);
 		this.add(etoiles);
 
-
 		this.add(buttonPanel);
-		
+
 		JButton button=new JButton(new RandomAction());
 		buttonPanel.add(button);
 
@@ -65,29 +63,22 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 		nums.randomFill(5);
 		etoiles.randomFill(2);
 	}
-	
+
 	@Override
 	public Grille getGrille() {
 		return new GrilleEuroMillions(nums.getNums(), etoiles.getNums(),
 				numGrille);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
-
+	public int getNumGrille() {
+		return numGrille;
 	}
 
-	@Override
-	public void itemStateChanged(ItemEvent e) {
-		// TODO Auto-generated method stub
-
-
+	public boolean isEmpty() {
+		return nums.isEmpty() && etoiles.isEmpty();
 	}
 
 	private class RandomAction extends AbstractAction {
-
 		public RandomAction(){
 			super("Grille aléatoire");
 		}
@@ -100,7 +91,6 @@ public class JGrilleEuroMillions extends JPanel implements JGrille, ItemListener
 	}
 
 	private class ResetAction extends AbstractAction {
-
 		public ResetAction() {
 			super("Reset");
 		}

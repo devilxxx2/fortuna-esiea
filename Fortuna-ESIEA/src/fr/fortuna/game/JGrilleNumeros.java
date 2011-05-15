@@ -68,6 +68,13 @@ public class JGrilleNumeros extends JPanel {
 		return ret;
 	}
 
+	public boolean isEmpty() {
+		for (int i = 0; i < NB_CASES; ++i)
+			if (grille[i].isSelected())
+				return false;
+		return true;
+	}
+
 	public void reset() {
 		for (int i = 0; i < NB_CASES; ++i)
 			grille[i].setSelected(false);

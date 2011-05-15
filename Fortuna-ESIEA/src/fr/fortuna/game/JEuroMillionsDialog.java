@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 import fr.fortuna.controller.Euromillions;
 import fr.fortuna.controller.Grille;
@@ -53,9 +54,6 @@ class JEuroMillionsDialog extends JDialog
 		buttonPanel.add(new JButton(new ValiderAction()));
 		buttonPanel.add(new JButton(new RechercherAction()));
 
-
-
-
 		validate();
 		pack();
 	}
@@ -68,7 +66,12 @@ class JEuroMillionsDialog extends JDialog
 			}
 			catch(IllegalArgumentException i){
 				// Si la grille soumise n'est pas correcte, on attrape l'exception.
-				//		System.out.println(i.getMessage());
+				if (!jgrille.isEmpty())
+				{
+					JOptionPane.showMessageDialog(this,
+							"La grille " + jgrille.getNumGrille() + " est invalide");
+					return;
+				}
 			}
 		}
 

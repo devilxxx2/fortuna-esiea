@@ -21,67 +21,56 @@ import fr.fortuna.controller.TirageEuromillions;
 import fr.fortuna.controller.TirageNouveauLoto;
 
 public class ResultatsDialog extends JDialog {
-
-	JTable table;
-	Tirage tirage;
-	JPanel panel, tablePanel, bottomPanel;
-	JLabel topLabel, bottomLabel, label;
-
-
 	public ResultatsDialog(List<Resultat> resultats, Window parent){
-
 		super(parent, "Blup", Dialog.ModalityType.MODELESS);
 
 		setVisible(true);
 
 		if(resultats.isEmpty()) {
 			this.dispose();
-			throw new IllegalArgumentException("Le tableau de résultat est vide");			
+			throw new IllegalArgumentException("Le tableau de résultat est vide");
 		}
-		
-		BorderLayout layout=new BorderLayout(0,0);
 
-		panel=new JPanel(layout);
-		add(new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
-		JScrollPane js=new JScrollPane();
+		JPanel mainPanel = new JPanel(new BorderLayout(0,0));
 
-		tablePanel=new JPanel(new GridLayout(resultats.size(), 1));
-		panel.add(tablePanel, BorderLayout.CENTER);
-		
-		bottomPanel=new JPanel();
-		
-		if(resultats.get(0).getTirage() instanceof TirageEuromillions){
-			TirageEuromillions tirageEuro=((TirageEuromillions)resultats.get(0).getTirage());
+		if(resultats.get(0).getTirage() instanceof TirageEuromillions) {
+			TirageEuromillions tirageEuro =
+				(TirageEuromillions)resultats.get(0).getTirage();
+			mainPanel.add(new JLabel("Tirage : " +
+					tirageEuro.getBoulesCroissantesStr()), BorderLayout.NORTH);
 
-			topLabel=new JLabel("Tirage : " + tirageEuro.getBoulesCroissantesStr());
-			panel.add(topLabel, BorderLayout.NORTH);
-
-			table = new JTable(new ModeleResultatEuromillions(resultats));
-			tablePanel.add(new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
+			JTable table = new JTable(new ModeleResultatEuromillions(resultats));
 			table.setAutoCreateRowSorter(true);
-			
-			label=new JLabel("Prix cumulés des grilles :" + prixTotalGrilles(resultats));
-			bottomPanel.add(label);
-			label=new JLabel("Total des gains : " + sommeTotaleGains(resultats));
-			bottomPanel.add(label);
-			panel.add(bottomPanel, BorderLayout.SOUTH);
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+			mainPanel.add(new JScrollPane(table,
+						JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+						JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED), BorderLayout.CENTER);
 
+			JPanel bottomPanel = new JPanel();
+			bottomPanel.add(new JLabel("Prix cumulés des grilles : " +
+						prixTotalGrilles(resultats)));
+			bottomPanel.add(new JLabel("Total des gains : " +
+						sommeTotaleGains(resultats)));
+			mainPanel.add(bottomPanel, BorderLayout.SOUTH);
 		}
 		if(resultats.get(0).getTirage() instanceof TirageNouveauLoto){
-
 		}
 
+		add(mainPanel);
 		pack();
-
 	}
+
 	public double sommeTotaleGains(List<Resultat> resultats){
-		return 11.5;
+		double gains = 0;
+		for (Resultat r : resultats)
+			gains += r.getGain();
+		return gains;
 	}
+
 	public double prixTotalGrilles(List<Resultat> resultats){
-		return 12.0;
+		double price = 0;
+		for (Resultat r : resultats)
+			price += r.getGrille().getPrice();
+		return price;
 	}
-
-
-
 }
