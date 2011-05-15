@@ -27,6 +27,10 @@ import fr.fortuna.controller.Grille;
 import fr.fortuna.controller.GrilleLoto;
 import fr.fortuna.controller.GrilleEuroMillions;
 import fr.fortuna.controller.GrilleNouveauLoto;
+import fr.fortuna.game.charts.StatChartGagnantNouveauLoto;
+import fr.fortuna.game.charts.StatChartGainsNouveauLoto;
+import fr.fortuna.game.charts.StatChartsGagnantEuromillion;
+import fr.fortuna.game.charts.StatChartGainsEuromillion;
 import fr.fortuna.game.charts.StatChartGagnantsLoto;
 import fr.fortuna.game.charts.StatChartGainsLoto;
 
@@ -96,8 +100,20 @@ public class RechercheDialog extends JDialog implements MouseListener {
 						new StatChartGagnantsLoto("Gagnants", t),
 						new StatChartGainsLoto("Gains", t));
 			}
-			else if(model instanceof ModeleRechercheLoto);
-			else if(model instanceof ModeleRechercheLoto);
+			else if(model instanceof ModeleRechercheNouveauLoto)
+			{
+				TirageNouveauLoto t = ((ModeleRechercheNouveauLoto)model).getTirage(row);
+				new StatsDialog(this, "Statistiques Nouveau Loto",
+						new StatChartGagnantNouveauLoto("Gagnants", t),
+						new StatChartGainsNouveauLoto("Gains", t));
+			}
+			else if(model instanceof ModeleRechercheEuroMillions)
+			{
+				TirageEuromillions t = ((ModeleRechercheEuroMillions)model).getTirage(row);
+				new StatsDialog(this, "Statistiques EuroMillions",
+						new StatChartsGagnantEuromillion("Gagnants", t),
+						new StatChartGainsEuromillion("Gains", t));
+			}
 		}
 	}
 
