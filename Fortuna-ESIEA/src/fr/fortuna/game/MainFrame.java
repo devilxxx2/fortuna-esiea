@@ -19,6 +19,7 @@ import fr.fortuna.dao.EuromillionsCsvTirageDAO;
 import fr.fortuna.dao.NouveauLotoCsvTirageDAO;
 import fr.fortuna.dao.LotoCsvTirageDAO;
 import fr.fortuna.dao.SuperLotoCsvTirageDAO;
+import fr.fortuna.game.charts.StatChartNumeros;
 
 import java.io.File;
 
@@ -160,14 +161,16 @@ public class MainFrame extends JFrame implements ActionListener{
 		if ( e.getActionCommand().equals("Loto") || e.getActionCommand().equals("Jouer au Loto")){
 			popLoto();
 		}
-
 		if ( e.getActionCommand().equals("Jouer au Nouveau SuperLoto")){
 			popNouveauSuperLoto();
 		}
-
 		if ( e.getActionCommand().equals("Jouer au SuperLoto")){
 			popSuperLoto();
-
 		}
+		if( e.getActionCommand().equals("Statistiques du Loto")){
+			new StatsGeneralesDialog(this, "Statistiques générales", new StatChartNumeros("Stats numero", true));
+		}
+		
+		
 	}
 }
