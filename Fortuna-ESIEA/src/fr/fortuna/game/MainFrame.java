@@ -18,6 +18,7 @@ import fr.fortuna.controller.Loto;
 import fr.fortuna.dao.EuromillionsCsvTirageDAO;
 import fr.fortuna.dao.NouveauLotoCsvTirageDAO;
 import fr.fortuna.dao.LotoCsvTirageDAO;
+import fr.fortuna.dao.SuperLotoCsvTirageDAO;
 
 import java.io.File;
 
@@ -27,6 +28,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	private NouveauLoto nouveauloto;
 	private NouveauLoto nouveausuperloto;
 	private Loto loto;
+	private Loto superloto;
 
 	public MainFrame(){
 		super("Jeux de Loto");
@@ -46,6 +48,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		csv=new File("CSV Files/loto.csv");
 		LotoCsvTirageDAO tl = new LotoCsvTirageDAO(csv);
 		loto = new Loto(tl.loadAllTirages());
+
+		csv=new File("CSV Files/sloto.csv");
+		SuperLotoCsvTirageDAO tsl = new SuperLotoCsvTirageDAO(csv);
+		superloto = new Loto(tsl.loadAllTirages());
 
 		panel = new JPanel(new GridLayout(7, 1, 0, 5));
 
@@ -77,6 +83,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		panel.add(b);
 
 		b=new JButton("Jouer au Loto");
+		b.addActionListener(this);
+		panel.add(b);
+
+		b=new JButton("Jouer au SuperLoto");
 		b.addActionListener(this);
 		panel.add(b);
 
@@ -126,6 +136,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		new JLotoDialog(this, loto);
 	}
 
+	public void popSuperLoto(){
+		new JLotoDialog(this, superloto);
+	}
+
 	public static void main(String[] args) {
 		new MainFrame();
 	}
@@ -157,6 +171,9 @@ public class MainFrame extends JFrame implements ActionListener{
 			}
 			if ( button.getText().equals("Jouer au Loto")){
 				popLoto();
+			}
+			if ( button.getText().equals("Jouer au SuperLoto")){
+				popSuperLoto();
 			}
 		}
 	}

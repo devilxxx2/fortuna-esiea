@@ -72,16 +72,26 @@ public class JGrilleNouveauLoto extends JPanel implements JGrille {
 	}
 
 	public void search() {
+		GrilleNouveauLoto g;
 		try
 		{
-			new RechercheDialog(nouveauloto.rechercheAncienResultat(
-						new GrilleNouveauLoto(nums.getNums(), chance.getNums(),
-							numGrille)), parent);
+			g = new GrilleNouveauLoto(nums.getNums(), chance.getNums(),
+								numGrille);
 		}
 		catch (IllegalArgumentException e)
 		{
 			JOptionPane.showMessageDialog(parent,
 					"La grille est invalide.");
+			return;
+		}
+		try
+		{
+			new RechercheDialog(nouveauloto.rechercheAncienResultat(g), parent);
+		}
+		catch (IllegalArgumentException e)
+		{
+			JOptionPane.showMessageDialog(parent,
+					"Vous n'avez rien gagné.");
 		}
 	}
 

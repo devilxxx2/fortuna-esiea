@@ -71,16 +71,26 @@ public class JGrilleEuroMillions extends JPanel implements JGrille {
 	}
 
 	public void search() {
+		GrilleEuroMillions g;
 		try
 		{
-			new RechercheDialog(euromillions.rechercheAncienResultat(
-						new GrilleEuroMillions(nums.getNums(), etoiles.getNums(),
-							numGrille)), parent);
+			g = new GrilleEuroMillions(nums.getNums(), etoiles.getNums(),
+								numGrille);
 		}
 		catch (IllegalArgumentException e)
 		{
 			JOptionPane.showMessageDialog(parent,
 					"La grille est invalide.");
+			return;
+		}
+		try
+		{
+			new RechercheDialog(euromillions.rechercheAncienResultat(g), parent);
+		}
+		catch (IllegalArgumentException e)
+		{
+			JOptionPane.showMessageDialog(parent,
+					"Vous n'avez rien gagné.");
 		}
 	}
 
