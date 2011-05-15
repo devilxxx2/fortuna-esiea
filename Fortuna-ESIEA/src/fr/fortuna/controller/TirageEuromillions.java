@@ -174,8 +174,20 @@ public class TirageEuromillions implements Tirage {
 			}
 		}
 		//initialisation des gains
-		rapportRang = new double[] {15000000, 954234, 53451, 1133, 373.1, 128.2, 56.1, 25.35, 20.2, 17.1, 10.1, 9.9};
-			
+		double[] tableauGain = new double[rapportRang.length];
+		double gain;
+		double[] maximumGain = new double[] { 180000000, 9999999, 1500000, 40000, 443, 350, 200, 60, 40, 30, 16, 13};
+		double[] minimumGain = new double[] { 15000000, 300000, 150000, 13000, 300, 210, 113, 30, 20, 18, 9, 8.10};
+		for (int i = 0; i < tableauGain.length; i++) {
+			do {
+				gain = random.nextDouble() * maximumGain[i];
+			}
+			while (gain < minimumGain[i]);
+			gain = (10d*gain);
+			gain = Math.round(gain)/10d;
+			tableauGain[i] = gain;
+		}
+		rapportRang = tableauGain;	
 	}
 	public int[] getBoulesCroissantes()
 	{

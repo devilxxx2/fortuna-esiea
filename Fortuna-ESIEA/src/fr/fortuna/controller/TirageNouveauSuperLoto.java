@@ -133,8 +133,23 @@ public class TirageNouveauSuperLoto implements Tirage {
 		//Cas du numéro chance
 		boule = random.nextInt(10) + 1;	//nombre aléatoire entre 1 et 10 
 		numeroChance = boule;
+
 		//initialisation des gains
-		rapportRang = new double[] {2000000, 480000, 1768.1, 11.80, 5.70, 2};
+		double[] tableauGain = new double[rapportRang.length];
+		double gain;
+		double[] maximumGain = new double[] { 30000000, 700000, 4000, 30, 20};
+		double[] minimumGain = new double[] { 3000000, 200000, 1000, 10, 5};
+		for (int i = 0; i < tableauGain.length - 1; i++) {
+			do {
+				gain = random.nextDouble() * maximumGain[i];
+			}
+			while (gain < minimumGain[i]);
+			gain = (10d*gain);
+			gain = Math.round(gain)/10d;
+			tableauGain[i] = gain;
+		}
+		tableauGain[5] = 2d;
+		rapportRang = tableauGain;
 			
 	}
 	

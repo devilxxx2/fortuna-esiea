@@ -130,8 +130,23 @@ public class TirageNouveauLoto implements Tirage {
 		//Cas du numéro chance
 		boule = random.nextInt(10) + 1;	//nombre aléatoire entre 1 et 10 
 		numeroChance = boule;
+		
 		//initialisation des gains
-		rapportRang = new double[] {1000000, 155462, 1156.3, 10.80, 5.40, 2};
+		double[] tableauGain = new double[rapportRang.length];
+		double gain;
+		double[] maximumGain = new double[] { 20000000, 600000, 3000, 20, 10};
+		double[] minimumGain = new double[] { 4000000, 300000, 1500, 10, 5};
+		for (int i = 0; i < tableauGain.length - 1; i++) {
+			do {
+				gain = random.nextDouble() * maximumGain[i];
+			}
+			while (gain < minimumGain[i]);
+			gain = (10d*gain);
+			gain = Math.round(gain)/10d;
+			tableauGain[i] = gain;
+		}
+		tableauGain[5] = 2d;
+		rapportRang = tableauGain;
 			
 	}
 	
