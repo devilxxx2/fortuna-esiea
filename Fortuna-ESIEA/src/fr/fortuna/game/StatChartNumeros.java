@@ -35,14 +35,14 @@ import fr.fortuna.dao.LotoCsvTirageDAO;
  */
 public class StatChartNumeros extends ApplicationFrame{
 	
-	/*statistiques à afficher*/
+	/*statistiques Ã© afficher*/
 	private ArrayList<HashMap<Integer, Double>> resultatStat; 
 	private String typeStat;
 	private boolean isNumero;
 	/**
 	 * 
 	 * @param title 
-	 * @param isNumero true si on affiche les numéros, false si on affiche les étoiles
+	 * @param isNumero true si on affiche les numÃ©ros, false si on affiche les Ã©toiles
 	 */
 	public StatChartNumeros(String title, boolean isNumero){
 		super(title);
@@ -54,11 +54,11 @@ public class StatChartNumeros extends ApplicationFrame{
 		HashMap<TirageLoto, HashMap<Integer, Double>> maMap = loto
 				.calculStatGagnant();
 		resultatStat = loto.calculStatJeu();
-		// création des panels de base
+		// crÃ©ation des panels de base
 		JPanel pan = new JPanel(new BorderLayout());
 		JPanel panMid = new JPanel();
 		pan.add(panMid, BorderLayout.CENTER);
-		// création du panel de diagramme
+		// crÃ©ation du panel de diagramme
 		JPanel jpanelChart = createPanelNumeros();
 		jpanelChart.setPreferredSize(new Dimension(500, 600));
 		setContentPane(pan);
@@ -71,14 +71,14 @@ public class StatChartNumeros extends ApplicationFrame{
 	}
 	
 	private CategoryDataset createDataset() {
-		Double value = 0.0;// La statistique à afficher
+		Double value = 0.0;// La statistique Ã© afficher
 		DefaultCategoryDataset defaultcategorydataset = new DefaultCategoryDataset();
-		// récupération de la stat par numéro/étoile
+		// rÃ©cupÃ©ration de la stat par numÃ©ro/Ã©toile
 		int index=-1;
 		String label="";
 		if(isNumero){
 			index=0; 
-			label="Numéros";
+			label="NumÃ©ros";
 		}else{
 			index=1;
 			label="Etoiles";
@@ -94,11 +94,11 @@ public class StatChartNumeros extends ApplicationFrame{
 		JFreeChart jfreechart;
 		if(isNumero){
 			jfreechart= ChartFactory
-				.createBarChart("Fréquence de sortie des numéros", "Numéros",
+				.createBarChart("FrÃ©quence de sortie des numÃ©ros", "NumÃ©ros",
 						"", categorydataset, PlotOrientation.HORIZONTAL, false,
 						true, false);
 		}else {
-			jfreechart = ChartFactory.createBarChart("Fréquence de sortie des étoiles", "Etoiles",
+			jfreechart = ChartFactory.createBarChart("FrÃ©quence de sortie des Ã©toiles", "Etoiles",
 					"", categorydataset, PlotOrientation.HORIZONTAL, false,
 					true, false);
 		}
@@ -121,7 +121,7 @@ public class StatChartNumeros extends ApplicationFrame{
 		return jfreechart;
 	}
 	
-	/*public static void main(String args[]) {
+	public static void main(String args[]) {
 		StatChartNumeros chart = new StatChartNumeros("Statistiques",true);
 		chart.pack();
 		RefineryUtilities.centerFrameOnScreen(chart);
@@ -130,6 +130,6 @@ public class StatChartNumeros extends ApplicationFrame{
 		chart1.pack();
 		RefineryUtilities.centerFrameOnScreen(chart1);
 		chart1.setVisible(true);
-	}*/
+	}
 	
 }
