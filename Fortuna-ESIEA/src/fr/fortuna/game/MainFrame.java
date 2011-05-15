@@ -23,6 +23,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	private JPanel panel;
 	private Euromillions euromillions;
 	private NouveauLoto nouveauloto;
+	private NouveauLoto nouveausuperloto;
 
 	public MainFrame(){
 		super("Jeux de Loto");
@@ -34,6 +35,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		csv=new File("CSV Files/nouveau_loto.csv");
 		NouveauLotoCsvTirageDAO tnl = new NouveauLotoCsvTirageDAO(csv);
 		nouveauloto = new NouveauLoto(tnl.loadAllTirages());
+
+		csv=new File("CSV Files/nouveau_superloto.csv");
+		NouveauLotoCsvTirageDAO tnsl = new NouveauLotoCsvTirageDAO(csv);
+		nouveausuperloto = new NouveauLoto(tnsl.loadAllTirages());
 
 		setVisible(true);
 		setSize(750, 500);
@@ -64,6 +69,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		b.addActionListener(this);
 		panel.add(b);
 
+		b=new JButton("Jouer au Nouveau SuperLoto");
+		b.addActionListener(this);
+		panel.add(b);
+
 		b=new JButton("Jouer au Loto");
 		b.addActionListener(this);
 		panel.add(b);
@@ -85,6 +94,10 @@ public class MainFrame extends JFrame implements ActionListener{
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
 
+		menuItem=new JMenuItem("Nouveau SuperLoto");
+		menuItem.addActionListener(this);
+		menu.add(menuItem);
+
 		menuItem=new JMenuItem("Loto");
 		menuItem.addActionListener(this);
 		menu.add(menuItem);
@@ -100,6 +113,10 @@ public class MainFrame extends JFrame implements ActionListener{
 
 	public void popNouveauLoto(){
 		new JNouveauLotoDialog(this, nouveauloto);
+	}
+
+	public void popNouveauSuperLoto(){
+		new JNouveauLotoDialog(this, nouveausuperloto);
 	}
 
 	public void popLoto(){
@@ -131,6 +148,9 @@ public class MainFrame extends JFrame implements ActionListener{
 			}
 			if ( button.getText().equals("Jouer au Nouveau Loto")){
 				popNouveauLoto();
+			}
+			if ( button.getText().equals("Jouer au Nouveau SuperLoto")){
+				popNouveauSuperLoto();
 			}
 			if ( button.getText().equals("Jouer au Loto")){
 				popLoto();
