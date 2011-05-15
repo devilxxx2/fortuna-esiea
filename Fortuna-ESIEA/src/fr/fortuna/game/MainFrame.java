@@ -12,11 +12,21 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import fr.fortuna.controller.Euromillions;
+import fr.fortuna.dao.EuromillionsCsvTirageDAO;
+
+import java.io.File;
+
 public class MainFrame extends JFrame implements ActionListener{
 	private JPanel panel;
+	private Euromillions euromillions;
 
 	public MainFrame(){
 		super("Jeux de Loto");
+
+		File csv=new File("CSV Files/euromillions.csv");
+		EuromillionsCsvTirageDAO t = new EuromillionsCsvTirageDAO(csv);
+		euromillions = new Euromillions(t.loadAllTirages());
 
 		setVisible(true);
 		setSize(750, 500);
@@ -78,7 +88,7 @@ public class MainFrame extends JFrame implements ActionListener{
 	}
 
 	public void popEuroMillions(){
-		new JEuroMillionsDialog(this);
+		new JEuroMillionsDialog(this, euromillions);
 	}
 
 	public void popNouveauLoto(){

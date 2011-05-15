@@ -39,7 +39,7 @@ public class ModeleResultatEuromillions extends AbstractTableModel {
 		case 0:
 			return ((GrilleEuroMillions)resultats.get(rowIndex).getGrille()).getNumeroGrille();
 		case 1:
-			return ((GrilleEuroMillions)resultats.get(rowIndex).getGrille()).getNumsString();
+			return ((GrilleEuroMillions)resultats.get(rowIndex).getGrille()).toString();
 		case 2:
 			return ((GrilleEuroMillions)resultats.get(rowIndex).getGrille()).getPrice();
 		case 3:

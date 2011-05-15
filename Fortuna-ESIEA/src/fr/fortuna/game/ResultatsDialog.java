@@ -22,7 +22,7 @@ import fr.fortuna.controller.TirageNouveauLoto;
 
 public class ResultatsDialog extends JDialog {
 	public ResultatsDialog(List<Resultat> resultats, Window parent){
-		super(parent, "Blup", Dialog.ModalityType.MODELESS);
+		super(parent, "Résultat du jeu", Dialog.ModalityType.MODELESS);
 
 		setVisible(true);
 
@@ -37,7 +37,7 @@ public class ResultatsDialog extends JDialog {
 			TirageEuromillions tirageEuro =
 				(TirageEuromillions)resultats.get(0).getTirage();
 			mainPanel.add(new JLabel("Tirage : " +
-					tirageEuro.getBoulesCroissantesStr()), BorderLayout.NORTH);
+					tirageEuro.getBoulesStr()), BorderLayout.NORTH);
 
 			JTable table = new JTable(new ModeleResultatEuromillions(resultats));
 			table.setAutoCreateRowSorter(true);

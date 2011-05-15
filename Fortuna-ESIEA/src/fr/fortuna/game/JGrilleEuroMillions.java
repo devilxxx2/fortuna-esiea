@@ -1,31 +1,36 @@
 package fr.fortuna.game;
 
+import java.awt.Insets;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import javax.swing.JDialog;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
+import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
 
+import fr.fortuna.controller.Euromillions;
 import fr.fortuna.controller.Grille;
 import fr.fortuna.controller.GrilleEuroMillions;
 import fr.fortuna.controller.TirageEuromillions;
-
 
 public class JGrilleEuroMillions extends JPanel implements JGrille {
 	private JGrilleNumeros nums;
 	private JGrilleNumeros etoiles;
 	private JPanel buttonPanel;
 	private int numGrille;
+	private JDialog parent;
+	private Euromillions euromillions;
 
-	public JGrilleEuroMillions(int numeroGrille){
+	public JGrilleEuroMillions(JDialog parent, Euromillions em, int numeroGrille){
 		super();
 
 		buttonPanel=new JPanel();
@@ -45,13 +50,17 @@ public class JGrilleEuroMillions extends JPanel implements JGrille {
 
 		this.add(buttonPanel);
 
-		JButton button=new JButton(new RandomAction());
-		buttonPanel.add(button);
+		JButton button;
+		buttonPanel.add(button = new JButton(new RandomAction()));
+		button.setMargin(new Insets(0, 0, 0, 0));
+		buttonPanel.add(button = new JButton(new ResetAction()));
+		button.setMargin(new Insets(0, 0, 0, 0));
+		buttonPanel.add(button = new JButton(new RechercherAction()));
+		button.setMargin(new Insets(0, 0, 0, 0));
 
-		button=new JButton(new ResetAction());
-		buttonPanel.add(button);
-
-		numGrille = numeroGrille;
+		this.numGrille = numeroGrille;
+		this.parent = parent;
+		this.euromillions = em;
 	}
 
 	public void resetGrille(){
@@ -62,6 +71,20 @@ public class JGrilleEuroMillions extends JPanel implements JGrille {
 	public void randomFillGrille(){
 		nums.randomFill(5);
 		etoiles.randomFill(2);
+	}
+
+	public void search() {
+		try
+		{
+			new RechercheDialog(euromillions.rechercheAncienResultat(
+						new GrilleEuroMillions(nums.getNums(), etoiles.getNums(),
+							numGrille)), parent);
+		}
+		catch (IllegalArgumentException e)
+		{
+			JOptionPane.showMessageDialog(parent,
+					"La grille est invalide.");
+		}
 	}
 
 	@Override
@@ -80,7 +103,7 @@ public class JGrilleEuroMillions extends JPanel implements JGrille {
 
 	private class RandomAction extends AbstractAction {
 		public RandomAction(){
-			super("Grille aléatoire");
+			super("Flash");
 		}
 
 		@Override
@@ -97,13 +120,18 @@ public class JGrilleEuroMillions extends JPanel implements JGrille {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-
 			resetGrille();
+		}
+	}
 
+	private class RechercherAction extends AbstractAction {
+		public RechercherAction() {
+			super("Rechercher");
 		}
 
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			search();
+		}
 	}
 }
-
-
-

@@ -20,12 +20,10 @@ import fr.fortuna.controller.TirageEuromillions;
 
 class JEuroMillionsDialog extends JDialog
 {
-
 	JPanel mainPanel, grillePanel, buttonPanel;
-	GroupLayout layout;
 	JGrilleEuroMillions[] grilles;
 
-	public JEuroMillionsDialog(JFrame parent)
+	public JEuroMillionsDialog(JFrame parent, Euromillions euromillions)
 	{
 		super(parent, "Euromillions");
 		setModal(false);
@@ -48,11 +46,10 @@ class JEuroMillionsDialog extends JDialog
 		grilles = new JGrilleEuroMillions[5];
 		for (int i = 0; i < grilles.length; ++i)
 		{
-			grilles[i] = new JGrilleEuroMillions(i+1);
+			grilles[i] = new JGrilleEuroMillions(this, euromillions, i+1);
 			grillePanel.add(grilles[i]);
 		}
 		buttonPanel.add(new JButton(new ValiderAction()));
-		buttonPanel.add(new JButton(new RechercherAction()));
 
 		validate();
 		pack();
@@ -76,13 +73,12 @@ class JEuroMillionsDialog extends JDialog
 		}
 
 		//	grillesAValider.add(grilles[0].getGrille());
-		for(int i=0; i<20; i++)	{
+		//for(int i=0; i<20; i++)	{
 			TirageEuromillions tirageEuro=new TirageEuromillions();
 			tirageEuro.generate();
-			int[] bla=tirageEuro.getBoulesCroissantes();
 
 			new ResultatsDialog(tirageEuro.jouer(grillesAValider), this);
-		}
+		//}
 	}
 
 	private class ValiderAction extends AbstractAction {
@@ -97,15 +93,4 @@ class JEuroMillionsDialog extends JDialog
 
 		}
 	}
-
-	private class RechercherAction extends AbstractAction {
-		public RechercherAction(){
-			super("Rechercher");
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent actionEvent) {
-		}
-	}
-
 }

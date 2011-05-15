@@ -32,14 +32,16 @@ public class GrilleEuroMillions implements Grille {
 	}
 	
 	public String getNumsString() {
-		String numeros="";
-		for(int i=0; i<nums.length; i++){
-			if(i!=0 && i<nums.length-1) numeros+=" " + nums[i] + " -";
-			else if(i==nums.length-1) numeros+=" " + nums[i];
-			else numeros+=nums[i] + " -";
+		String nums="";
+		for(int i = 0; i < this.nums.length; i++){
+			if (i == this.nums.length-1)
+				nums += " " + this.nums[i];
+			else if (i == 0)
+				nums += this.nums[i] + " -";
+			else
+				nums += " " + this.nums[i] + " -";
 		}
-		
-		return numeros;
+		return nums;
 	}
 	
 	public int[] getStars() {
@@ -48,13 +50,21 @@ public class GrilleEuroMillions implements Grille {
 	
 	public String getStarsString() {
 		String stars="";
-		for(int i=0; i<this.stars.length; i++){
-			if(i!=0) stars+=" " + this.stars[i] + " -";
-			else if(i==this.stars.length-1) stars+=" " + this.stars[i];
-			else stars+=this.stars[i];
+		for(int i = 0; i < this.stars.length; i++){
+			if (i == this.stars.length-1)
+				stars += " " + this.stars[i];
+			else if (i == 0)
+				stars += this.stars[i] + " -";
+			else
+				stars += " " + this.stars[i] + " -";
 		}
-		
 		return stars;
+	}
+
+	public String toString() {
+		return
+			getNumsString() + " ~ [" +
+			getStarsString() + "]";
 	}
 
 	public int getNumeroGrille() {
