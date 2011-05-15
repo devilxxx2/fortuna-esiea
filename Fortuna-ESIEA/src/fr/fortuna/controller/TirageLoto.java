@@ -1,6 +1,7 @@
 package fr.fortuna.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class TirageLoto implements Tirage {
 	
@@ -86,6 +87,40 @@ public class TirageLoto implements Tirage {
 				}
 		}
 		return new Resultat(this, grille, 0, 0); //perdu
+	}
+	
+	/*
+	 * Calcule les statistiques sur les gagnants du Loto
+	 * 
+	 * @return une map les statistiques des gagnants pour chaque rang
+	 */
+	public HashMap<Integer, Double> calculStatGagnant() {
+		HashMap<Integer, Double> retour = new HashMap<Integer, Double>();
+		int i;	//variable de boucle
+		double stat;
+		
+		for (i = 0; i < nombreDeGagnantsRg.length; i++) {
+			stat = (double)nombreDeGagnantsRg[i] / nombreDeGagnantsTotal;
+			retour.put(i+1, stat);
+		}
+		return retour;
+	}
+	
+	/*
+	 * Calcule les statistiques sur les gains du Loto
+	 * 
+	 * @return une map les statistiques des gains pour chaque rang
+	 */
+	public HashMap<Integer, Double> calculStatGain() {
+		HashMap<Integer, Double> retour = new HashMap<Integer, Double>();
+		int i;	//variable de boucle
+		double stat;
+		
+		for (i = 0; i < gainParRg.length; i++) {
+			stat = (double)gainParRg[i] / gainTotal;
+			retour.put(i+1, stat);
+		}
+		return retour;
 	}
 	
 	public int[] getBoulesCroissantes()
