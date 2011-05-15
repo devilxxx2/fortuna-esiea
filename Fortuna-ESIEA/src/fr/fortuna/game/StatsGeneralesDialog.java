@@ -6,15 +6,14 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import fr.fortuna.game.charts.StatChartGains;
 
-public class StatsGenerales extends JDialog {
+public class StatsGeneralesDialog extends JDialog {
 
 	JPanel mainPanel, panel;
 
-	public StatsGenerales(Window owner, String title, StatChartGains chartGains) {
+	public StatsGeneralesDialog(Window owner, String title, StatChartGains chartGains) {
 		super(owner, title);
 
 		add(chartGains);
-
 
 		setVisible(true);
 		setResizable(false);
