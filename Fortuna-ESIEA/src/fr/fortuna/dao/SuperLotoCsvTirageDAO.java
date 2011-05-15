@@ -13,12 +13,13 @@ public class SuperLotoCsvTirageDAO extends CsvTirageDAO {
 	}
 
 	//@Override
-	protected TirageSuperLoto lineToTirage(String line) {
+	protected TirageLoto lineToTirage(String line) {
 		String[] values = line.split(";");
 
-		TirageSuperLoto t=new TirageSuperLoto();
+		TirageLoto t=new TirageLoto();
 		
 		t.setNumeroDeTirage(values[0]);
+		t.setOrdreDeTirage(0);
 		t.setJour(values[1]);
 		t.setDateTirage(values[2]);
 		t.setDateForclusion(values[3]);
@@ -30,6 +31,7 @@ public class SuperLotoCsvTirageDAO extends CsvTirageDAO {
 		
 		t.setBoules(boules);
 		t.setBouleComplementaire(Integer.valueOf(values[4+i]));
+		t.setNumeroJoker("");
 		int j=0;
 		int[] nbGag=new int[7];
 		double[] Rap=new double[7];
@@ -51,14 +53,14 @@ public class SuperLotoCsvTirageDAO extends CsvTirageDAO {
 		return t;
 	}
 
-	public List<TirageSuperLoto> loadAllTirages() {
+	public List<TirageLoto> loadAllTirages() {
 		if(csvFile.exists()){
-			final List<TirageSuperLoto> tirages = new ArrayList<TirageSuperLoto>();
+			final List<TirageLoto> tirages = new ArrayList<TirageLoto>();
 	
 			List<String> lines = readAllLines();
 	
 			for (String line : lines) {
-				TirageSuperLoto tirage = lineToTirage(line);
+				TirageLoto tirage = lineToTirage(line);
 				tirages.add(tirage);
 			}
 			return tirages;
