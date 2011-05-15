@@ -26,6 +26,10 @@ public class ModeleRechercheEuroMillions extends AbstractTableModel {
 		return entetes[columnIndex];
 	}
 
+	public TirageEuromillions getTirage(int row) {
+		return (TirageEuromillions)resultats.get(row).getTirage();
+	}
+
 	@Override
 	public int getRowCount() {
 		return resultats.size();

@@ -30,6 +30,10 @@ public class ModeleRechercheLoto extends AbstractTableModel {
 		return resultats.size();
 	}
 
+	public TirageLoto getTirage(int row) {
+		return (TirageLoto)resultats.get(row).getTirage();
+	}
+
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		switch (columnIndex) {

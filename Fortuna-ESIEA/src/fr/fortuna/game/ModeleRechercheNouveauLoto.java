@@ -25,6 +25,10 @@ public class ModeleRechercheNouveauLoto extends AbstractTableModel {
 		return entetes[columnIndex];
 	}
 
+	public TirageNouveauLoto getTirage(int row) {
+		return (TirageNouveauLoto)resultats.get(row).getTirage();
+	}
+
 	@Override
 	public int getRowCount() {
 		return resultats.size();
