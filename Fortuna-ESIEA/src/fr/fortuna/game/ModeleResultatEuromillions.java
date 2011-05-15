@@ -8,7 +8,7 @@ import fr.fortuna.controller.GrilleEuroMillions;
 import fr.fortuna.controller.Resultat;
 
 public class ModeleResultatEuromillions extends AbstractTableModel {
-	private final String[] entetes = {"Numéro grille", "Numéros joués", "Mise", "Rang", "Montant"};
+	private final String[] entetes = {"Numéro grille", "Numéros joués", "Etoiles jouées", "Mise", "Rang", "Montant"};
 	private List<Resultat> resultats;
 
 
@@ -39,10 +39,12 @@ public class ModeleResultatEuromillions extends AbstractTableModel {
 		case 1:
 			return ((GrilleEuroMillions)resultats.get(rowIndex).getGrille()).toString();
 		case 2:
-			return ((GrilleEuroMillions)resultats.get(rowIndex).getGrille()).getPrice();
+			return ((GrilleEuroMillions)resultats.get(rowIndex).getGrille()).getStarsString();
 		case 3:
-			return resultats.get(rowIndex).getRang();
+			return ((GrilleEuroMillions)resultats.get(rowIndex).getGrille()).getPrice();
 		case 4:
+			return resultats.get(rowIndex).getRang();
+		case 5:
 			return resultats.get(rowIndex).getGain();
 		default:
 			return null;

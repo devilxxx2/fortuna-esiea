@@ -43,7 +43,7 @@ public class MainFrame extends JFrame implements ActionListener{
 		setVisible(true);
 		setSize(750, 500);
 
-		panel = new JPanel(new GridLayout(4, 1, 0, 5));
+		panel = new JPanel(new GridLayout(7, 1, 0, 5));
 
 /*		setPreferredSize(new Dimension(750, 500));
 		setSize(750, 500);  */
