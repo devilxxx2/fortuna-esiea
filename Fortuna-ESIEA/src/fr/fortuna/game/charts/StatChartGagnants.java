@@ -36,9 +36,14 @@ import fr.fortuna.dao.LotoCsvTirageDAO;
 public abstract class StatChartGagnants extends ApplicationFrame {
 
 	private static final long serialVersionUID = 1L;
-	
+	/** le résultat à afficher*/
 	private HashMap<Integer, Double> result;
 	
+	/**
+	 * 
+	 * @param title le titre de la fenêtre
+	 * @param tirage le tirage concerné
+	 */
 	public StatChartGagnants(String title, Tirage tirage){
 		super(title);		
 		// création des panels de base
@@ -52,13 +57,25 @@ public abstract class StatChartGagnants extends ApplicationFrame {
 		panMid.add(jpanelChart);
 	}
 	
+	/**
+	 * 
+	 * @return le panel avec le graphique
+	 */
 	public JPanel createPanel() {
 		JFreeChart jfreechart = createChart(createDataset());
 		return new ChartPanel(jfreechart);
 	}
-	
+	/**
+	 * création de la liste de données à afficher
+	 * @return CategoryDataset le dataset
+	 */
 	protected abstract CategoryDataset createDataset();
 	
+	/**
+	 * méthode de gestion de l'affichage du diagramme
+	 * @param categorydataset les données à afficher
+	 * @return le diagramme jfreechart
+	 */
 	protected JFreeChart createChart(CategoryDataset categorydataset) {
 		JFreeChart jfreechart = ChartFactory
 				.createBarChart("Pourcentage de gagnants à un rang", "Rangs",

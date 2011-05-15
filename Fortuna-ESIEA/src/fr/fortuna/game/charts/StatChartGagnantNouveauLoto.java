@@ -5,7 +5,11 @@ import java.util.HashMap;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import fr.fortuna.controller.TirageNouveauLoto;
-
+/**
+ * 
+ * @author Oriane
+ * classe affichage des gagnants nouveau loto
+ */
 public class StatChartGagnantNouveauLoto extends StatChartGagnants {
 
 	private static final long serialVersionUID = 1L;

@@ -63,12 +63,18 @@ public class StatChartNumeros extends ApplicationFrame{
 		setContentPane(pan);
 		panMid.add(jpanelChart);
 	}
-	
+	/**
+	 * 
+	 * @return le panel avec le graphique
+	 */
 	public JPanel createPanelNumeros() {
 		JFreeChart jfreechart = createChart(createDataset());
 		return new ChartPanel(jfreechart);
 	}
-	
+	/**
+	 * création de la liste de données à afficher
+	 * @return CategoryDataset le dataset
+	 */
 	private CategoryDataset createDataset() {
 		Double value = 0.0;// La statistique � afficher
 		DefaultCategoryDataset defaultcategorydataset = new DefaultCategoryDataset();
@@ -88,7 +94,11 @@ public class StatChartNumeros extends ApplicationFrame{
 		}
 		return defaultcategorydataset;
 	}
-	
+	/**
+	 * méthode de gestion de l'affichage du diagramme
+	 * @param categorydataset les données à afficher
+	 * @return le diagramme jfreechart
+	 */
 	private JFreeChart createChart(CategoryDataset categorydataset) {
 		JFreeChart jfreechart;
 		if(isNumero){
