@@ -2,6 +2,7 @@ package fr.fortuna.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -189,6 +190,74 @@ public class TirageEuromillions implements Tirage {
 		}
 		rapportRang = tableauGain;	
 	}
+	
+	/*
+	 * Calcule les statistiques sur les gagnants de l'euromillions en Europe pour le tirage
+	 * 
+	 * @return map contenant les statistiques pour chaque rang
+	 */
+	public HashMap<Integer, Double> calculStatGagnantEurope() {
+		HashMap<Integer, Double> retour = new HashMap<Integer, Double>();
+		int i;	//variable de boucle
+		double stat;
+		for (i = 0; i < nombreDeGagnantsRgEurope.length; i++) {
+			stat = (double)nombreDeGagnantsRgEurope[i] / nombreDeGagnantsTotalEurope;
+			retour.put(i+1, stat);
+		}
+		return retour;		
+	}
+	
+	/*
+	 * Calcule les statistiques sur les gagnants de l'euromillions en France pour le tirage
+	 * 
+	 * @return map contenant les statistiques pour chaque rang
+	 */
+	
+	public HashMap<Integer, Double> calculStatGagnantFrance() {
+		HashMap<Integer, Double> retour = new HashMap<Integer, Double>();
+		int i;	//variable de boucle
+		double stat;
+		for (i = 0; i < nombreDeGagnantsRgFrance.length; i++) {
+			stat = (double)nombreDeGagnantsRgFrance[i] / nombreDeGagnantsTotalFrance;
+			retour.put(i+1, stat);
+		}
+		return retour;		
+	}
+	
+	/*
+	 * Calcule les statistiques sur les gains de l'euromillions en Europe pour le tirage
+	 * 
+	 * @return map contenant les statistiques pour chaque rang
+	 */
+	public HashMap<Integer, Double> calculStatGainEurope() {
+		HashMap<Integer, Double> retour = new HashMap<Integer, Double>();
+		int i;	//variable de boucle
+		double stat;
+		for (i = 0; i < gainParRgEurope.length; i++) {
+			stat = (double)gainParRgEurope[i] / gainTotalEurope;
+			retour.put(i+1, stat);
+		}
+		return retour;		
+	}
+	
+	/*
+	 * Calcule les statistiques sur les gains de l'euromillions en France pour le tirage
+	 * 
+	 * @return map contenant les statistiques pour chaque rang
+	 */
+	public HashMap<Integer, Double> calculStatGainFrance() {
+		HashMap<Integer, Double> retour = new HashMap<Integer, Double>();
+		int i;	//variable de boucle
+		double stat;
+		for (i = 0; i < gainParRgFrance.length; i++) {
+			stat = (double)gainParRgFrance[i] / gainTotalFrance;
+			retour.put(i+1, stat);
+		}
+		return retour;		
+	}
+	
+	
+	
 	public int[] getBoulesCroissantes()
 	{
 		int[] tmp=boules;
