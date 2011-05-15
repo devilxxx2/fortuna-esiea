@@ -13,14 +13,14 @@ public class StatsDialog extends JDialog {
 
 	JPanel mainPanel, panel;
 
-	public StatsDialog(Window owner, String title, StatChartGagnants chartGagants, StatChartGains chartNums) {
+	public StatsDialog(Window owner, String title, StatChartGagnants chartGagants, StatChartGains chartGains) {
 		super(owner, title);
 
 		JTabbedPane tab=new JTabbedPane(JTabbedPane.BOTTOM);
 		mainPanel=new JPanel();
 
-		tab.addTab("Statistiques gagants",chartGagants);
-		tab.addTab("Statistiques gain",chartNums);
+		tab.addTab("Statistiques gagants",chartGagants.getContentPane());
+		tab.addTab("Statistiques gain",chartGains.getContentPane());
 
 		add(tab);
 

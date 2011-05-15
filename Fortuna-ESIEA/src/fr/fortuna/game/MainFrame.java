@@ -12,6 +12,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import org.jfree.ui.RefineryUtilities;
+
 import fr.fortuna.controller.Euromillions;
 import fr.fortuna.controller.NouveauLoto;
 import fr.fortuna.controller.Loto;
@@ -168,7 +170,10 @@ public class MainFrame extends JFrame implements ActionListener{
 			popSuperLoto();
 		}
 		if( e.getActionCommand().equals("Statistiques du Loto")){
-			new StatsGeneralesDialog(this, "Statistiques générales", new StatChartNumeros("Stats numero", true));
+			StatChartNumeros chart = new StatChartNumeros("Statistiques",true);
+			StatChartNumeros chart1 = new StatChartNumeros("Statistiques",false);
+
+			new StatsGeneralesDialog(this, "Statistiques générales", chart, chart1);
 		}
 		
 		

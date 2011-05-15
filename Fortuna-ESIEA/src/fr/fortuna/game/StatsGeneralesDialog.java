@@ -4,6 +4,8 @@ import java.awt.Window;
 
 import javax.swing.JDialog;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+
 import fr.fortuna.game.charts.StatChartGains;
 import fr.fortuna.game.charts.StatChartNumeros;
 
@@ -11,10 +13,15 @@ public class StatsGeneralesDialog extends JDialog {
 
 	JPanel mainPanel, panel;
 
-	public StatsGeneralesDialog(Window owner, String title, StatChartNumeros chartNums) {
+	public StatsGeneralesDialog(Window owner, String title, StatChartNumeros chartNums, StatChartNumeros chartSpecial) {
 		super(owner, title);
 
-		add(chartNums);
+		JTabbedPane tab=new JTabbedPane(JTabbedPane.BOTTOM);
+		
+		
+		tab.addTab("Statistiques des numéros", chartNums.getContentPane());
+		tab.addTab("Statistiques des étoiles", chartSpecial.getContentPane());
+		add(tab);
 
 		setVisible(true);
 		setResizable(false);
