@@ -50,8 +50,6 @@ public class StatChartNumeros extends ApplicationFrame{
 		LotoCsvTirageDAO dao = new LotoCsvTirageDAO(csv); 
 		List<TirageLoto> tirages=dao.loadAllTirages();
 		Loto loto = new Loto(tirages);
-		HashMap<TirageLoto, HashMap<Integer, Double>> maMap = loto
-				.calculStatGagnant();
 		resultatStat = loto.calculStatJeu();
 		// cr�ation des panels de base
 		JPanel pan = new JPanel(new BorderLayout());
